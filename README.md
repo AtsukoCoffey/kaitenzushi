@@ -102,15 +102,20 @@ I chose this colour scheme, it has a fun and pop image. [CREDITS Content Referen
 
 ### Typography
 
-I wanted to show something fun and  no formal images. 
+I pick up some fonts at Google Fonts, I wanted to show something fun and not formal atmonphere.  
  [TECHNOLOGY USED - Google Fonts](#tech)  
 
 * "Patrick Hand"  
-![Typography Poiret One](url "Typography Poiret One")  
+![Typography Poiret One](readme/font-patrick-hand.webp "Typography Poiret One")  
 
 * "Yomogi"  
-![Typography Josefin Sans](url "Typography Josefin Sans")
+![Typography Yomogi](readme/font-yomogi.webp "Typography Yomogi")
 
+* "Yomogi"  
+![Typography Awanky and Moo Moo](readme/font-swanky-moo.webp "Typography Awanky and Moo Moo")
+
+* "Yomogi"  
+![Typography Macondo Swash Caps](readme/font-macondo-swash.webp "Typography Macondo Swash Caps")
 
 <a id="features"></a>
 
