@@ -468,11 +468,12 @@ EG. for alphabet only and 3 letters `pattern="[A-Za-z]{3}"`
 The hero image is not a small size image. After I read this article, I tried to optimize the reading time of the hero image using `<link rel="preload">` for increasing LCP score.  
 
 * [Link to web.dev - Optimize Largest Contentful Paint](https://web.dev/articles/optimize-lcp?utm_source=lighthouse&utm_medium=lr#optimize_when_the_resource_is_discovered "Optimize Largest Contentful Paint")
-
+ -->  
+ 
 ### Clearfix using ::after pseudo selector
-I was thinking where to set clearfix for the session schedule's float in the signup page. Also after I learned `::before` pseudo selector, I'd like to try to use `::after` selector. Then I found this page. 
+..................................................... 
 
-* [Clearing and Containing Floats - Responsive Web Design](http://web.simmons.edu/~grovesd/comm328/modules/layout/clearfix#:~:text=Clearing%20Floats,the%20sidebar%20and%20main%20content "Clearing and Containing Floats - Responsive Web Design") -->
+* [Clearing and Containing Floats - Responsive Web Design](url "Clearing and Containing Floats - Responsive Web Design")
 
 
 
@@ -481,36 +482,31 @@ I was thinking where to set clearfix for the session schedule's float in the sig
 
 ## Content References
 
-### Code Institute Learning Material
-* [Link to Code Institute Full-Stack Software Development Program](https://codeinstitute.net/?nab=0 "Code Institute Full-Stack Software Development Program")
+* Code Institute Learning Material
+> [Link to Code Institute Full-Stack Software Development Program](https://codeinstitute.net/?nab=0 "Code Institute Full-Stack Software Development Program")
 
-### Adobe color API  
-* [Link to Adobe Color EXPLORE 'food' keyword ](https://color.adobe.com/search?q=food "Adobe Color EXPLORE 'food' keyword")
+* Adobe color API  
+> [Link to Adobe Color EXPLORE 'food' keyword ](https://color.adobe.com/search?q=food "Adobe Color EXPLORE 'food' keyword")
 
-### YouTube: 
-A healthy diet, a healthier world (WHO)  
-* [Link to A healthy diet, a healthier world (WHO) ](https://www.youtube.com/watch?v=XMcab1MFaLc "A healthy diet, a healthier world (WHO) ")
-
-
-### W3schools
+* W3schools
 > Used to research codes
 
-### MDN
+* MDN
 > Used to research codes
 
-### stackoverflow
+* stackoverflow
 > Used to research codes
 
-### CSS TRICKS
+* CSS TRICKS
 > Used to research codes
 
-### web.dev
+* web.dev
 > Used to research code and knowledge
 
-### Responsive Web Design
+* Responsive Web Design
 > Used to research codes
 
-### perplexity
+* perplexity
 > Used for general questions
 
 
@@ -521,40 +517,7 @@ A healthy diet, a healthier world (WHO)
 <!-- * Hero image  
 <a href="https://www.freepik.com/free-photo/young-smiling-woman-making-bruschetta-with-healthy-ingredients-while-preparing-food-kitchen_25777232.htm#fromView=search&page=1&position=49&uuid=0bc03e1b-f752-44c6-9880-1b484845ce49" width="500">Image by Drazen Zigic on Freepik</a>
 
-
-* Picture pastrami beef  
-<a href="https://www.freepik.com/free-photo/sliced-beef-pastrami-pastrami-with-turkish-bacon-closeup-top-view-traditional-turkish-food_37833736.htm#query=pastrami&position=0&from_view=keyword&track=sph&uuid=26cf64d1-d161-45da-a382-231c4d0c2ee6" width="300">Image by ededchechine on Freepik </a>
-
-
-* A cutting board and a knife
-Image by <a href="https://pixabay.com/users/rambling_roy-29593818/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7471627">Roy Stephen</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=7471627">Pixabay</a>
-
-
-* Wash vegetable
-Image by <a href="https://pixabay.com/users/myccf-20343736/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6064523">MYCCF</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=6064523">Pixabay</a>
-
-
-* Healthy gut
-<a href="https://www.freepik.com/free-photo/close-up-young-womans-hands-slim-belly_1147751.htm#fromView=search&page=1&position=4&uuid=1ebdfc47-60a3-4a3a-b410-88118cc29503">Image by katemangostar on Freepik</a>
-
-
-* Stethoscope and prescription on 
-<a href="https://www.freepik.com/free-photo/stethoscope-prescription-laptop_1129630.htm#fromView=search&page=1&position=1&uuid=f4a7e8ec-52a1-4d5a-a01a-0b7970a5e091">Image by jannoon028 on Freepik</a>
-
-
-* Apple vinegar
-Photo by Tijana Drndarski: [https://www.pexels.com/photo/photo-of-slice-green-apple-and-cinnamon-stick-3338676/](https://www.pexels.com/photo/photo-of-slice-green-apple-and-cinnamon-stick-3338676/)
-
-
-* Baking
-Photo by Gil Goldman: [https://www.pexels.com/photo/fresh-bread-loafs-on-table-in-bakery-4268507/](https://www.pexels.com/photo/fresh-bread-loafs-on-table-in-bakery-4268507/)
-
-
-* vegetables  
-<a href="https://www.freepik.com/free-ai-image/world-health-day-celebration-with-healthy-food_138542824.htm#query=healthy%20food&position=7&from_view=keyword&track=ais&uuid=ab2f5d84-4557-4db6-a6b3-9449a4cfd196">Image by freepik</a>
-
-* Map of Technological University of the Shannon (TUS) campus
-<a href="https://tus.ie/estates/athlone/campus-maps/">Athlone Campus Map - Technological University of the Shannon</a> -->
+ -->
 
 
 <a id="credits-edit"></a>
