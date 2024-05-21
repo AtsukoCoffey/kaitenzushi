@@ -1,31 +1,33 @@
 /* Google font import */
-@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Swanky+and+Moo+Moo&family=Yomogi&display=swap');
 
 /* Asterisk wildcard selector to override default styles added by the browser */
 * {
-    padding: 0;
-    margin: 0;
-    margin-block: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  margin-block: 0;
+  box-sizing: border-box;
 }
 
 body {
-    text-align: center;
-    font-family: "Patrick Hand", cursive;
-    font-weight: 400;
-    font-size: 1.3rem;
-    font-style: normal;
-    letter-spacing: 0.2rem;
+  text-align: center;
+  font-family: "Patrick Hand", cursive;
+  font-weight: 400;
+  font-size: 1.3rem;
+  font-style: normal;
+  letter-spacing: 0.2rem;
 }
 
-h1 {
+h1,
+h2 {
+  font-family: "Swanky and Moo Moo", cursive;
+  font-weight: 400;
+  font-style: normal;
   color: #594B46;
 }
 
 h2 {
-  color: #594B46;
+  font-size: medium;
 }
 
 h3 {
@@ -45,16 +47,10 @@ h4 {
 }
 
 /* Media query: General smart phone (390px and up) */
-@media screen and (min-width:390px) {
-
-}
+@media screen and (min-width:390px) {}
 
 /* Media query: General smart phone (768px and up) */
-@media screen and (min-width:768px) {
-
-}
+@media screen and (min-width:768px) {}
 
 /* Media query: General smart phone (1024px and up) */
-@media screen and (min-width:1024px) {
-
-}
+@media screen and (min-width:1024px) {}
