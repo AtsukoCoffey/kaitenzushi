@@ -1,7 +1,7 @@
 # Kaitenzushi - Japanese Typing Game
 Do you like sushi? Are you familiar with Japan? This game is designed not only for practicing speed typing but also for learning the Japanese language and some culture in a fun way.  
   
-> This game’s idea is coming from well-known speed typing game “Sushida” (寿司打) in Japan. The game situation is setting to get as much as sushi dishes on the conveyer belt in Kaitenzushi restaurant. You have to hurry as if you are slow or indecisive, you’ll miss your favourite dishes. Original game is made for native Japanese who know the words already, those words and pictures are not related and more focus on typing speed.  
+> This game’s idea is coming from well-known speed typing game “Sushida” (寿司打) in Japan. The game situation is setting to get as much as sushi dishes on the conveyer belt in Kaitenzushi restaurant. You have to hurry as if you are slow or indecisive, you’ll miss your favourite dishes. Original game is made for native Japanese who know the words already, those words and pictures are not related and more focus on typing speed.  [CREDITS - Sushida ](#credits-content) 
   
 My challenge is to modify this game and to set the target user for non-native Japanese speaker with introducing basic words with aligned pictures, and give them virtual experience of Kaitenzushi restaurant.
 
@@ -78,7 +78,7 @@ For the mobile screen wireframe.
 <details open>
 <summary>Mobile - 320px - Wireframe</summary>
 
-![Home page mobile Wireframe](url "Home page mobile Wireframe")
+![Home page mobile Wireframe](readme/wireframe-mobile.webp "Home page mobile Wireframe")
 </details>  
 
 
@@ -94,9 +94,9 @@ For the mobile screen wireframe.
 ## 5. Surface Plane
 
 ### Colour
-At the planning stage, I chose this colour scheme. [CREDITS Content References - Adobe Color API](#credits-content) 
+I chose this colour scheme, it has a fun and pop image. [CREDITS Content References - Adobe Color API](#credits-content) 
   
-![Colour scheme](url "Colour scheme")
+![Colour scheme](readme/color-scheme.webp "Colour scheme")
 
 
 
@@ -421,33 +421,6 @@ When I learned this css animation technique through the “Love Running” proje
 ### Breadcrumb
 I looked for suitable elements for the breadcrumb links. In W3 website the answer was `<nav>` and using aria attribute for describing the location. Moreover I got an opportunity to learn about `::before` pseudo selector in relation to this.  
 
-
-<details>
-<summary>Breadcrumb, what element and attributes - W3school</summary>
-
-![Breadcrumb](readme-img/credit-breadcrumb-w3c2.png "Breadcrumb")  
-</details>
-
-<details>
-<summary>Breadcrumb, specify which list item - stackoverflow</summary>
-
-![Breadcrumb - specify the list item](readme-img/credit-breadcrumb-li-specify.png  "Breadcrumb - specify the list item")  
-</details>
-
-
-<details>
-<summary>Breadcrumb, "/" between list item - MDN</summary>
-
-![Breadcrumb - border right / slash](readme-img/credit-breadcrumb-border-right.png "Breadcrumb - border right / slash")   
-</details>
-
-
-<details>
-<summary>Breadcrumb, `::before` selector - W3 school</summary>
-
-![Breadcrumb before selector](readme-img/credit-breadcrumb-before-selector.png "Breadcrumb before selector")  
-</details>
-
 * [Link to "::before / ::after" - CSS TRICKS ](https://css-tricks.com/almanac/selectors/a/after-and-before/)
 
  
@@ -481,6 +454,19 @@ The hero image is not a small size image. After I read this article, I tried to 
 <a id="credits-content"></a>
 
 ## Content References
+
+* Sushida - Japanese speed typing game  
+<details>
+<summary>Sushida - Japanese speed typing game1</summary>
+
+![Sushida - Japanese speed typing game](readme/credit-sushida1.webp "Sushida - Japanese speed typing game")  
+</details>
+
+<details>
+<summary>Sushida - Japanese speed typing game2</summary>
+
+![Sushida - Japanese speed typing game](readme/credit-sushida2.webp "Sushida - Japanese speed typing game")  
+</details>  
 
 * Code Institute Learning Material
 > [Link to Code Institute Full-Stack Software Development Program](https://codeinstitute.net/?nab=0 "Code Institute Full-Stack Software Development Program")
