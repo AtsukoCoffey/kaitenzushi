@@ -1,5 +1,5 @@
 /* Google font import */
-@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Swanky+and+Moo+Moo&family=Yomogi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Swanky+and+Moo+Moo&family=Yomogi&family=Warnes&display=swap');
 
 /* Asterisk wildcard selector to override default styles added by the browser */
 * {
@@ -47,20 +47,22 @@ footer {
   width: 100%;
   text-align: center;
 }
- footer li {
-margin-left: 1rem;
-margin-right: 1rem;
- }
+
+footer li {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
 /* Headings styles : h1 ~ h3*/
 h1,
 h2 {
-  font-family: "Swanky and Moo Moo", cursive;
-  font-weight: 400;
-  font-style: normal;
   color: #594B46;
 }
 
 h1 {
+  font-family: "Warnes", cursive;
+  font-weight: 400;
+  font-style: normal;
   margin-top: 85px;
   margin-right: 2rem;
   font-size: 145%;
@@ -69,6 +71,9 @@ h1 {
 }
 
 h2 {
+  font-family: "Swanky and Moo Moo", cursive;
+  font-weight: 400;
+  font-style: normal;
   font-size: medium;
 }
 
@@ -101,7 +106,7 @@ nav {
   top: 0%;
   right: 0%;
   font-size: 1.8rem;
-  padding-top: 80px ;
+  padding-top: 80px;
   padding-right: 0.8rem;
   color: #594B46;
 }
@@ -120,7 +125,7 @@ a {
 }
 
 a:visited {
-color: #594B46;
+  color: #594B46;
 }
 
 a:hover {
