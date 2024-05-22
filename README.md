@@ -476,6 +476,15 @@ The hero image is not a small size image. After I read this article, I tried to 
 * Code Institute Learning Material
 > [Link to Code Institute Full-Stack Software Development Program](https://codeinstitute.net/?nab=0 "Code Institute Full-Stack Software Development Program")
 
+* Freem!
+> Sound data
+
+* Freem!
+> Sound data
+> [Link to Freem! Free game website (Japanese)](https://www.freem.ne.jp/ "Link to Freem! Free game website (Japanese)")
+
+
+
 * Adobe color API  
 > [Link to Adobe Color EXPLORE 'food' keyword ](https://color.adobe.com/search?q=food "Adobe Color EXPLORE 'food' keyword")
 
