@@ -7,9 +7,16 @@
   margin: 0;
   margin-block: 0;
   box-sizing: border-box;
+  border: 1px solid #F27272;
 }
 
+/* General structure styles */
 body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* PP2 styles */
   text-align: center;
   font-family: "Patrick Hand", cursive;
   font-weight: 400;
@@ -18,12 +25,43 @@ body {
   letter-spacing: 0.2rem;
 }
 
+header {
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+  background: #F2F2F2 url('../images/head-logo.png') left top/250px no-repeat;
+}
+
+main {
+  margin-top: 100px;
+  flex: 1 0 auto;
+  background: #F2F2F2 url("../images/kaitenzushi1.webp") center/contain no-repeat;
+  width: 100%;
+}
+
+footer {
+  position: fixed;
+  bottom: 0%;
+  width: 100%;
+  text-align: center;
+}
+
 h1,
 h2 {
   font-family: "Swanky and Moo Moo", cursive;
   font-weight: 400;
   font-style: normal;
   color: #594B46;
+}
+
+h1 {
+  margin-top: 85px;
+  margin-left: 1rem;
+  font-size: 145%;
+  letter-spacing: 2px;
+  line-height: 90%;
 }
 
 h2 {
@@ -40,6 +78,23 @@ h4 {
   color: #0D0D0D;
 }
 
+li {
+  list-style: none;
+}
+
+#social-networks {
+  display: block;
+}
+
+#social-networks li {
+  display: inline-block;
+}
+
+#menu {
+  font-size: 95%;
+  letter-spacing: 2px;
+  line-height: 155%;
+}
 .kana {
   font-family: "Yomogi", cursive;
   font-weight: 400;
