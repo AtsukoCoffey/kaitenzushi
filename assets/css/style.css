@@ -7,10 +7,10 @@
   margin: 0;
   margin-block: 0;
   box-sizing: border-box;
-  border: 1px solid #F27272;
+  /* border: 1px solid #F27272; */
 }
 
-/* General structure styles */
+/* General structure styles : body ~ footer*/
 body {
   min-height: 100vh;
   display: flex;
@@ -28,10 +28,10 @@ body {
 header {
   display: flex;
   position: fixed;
-  justify-content: space-between;
+  justify-content: center;
   align-items: baseline;
   width: 100%;
-  background: #F2F2F2 url('../images/head-logo.png') left top/250px no-repeat;
+  background: #F2F2F2 url('../images/head-logo.png') center top/280px no-repeat;
 }
 
 main {
@@ -47,7 +47,11 @@ footer {
   width: 100%;
   text-align: center;
 }
-
+ footer li {
+margin-left: 1rem;
+margin-right: 1rem;
+ }
+/* Headings styles : h1 ~ h3*/
 h1,
 h2 {
   font-family: "Swanky and Moo Moo", cursive;
@@ -58,7 +62,7 @@ h2 {
 
 h1 {
   margin-top: 85px;
-  margin-left: 1rem;
+  margin-right: 2rem;
   font-size: 145%;
   letter-spacing: 2px;
   line-height: 90%;
@@ -78,10 +82,52 @@ h4 {
   color: #0D0D0D;
 }
 
+/* Nav dropdown toggle button - CodeInstitute learning material */
+nav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0%;
+  padding-right: 0.8rem;
+}
+
+#nav-toggle:checked~nav {
+  display: block;
+  color: #594B46;
+}
+
+.nav-toggle-label {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  font-size: 1.8rem;
+  padding-top: 80px ;
+  padding-right: 0.8rem;
+  color: #594B46;
+}
+
+#nav-toggle {
+  display: none;
+}
+
+/* General element styles */
 li {
   list-style: none;
 }
 
+a {
+  color: #594B46;
+}
+
+a:visited {
+color: #594B46;
+}
+
+a:hover {
+  color: #F27272;
+}
+
+/* Id styles */
 #social-networks {
   display: block;
 }
@@ -95,6 +141,8 @@ li {
   letter-spacing: 2px;
   line-height: 155%;
 }
+
+/* Class styles */
 .kana {
   font-family: "Yomogi", cursive;
   font-weight: 400;
