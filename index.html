@@ -25,7 +25,8 @@
   <header>
     <h1>Kaiten Zushi</h1>
     <input type="checkbox" name="nav-toggle" id="nav-toggle">
-    <label for="nav-toggle" class="nav-toggle-label"><i class="fa-solid fa-user-gear" title="Setting & Contact"></i></label>
+    <label for="nav-toggle" class="nav-toggle-label"><i class="fa-solid fa-user-gear"
+        title="Setting & Contact"></i></label>
     <nav>
       <ul id="menu">
         <li>Setting</li>
@@ -35,9 +36,24 @@
   </header>
   <!-- Main -->
   <main>
-    <!-- Hero image -->
-    <div id="hero">
-      <div></div>
+    <!-- Layer of div : Modal -->
+    <div>
+      <!-- Game div -->
+      <div id="game">
+        <div id="img-display">
+          <p id="time-left"></p>
+        </div>
+        <div class="game-display">
+          <div class="text-box">
+            <div id="kana-display" class="kana">てすと</div>
+            <div id="kana-overlay" class="kana">てすと</div>
+            <div id="text-display">test</div>
+            <div id="text-overlay">test</div>
+          </div>
+        </div>
+        <input type="text" id="input" placeholder="Input here!" autocomplete="off">
+      </div>
+      <!-- Entry and setting div -->
       <div></div>
       <div></div>
       <div></div>
