@@ -136,6 +136,12 @@ let input = document.getElementById('input'); // input box
 
 // Game counter = Number of correct answer
 let gameCounter = 0;
+// Letter counter 
+let letterCounter = 0;
+// let kanaLetterCounter = 0;
+// Correct / Mistake Letter counter
+let correctTypeCounter = 0;
+
 
 /**
  * Start game function
@@ -150,6 +156,53 @@ function startGame() {
   // Reset the div with empty value
   document.getElementById('text-overlay').textContent = "";
   document.getElementById('input').value = "";
+
+}
+
+/**
+ * Determine pressed key, change color, add counter to go next letter
+ */
+function handleKeyPress(event) {
+  // Access the key that was pressed
+  const key = event.key;
+  // let kana = detectBoin(key);
+
+  // Check whether match the letter
+  if (key == textDisplay.textContent.charAt(letterCounter)) {
+    // typing sound
+    document.getElementById('type-sound').play();
+
+    let currentLetter = textDisplay.innerText.charAt(letterCounter);
+
+    // Add matched letter to the overlay div and update the div
+    document.getElementById('text-overlay').innerHTML = textOver.innerText += currentLetter;
+    
+    // Go to next word
+    letterCounter++;
+    correctTypeCounter++;
+
+    // Reset input box
+    document.getElementById('input').value = "";
+
+console.log('Letter Counter is: ', letterCounter);
+
+    // Enter key action
+  } else if (key === "Enter") {
+    validateInput();
+
+    // Check user input is correct for mobile user
+  } else {
+    // wrong typing sound
+    document.getElementById('hit-sound').play();
+
+    // Mistake counter
+    missTypeCounter++;
+
+    // Reset input box
+    document.getElementById('input').value = "";
+  }
+  // console the pressed key
+  console.log('Key pressed: ' + key);
 
 }
 
