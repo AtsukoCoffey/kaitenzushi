@@ -141,12 +141,23 @@ let letterCounter = 0;
 // let kanaLetterCounter = 0;
 // Correct / Mistake Letter counter
 let correctTypeCounter = 0;
+let missTypeCounter = 0;
 
+/**
+ * All the main functions
+ *///////////////////////////////////////////////////////////////
+// Shuffle the array object
+// let shuffledWords = [];
+// function shuffle() {
+//   for (word of words) {
+//     shuffledWords.push(words[Math.floor(Math.random() * 40)]);
+//   }
+// }
 
 /**
  * Start game function
  * loop through the shuffled question
-*/
+ */
 function startGame() {
   // Display next (shuffled) words word
   imageDisplay.innerHTML = '<img src="' + words[gameCounter].image + '" width="100" height="100" alt="Question word">';
@@ -156,6 +167,14 @@ function startGame() {
   // Reset the div with empty value
   document.getElementById('text-overlay').textContent = "";
   document.getElementById('input').value = "";
+
+  // // Set one word timer and restart
+  // setTimeout(function () {
+  //   document.getElementById('hit-sound').play();
+  //   gameCounter++;
+  //   letterCounter = 0;
+  //   startGame();
+  // }, 20000);
 
 }
 
@@ -176,7 +195,7 @@ function handleKeyPress(event) {
 
     // Add matched letter to the overlay div and update the div
     document.getElementById('text-overlay').innerHTML = textOver.innerText += currentLetter;
-    
+
     // Go to next word
     letterCounter++;
     correctTypeCounter++;
@@ -184,7 +203,7 @@ function handleKeyPress(event) {
     // Reset input box
     document.getElementById('input').value = "";
 
-console.log('Letter Counter is: ', letterCounter);
+    console.log('Letter Counter is: ', letterCounter);
 
     // Enter key action
   } else if (key === "Enter") {
@@ -206,11 +225,32 @@ console.log('Letter Counter is: ', letterCounter);
 
 }
 
+/**
+  * Validate user entry when correct typing, go on to next
+  *///   // Enter key action
+function validateInput() {
+
+  if (textOver.innerText == textDisplay.innerText || input.innerText == textDisplay.innerText) {
+
+    // letter counter reset
+    letterCounter = 0;
+    // kanaLetterCounter = 0;
+    gameCounter++;
+    // Next word
+    startGame();
+
+  }
+}
+
 // Start and set time limit
 startGame();
 setTimeout(function () {
   finishGame();
 }, 60000);
 
+// keyboard window event
+window.addEventListener('keypress', handleKeyPress);
 
+// // Add event to input box -> validate and enter button action
+// input.addEventListener('keypress', handleKeyPress);
 
