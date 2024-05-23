@@ -219,6 +219,9 @@ function handleKeyPress(event) {
   // Reset input box
   document.getElementById('input').value = "";
 
+  // Submit
+  input,addEventListener('submit', validateInput)
+
   // console the pressed key
   console.log('Key pressed: ' + key);
 
@@ -271,3 +274,83 @@ document.addEventListener("DOMContentLoaded", function () {
     finishGame();
   }, 60000);
 }); //Add event listener
+
+
+
+
+
+// kana if statement
+
+function detectBoin(key) {
+  if (key === 'a') {
+    return "あ";
+  } else if (key === 'i') {
+    return "い";
+  } else if (key === 'u') {
+    return "う";
+  } else if (key === 'e') {
+    return "え";
+  } else if (key === 'o') {
+    return "お";
+  } else {
+    return key
+  }
+};
+function secondKeyOfK(event) {
+  let secondKey = event.key;
+  if (secondKey === 'a') {
+    return "か";
+  } else if (secondKey === 'i') {
+    return "き";
+  } else if (secondKey === 'u') {
+    return "く";
+  } else if (secondKey === 'e') {
+    return "け";
+  } else if (secondKey === 'o') {
+    return "こ";
+  } else {
+    return X
+  }
+};
+function secondKeyOfS(event) {
+  let secondKey = event.key;
+  if (secondKey === 'a') {
+    return "さ";
+  } else if (secondKey === 'i') {
+    return "し";
+  } else if (secondKey === 'u') {
+    return "す";
+  } else if (secondKey === 'e') {
+    return "せ";
+  } else if (secondKey === 'o') {
+    return "そ";
+  }
+};
+function secondKeyOfT(event) {
+  let secondKey = event.key;
+  if (secondKey === 'a') {
+    return "た";
+  } else if (secondKey === 'i') {
+    return "ち";
+  } else if (secondKey === 'u') {
+    return "つ";
+  } else if (secondKey === 'e') {
+    return "て";
+  } else if (secondKey === 'o') {
+    return "と";
+  }
+};
+function secondKeyOfN(event) {
+  const secondKey = event.key;
+  if (secondKey === 'a') {
+    return "な";
+  } else if (secondKey === 'i') {
+    return "に";
+  } else if (secondKey === 'u') {
+    return "ぬ";
+  } else if (secondKey === 'e') {
+    return "ね";
+  } else if (secondKey === 'o') {
+    return "の";
+  }
+};
