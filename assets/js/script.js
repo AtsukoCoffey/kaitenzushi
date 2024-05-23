@@ -182,6 +182,9 @@ function startGame() {
  * Determine pressed key, change color, add counter to go next letter
  */
 function handleKeyPress(event) {
+  // submit from form
+  event.preventDefault();
+
   // Access the key that was pressed
   const key = event.key;
   // let kana = detectBoin(key);
@@ -259,7 +262,7 @@ function finishGame() {
 // keyboard window event
 window.addEventListener('keypress', handleKeyPress);
 // Submit
-input, addEventListener('submit', handleKeyPress)
+input.addEventListener('submit', handleKeyPress);
 
 // // Add event to input box -> validate and enter button action
 // input.addEventListener('keypress', handleKeyPress);
