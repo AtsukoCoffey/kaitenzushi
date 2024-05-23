@@ -129,9 +129,9 @@ const words = [
 // Get div for display questions
 let imageDisplay = document.getElementById('img-display');
 let textDisplay = document.getElementById('text-display');
-let kanaDisplay = document.getElementById('kana-display');
 let textOver = document.getElementById('text-overlay');
-// let textOver = document.getElementById('text-overlay');
+let kanaDisplay = document.getElementById('kana-display');
+let kanaOver = document.getElementById('kana-overlay');
 let input = document.getElementById('input'); // input box
 
 // Game counter = Number of correct answer
@@ -166,6 +166,7 @@ function startGame() {
 
   // Reset the div with empty value
   document.getElementById('text-overlay').textContent = "";
+  document.getElementById('kana-overlay').textContent = "";
   document.getElementById('input').value = "";
 
   // // Set one word timer and restart
@@ -187,7 +188,6 @@ function handleKeyPress(event) {
 
   // Access the key that was pressed
   const key = event.key;
-  // let kana = detectBoin(key);
 
   // Check whether match the letter
   if (key == textDisplay.textContent.charAt(letterCounter)) {
@@ -205,11 +205,11 @@ function handleKeyPress(event) {
 
     console.log('Letter Counter is: ', letterCounter);
 
-    // Enter key action
+    // Enter key action  // Check user input is correct for mobile user
+
   } else if (key === "Enter") {
     validateInput();
 
-    // Check user input is correct for mobile user
   } else {
     // wrong typing sound
     document.getElementById('hit-sound').play();
@@ -218,6 +218,14 @@ function handleKeyPress(event) {
     missTypeCounter++;
 
   }
+
+  // Check kana alphabet
+  let kana;
+  kana = detectBoin(key);
+  // Add matched letter to the overlay div and update the div
+  document.getElementById('kana-overlay').innerHTML = kanaOver.innerText += kana;
+  kana.textContent = "";
+
 
   // Reset input box
   document.getElementById('input').value = "";
@@ -282,77 +290,102 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // kana if statement
+let lastSecondIndex = textOver.length[letterCounter] - 2;
+let lastIndex = textOver.length[letterCounter] -1;
+let k = textOver.charAt(lastSecondIndex);;
+let a = textOver.charAt(lastIndex);
 
-// function detectBoin(key) {
-//   if (key === 'a') {
-//     return "あ";
-//   } else if (key === 'i') {
-//     return "い";
-//   } else if (key === 'u') {
-//     return "う";
-//   } else if (key === 'e') {
-//     return "え";
-//   } else if (key === 'o') {
-//     return "お";
-//   } else {
-//     return key
-//   }
-// };
-// function secondKeyOfK(event) {
-//   let secondKey = event.key;
-//   if (secondKey === 'a') {
-//     return "か";
-//   } else if (secondKey === 'i') {
-//     return "き";
-//   } else if (secondKey === 'u') {
-//     return "く";
-//   } else if (secondKey === 'e') {
-//     return "け";
-//   } else if (secondKey === 'o') {
-//     return "こ";
-//   } else {
-//     return X
-//   }
-// };
-// function secondKeyOfS(event) {
-//   let secondKey = event.key;
-//   if (secondKey === 'a') {
-//     return "さ";
-//   } else if (secondKey === 'i') {
-//     return "し";
-//   } else if (secondKey === 'u') {
-//     return "す";
-//   } else if (secondKey === 'e') {
-//     return "せ";
-//   } else if (secondKey === 'o') {
-//     return "そ";
-//   }
-// };
-// function secondKeyOfT(event) {
-//   let secondKey = event.key;
-//   if (secondKey === 'a') {
-//     return "た";
-//   } else if (secondKey === 'i') {
-//     return "ち";
-//   } else if (secondKey === 'u') {
-//     return "つ";
-//   } else if (secondKey === 'e') {
-//     return "て";
-//   } else if (secondKey === 'o') {
-//     return "と";
-//   }
-// };
-// function secondKeyOfN(event) {
-//   const secondKey = event.key;
-//   if (secondKey === 'a') {
-//     return "な";
-//   } else if (secondKey === 'i') {
-//     return "に";
-//   } else if (secondKey === 'u') {
-//     return "ぬ";
-//   } else if (secondKey === 'e') {
-//     return "ね";
-//   } else if (secondKey === 'o') {
-//     return "の";
-//   }
-// };
+function detectBoin(key) {
+  if (key === 'a') {
+    return "あ";
+  } else if (key === 'i') {
+    return "い";
+  } else if (key === 'u') {
+    return "う";
+  } else if (key === 'e') {
+    return "え";
+  } else if (key === 'o') {
+    return "お";
+  } else if (k === 'k' && a === 'a') {
+    return "か";
+  } else if (k === 'k' && a === 'i') {
+    return "き";
+  } else if (k === 'k' && a === 'u') {
+    return "く";
+  } else if (k === 'k' && a === 'e') {
+    return "け";
+  } else if (k === 'k' && a === 'o') {
+    return "こ";
+  } else if (k === 's' && a === 'a') {
+    return "さ";
+  } else if ((k === 's' && a === 'i') || (k === 's' && a === 'h' && a === 'i')) {
+    return "し";
+  } else if (k === 's' && a === 'u') {
+    return "す";
+  } else if (k === 's' && a === 'e') {
+    return "せ";
+  } else if (k === 's' && a === 'e') {
+    return "そ";
+  } else if (k === 't' && a === 'a') {
+    return "た";
+  } else if ((k === 't' && a === 'u') || (k === 't' && a === 's' && a === 'u')) {
+    return "ち";
+  } else if ((k === 't' && a === 'u') || (k === 't' && a === 's' && a === 'u')) {
+    return "つ";
+  } else if (k === 't' && a === 'e') {
+    return "て";
+  } else if (k === 't' && a === 'o') {
+    return "と";
+  } else if (k === 'n' && a === 'a') {
+    return "な";
+  } else if (k === 'n' && a === 'i') {
+    return "に";
+  } else if (k === 'n' && a === 'u') {
+    return "ぬ";
+  } else if (k === 'n' && a === 'e') {
+    return "ね";
+  } else if (k === 'n' && a === 'o') {
+    return "の";
+  } else if (k === 'h' && a === 'a') {
+    return "は";
+  } else if (k === 'h' && a === 'i') {
+    return "ひ";
+  } else if (k === 'f' && a === 'u') {
+    return "ふ";
+  } else if (k === 'h' && a === 'e') {
+    return "へ";
+  } else if (k === 'h' && a === 'o') {
+    return "ほ";
+  } else if (k === 'm' && a === 'a') {
+    return "ま";
+  } else if (k === 'm' && a === 'i') {
+    return "み";
+  } else if (k === 'm' && a === 'u') {
+    return "む";
+  } else if (k === 'm' && a === 'e') {
+    return "め";
+  } else if (k === 'm' && a === 'o') {
+    return "も";
+  } else if(k === 'y' && a === 'a') {
+    return "や";
+  } else if (k === 'y' && a === 'u') {
+    return "ゆ";
+  } else if (k === 'y' && a === 'o') {
+    return "よ";
+  } else if (k === 'r' && a === 'a') {
+    return "ら";
+  } else if (k === 'r' && a === 'i') {
+    return "り";
+  } else if (k === 'r' && a === 'u') {
+    return "る";
+  } else if (k === 'r' && a === 'e') {
+    return "れ";
+  } else if (k === 'r' && a === 'o') {
+    return "ろ";
+  } else if (k === 'w' && a === 'a') {
+    return "わ";
+  } else if (k === 'n' && a === 'n') {
+    return "ん";
+  }
+  
+};
