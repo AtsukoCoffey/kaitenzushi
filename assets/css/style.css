@@ -7,7 +7,7 @@
   margin: 0;
   margin-block: 0;
   box-sizing: border-box;
-  border: 1px solid #F27272;
+  /* border: 1px solid #F27272; */
 }
 
 /* General structure styles : body ~ footer   */
@@ -36,7 +36,7 @@ header {
 }
 
 main {
-  margin-top: 100px;
+  margin-top: 130px;
   flex: 1 0 auto;
   background: #F2F2F2 url("../images/kaitenzushi1.webp") center top/400px no-repeat;
   width: 100%;
@@ -163,14 +163,18 @@ a:hover {
 
 #game {
   width: 100%;
-  padding-top: 150px;
   background: #F2F2F2 url(../images/kaitenzushi0.webp) center top/400px no-repeat;
-  border: 1px solod #F27272;
+}
+
+#img-display {
+  min-height: 150px;
 }
 
 #text-display {
   position: absolute;
   top: 45px;
+  left: 15%;
+  width: 100%;
   color: #F2F2F2;
   padding-top: 0.3rem;
   letter-spacing: 0.4rem;
@@ -179,19 +183,34 @@ a:hover {
 #text-overlay {
   position: absolute;
   top: 45px;
-  z-index: 50;
+  left: 15%;
+  width: 100%;
+  z-index: 99;
   color: #f0bc11;
   padding-top: 0.3rem;
   letter-spacing: 0.4rem;
+  border: 1px solod #F27272;
 }
 
-#kana-display,
-#kana-overlay {
+#kana-display {
   position: absolute;
   top: 5px;
+  left: 15%;
+  width: 100%;
   color: #F2F2F2;
   padding-top: 0.8rem;
 }
+
+#kana-overlay {
+  position: absolute;
+  top: 5px;
+  left: 15%;
+  width: 100%;
+  z-index: 99;
+  color: #f0bc11;
+  padding-top: 0.8rem;
+}
+
 
 #input {
   width: 100%;
@@ -216,8 +235,7 @@ a:hover {
 .text-box {
   display: block;
   position: relative;
-  width: 130px;
-  /* left: 41%; */
+  width: 150px;
   bottom: 5%;
   text-align: center;
   margin-left: auto;
