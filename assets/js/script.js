@@ -200,9 +200,6 @@ function handleKeyPress(event) {
     letterCounter++;
     correctTypeCounter++;
 
-    // Reset input box
-    document.getElementById('input').value = "";
-
     console.log('Letter Counter is: ', letterCounter);
 
     // Enter key action
@@ -217,9 +214,11 @@ function handleKeyPress(event) {
     // Mistake counter
     missTypeCounter++;
 
-    // Reset input box
-    document.getElementById('input').value = "";
   }
+
+  // Reset input box
+  document.getElementById('input').value = "";
+
   // console the pressed key
   console.log('Key pressed: ' + key);
 
@@ -242,11 +241,20 @@ function validateInput() {
   }
 }
 
-// Start and set time limit
-startGame();
-setTimeout(function () {
-  finishGame();
-}, 60000);
+/**
+ * Finish game function
+ */
+function finishGame() {
+  textDisplay.innerHTML = "Time out";
+  textOver.innerHTML = "Time out";
+  
+  // Ending sound
+  document.getElementById('ending-sound').play();
+
+  // Score display
+  document.getElementsByTagName('main')[0].innerHTML =
+    `<div><p>Menu</p><ul><li>Sushi menu</li><li>Travel in Japan</li><li>Greetings</li></ul></div><div><p>Score</p><ul><li>Clear : ${gameCounter}</li><li>Miss : 0</li><li>Success rate : %</li></ul></div>`;
+}
 
 // keyboard window event
 window.addEventListener('keypress', handleKeyPress);
@@ -254,3 +262,12 @@ window.addEventListener('keypress', handleKeyPress);
 // // Add event to input box -> validate and enter button action
 // input.addEventListener('keypress', handleKeyPress);
 
+// Wait for the DOM to finish loading before running the game
+// Start the global time-limit and start game
+document.addEventListener("DOMContentLoaded", function () {
+  // shuffle();
+  startGame();
+  setTimeout(function () {
+    finishGame();
+  }, 60000);
+}); //Add event listener
