@@ -129,14 +129,14 @@ const words = [
 // Create a shalow copy of words array
 let shuffledWords = [...words];
 // for loop from last index
-for (i = shuffledWords.length -1; i > 0; i--) {
+for (i = shuffledWords.length - 1; i > 0; i--) {
   randomIndexOfWords = Math.floor(Math.random() * i)
   // escape value of last index of shuffledWords array
-  temporaryValue = shuffledWords[i] 
+  temporaryValue = shuffledWords[i]
   // swap last index value to random value
-  shuffledWords[i] = shuffledWords[randomIndexOfWords] 
+  shuffledWords[i] = shuffledWords[randomIndexOfWords]
   // swap random index value to last index valu
-  shuffledWords[randomIndexOfWords] = temporaryValue 
+  shuffledWords[randomIndexOfWords] = temporaryValue
 }
 
 
@@ -190,11 +190,11 @@ function startGame() {
 }
 
 /**
- * Determine pressed key, change color, add counter to go next letter
+ * Determine pressed key function
+ * if matched change color, add counter to go next letter
+ * NOT work for mobile screen keyboard --> validate function
  */
 function handleKeyPress(event) {
-  // submit from form
-  event.preventDefault();
 
   // Access the key that was pressed
   const key = event.key;
@@ -242,6 +242,9 @@ function handleKeyPress(event) {
   *///   // Enter key action
 function validateInput() {
 
+  // // submit from form
+  // event.preventDefault();
+
   if (textOver.innerText == textDisplay.innerText || input.innerText == textDisplay.innerText) {
 
     // letter counter reset
@@ -269,10 +272,11 @@ function finishGame() {
     `<div><p>Menu</p><ul><li>Sushi menu</li><li>Travel in Japan</li><li>Greetings</li></ul></div><div><p>Score</p><ul><li>Clear : ${gameCounter}</li><li>Miss : 0</li><li>Success rate : %</li></ul></div>`;
 }
 
+
 // keyboard window event
 window.addEventListener('keypress', handleKeyPress);
-// Submit
-input.addEventListener('submit', handleKeyPress);
+// Submit for validate input - mobile device
+input.addEventListener('submit', validateInput);
 
 // // Add event to input box -> validate and enter button action
 // input.addEventListener('keypress', handleKeyPress);
