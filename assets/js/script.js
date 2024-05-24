@@ -1,4 +1,4 @@
-// Question array object
+////////////////////////////////////////////// Question array object
 const words = [
   {
     name: 'amaebi',
@@ -122,6 +122,24 @@ const words = [
   },
 ];
 
+/**
+ *  Shuffle the question array object 
+ *  Using Fisher Yates shuffle method : [BUG] article from stackoverflow
+ *  */
+// Create a shalow copy of words array
+let shuffledWords = [...words];
+// for loop from last index
+for (i = shuffledWords.length -1; i > 0; i--) {
+  randomIndexOfWords = Math.floor(Math.random() * i)
+  // escape value of last index of shuffledWords array
+  temporaryValue = shuffledWords[i] 
+  // swap last index value to random value
+  shuffledWords[i] = shuffledWords[randomIndexOfWords] 
+  // swap random index value to last index valu
+  shuffledWords[randomIndexOfWords] = temporaryValue 
+}
+
+
 
 
 ///////////////////////////////////////////   All the global counter and variables
@@ -146,28 +164,15 @@ let missTypeCounter = 0;
 
 ///////////////////////////////////////////   All the main functions
 
-// // Shuffle the array object : still has problem
-// let shuffledWords = [];
-// const shuffled = [...words].sort(() => 0.5 - Math.random());
-//   return shuffled.slice(0);
-
-
-// for (word of words) {
-//   let randomNum = Math.floor(Math.random() * words.length);
-//   shuffledWords.push(words[randomNum]);
-//   words.pop(words[randomNum]);
-// }
-
-
 /**
  * Start game function
  * loop through the shuffled question
  */
 function startGame() {
   // Display next shuffled word
-  imageDisplay.innerHTML = '<img src="' + words[gameCounter].image + '" width="100" height="100" alt="Question word">';
-  kanaDisplay.innerHTML = words[gameCounter].kana;
-  textDisplay.innerHTML = words[gameCounter].name;
+  imageDisplay.innerHTML = '<img src="' + shuffledWords[gameCounter].image + '" width="100" height="100" alt="Question word">';
+  kanaDisplay.innerHTML = shuffledWords[gameCounter].kana;
+  textDisplay.innerHTML = shuffledWords[gameCounter].name;
 
   // Reset the div with empty value
   document.getElementById('text-overlay').textContent = "";
