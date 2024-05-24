@@ -123,9 +123,9 @@ const words = [
 ];
 
 
-/**
- * All the global counter and variables
- */
+
+///////////////////////////////////////////   All the global counter and variables
+
 // Get div for display questions
 let imageDisplay = document.getElementById('img-display');
 let textDisplay = document.getElementById('text-display');
@@ -134,7 +134,7 @@ let kanaDisplay = document.getElementById('kana-display');
 let kanaOver = document.getElementById('kana-overlay');
 let input = document.getElementById('input'); // input box
 
-// Game counter = Number of correct answer
+// Game counter  
 let gameCounter = 0;
 // Letter counter 
 let letterCounter = 0;
@@ -143,23 +143,28 @@ let letterCounter = 0;
 let correctTypeCounter = 0;
 let missTypeCounter = 0;
 
-/**
- * All the main functions
- *///////////////////////////////////////////////////////////////
-// Shuffle the array object
+
+///////////////////////////////////////////   All the main functions
+
+// // Shuffle the array object : still has problem
 // let shuffledWords = [];
-// function shuffle() {
-//   for (word of words) {
-//     shuffledWords.push(words[Math.floor(Math.random() * 40)]);
-//   }
+// const shuffled = [...words].sort(() => 0.5 - Math.random());
+//   return shuffled.slice(0);
+
+
+// for (word of words) {
+//   let randomNum = Math.floor(Math.random() * words.length);
+//   shuffledWords.push(words[randomNum]);
+//   words.pop(words[randomNum]);
 // }
+
 
 /**
  * Start game function
  * loop through the shuffled question
  */
 function startGame() {
-  // Display next (shuffled) words word
+  // Display next shuffled word
   imageDisplay.innerHTML = '<img src="' + words[gameCounter].image + '" width="100" height="100" alt="Question word">';
   kanaDisplay.innerHTML = words[gameCounter].kana;
   textDisplay.innerHTML = words[gameCounter].name;
@@ -218,14 +223,6 @@ function handleKeyPress(event) {
     missTypeCounter++;
 
   }
-
-  // Check kana alphabet
-  let kana;
-  kana = detectBoin(key);
-  // Add matched letter to the overlay div and update the div
-  document.getElementById('kana-overlay').innerHTML = kanaOver.innerText += kana;
-  kana.textContent = "";
-
 
   // Reset input box
   document.getElementById('input').value = "";
@@ -287,105 +284,142 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+/**
+ * Difine kana alphabet
+ * I will challenge this matching system if I had a time
+ */
+// let lastIndex = document.getElementById('text-overlay').innerText.length;
+// let lastSecondIndex = document.getElementById('text-overlay').innerText.length - 1;
+// let lastThirdIndex = document.getElementById('text-overlay').innerText.length - 2;
+// let kanaLasT = textOver.textContent.charAt(lastThirdIndex);
+// let kanaLasS = textOver.textContent.charAt(lastSecondIndex);
+// let kanaLast = document.getElementById('text-overlay').innerText;
+// let kana;
+// kana = detectBoin();
+// let hiragana;
+// if (kana) {
+//   hiragana = kana;
+// }
+// // Add matched letter to the overlay div and update the div
+// document.getElementById('kana-overlay').innerHTML = kanaOver.innerText += hiragana;
+// kana = "";
+// hiragana = "";
+/**
+ * Defining kana using textOver's input data
+ */
+// function detectBoin() {
+//   if (!lastSecondIndex || !lastThirdIndex) {
+//     if (kanaLast === 'a') {
+//       return "あ";
+//     } else if (kanaLast === 'i') {
+//       return "い";
+//     } else if (kanaLast === 'u') {
+//       return "う";
+//     } else if (kanaLast === 'e') {
+//       return "え";
+//     } else if (kanaLast === 'o') {
+//       return "お";
+//     }
+//   } else if (lastSecondIndex || lastThirdIndex) {
+//     if (kanaLasS === 'm' && kanaLast === 'a') {
+//       return "ま";
+//     } else if (kanaLasS === 'b' && kanaLast === 'i') {
+//       return "び";
+//     }
+//   }
+// };
+// else if (k === 'k' && kanaLast === 'a') {
+//   return "か";
+// } else if (k === 'k' && kanaLast === 'i') {
+//   return "き";
+// } else if (k === 'k' && kanaLast === 'u') {
+//   return "く";
+// } else if (k === 'k' && kanaLast === 'e') {
+//   return "け";
+// } else if (k === 'k' && kanaLast === 'o') {
+//   return "こ";
+// } else if (k === 's' && kanaLast === 'a') {
+//   return "さ";
+// } else if ((k === 's' && kanaLast === 'i') || (k === 's' && a === 'h' && kanaLast === 'i')) {
+//   return "し";
+// } else if (k === 's' && kanaLast === 'u') {
+//   return "す";
+// } else if (k === 's' && kanaLast === 'e') {
+//   return "せ";
+// } else if (k === 's' && kanaLast === 'e') {
+//   return "そ";
+// } else if (k === 't' && kanaLast === 'a') {
+//   return "た";
+// } else if ((k === 't' && kanaLast === 'u') || (k === 't' && a === 's' && kanaLast === 'u')) {
+//   return "ち";
+// } else if ((k === 't' && kanaLast === 'u') || (k === 't' && a === 's' && kanaLast === 'u')) {
+//   return "つ";
+// } else if (k === 't' && kanaLast === 'e') {
+//   return "て";
+// } else if (k === 't' && kanaLast === 'o') {
+//   return "と";
+// } else if (k === 'n' && kanaLast === 'a') {
+//   return "な";
+// } else if (k === 'n' && kanaLast === 'i') {
+//   return "に";
+// } else if (k === 'n' && kanaLast === 'u') {
+//   return "ぬ";
+// } else if (k === 'n' && kanaLast === 'e') {
+//   return "ね";
+// } else if (k === 'n' && kanaLast === 'o') {
+//   return "の";
+// } else if (k === 'h' && kanaLast === 'a') {
+//   return "は";
+// } else if (k === 'h' && kanaLast === 'i') {
+//   return "ひ";
+// } else if (k === 'f' && kanaLast === 'u') {
+//   return "ふ";
+// } else if (k === 'h' && kanaLast === 'e') {
+//   return "へ";
+// } else if (k === 'h' && kanaLast === 'o') {
+//   return "ほ";
+// } else if (k === 'm' && kanaLast === 'a') {
+//   return "ま";
+// } else if (k === 'm' && kanaLast === 'i') {
+//   return "み";
+// } else if (k === 'm' && kanaLast === 'u') {
+//   return "む";
+// } else if (k === 'm' && kanaLast === 'e') {
+//   return "め";
+// } else if (k === 'm' && kanaLast === 'o') {
+//   return "も";
+// } else if (k === 'y' && a === 'a') {
+//   return "や";
+// } else if (k === 'y' && a === 'u') {
+//   return "ゆ";
+// } else if (k === 'y' && a === 'o') {
+//   return "よ";
+// } else if (k === 'r' && a === 'a') {
+//   return "ら";
+// } else if (k === 'r' && a === 'i') {
+//   return "り";
+// } else if (k === 'r' && a === 'u') {
+//   return "る";
+// } else if (k === 'r' && a === 'e') {
+//   return "れ";
+// } else if (k === 'r' && a === 'o') {
+//   return "ろ";
+// } else if (k === 'w' && a === 'a') {
+//   return "わ";
+// } else if (k === 'n' && a === 'n') {
+//   return "ん";
+// } else if (a === 'a') {
+//   return "あ";
+// } else if (a === 'i') {
+//   return "い";
+// } else if (a === 'u') {
+//   return "う";
+// } else if (a === 'e') {
+//   return "え";
+// } else if (a === 'o') {
+//   return "お";
+// }
 
-
-// kana if statement
-let lastSecondIndex = textOver.length[letterCounter] - 2;
-let lastIndex = textOver.length[letterCounter] -1;
-let k = textOver.charAt(lastSecondIndex);;
-let a = textOver.charAt(lastIndex);
-
-function detectBoin(key) {
-  if (key === 'a') {
-    return "あ";
-  } else if (key === 'i') {
-    return "い";
-  } else if (key === 'u') {
-    return "う";
-  } else if (key === 'e') {
-    return "え";
-  } else if (key === 'o') {
-    return "お";
-  } else if (k === 'k' && a === 'a') {
-    return "か";
-  } else if (k === 'k' && a === 'i') {
-    return "き";
-  } else if (k === 'k' && a === 'u') {
-    return "く";
-  } else if (k === 'k' && a === 'e') {
-    return "け";
-  } else if (k === 'k' && a === 'o') {
-    return "こ";
-  } else if (k === 's' && a === 'a') {
-    return "さ";
-  } else if ((k === 's' && a === 'i') || (k === 's' && a === 'h' && a === 'i')) {
-    return "し";
-  } else if (k === 's' && a === 'u') {
-    return "す";
-  } else if (k === 's' && a === 'e') {
-    return "せ";
-  } else if (k === 's' && a === 'e') {
-    return "そ";
-  } else if (k === 't' && a === 'a') {
-    return "た";
-  } else if ((k === 't' && a === 'u') || (k === 't' && a === 's' && a === 'u')) {
-    return "ち";
-  } else if ((k === 't' && a === 'u') || (k === 't' && a === 's' && a === 'u')) {
-    return "つ";
-  } else if (k === 't' && a === 'e') {
-    return "て";
-  } else if (k === 't' && a === 'o') {
-    return "と";
-  } else if (k === 'n' && a === 'a') {
-    return "な";
-  } else if (k === 'n' && a === 'i') {
-    return "に";
-  } else if (k === 'n' && a === 'u') {
-    return "ぬ";
-  } else if (k === 'n' && a === 'e') {
-    return "ね";
-  } else if (k === 'n' && a === 'o') {
-    return "の";
-  } else if (k === 'h' && a === 'a') {
-    return "は";
-  } else if (k === 'h' && a === 'i') {
-    return "ひ";
-  } else if (k === 'f' && a === 'u') {
-    return "ふ";
-  } else if (k === 'h' && a === 'e') {
-    return "へ";
-  } else if (k === 'h' && a === 'o') {
-    return "ほ";
-  } else if (k === 'm' && a === 'a') {
-    return "ま";
-  } else if (k === 'm' && a === 'i') {
-    return "み";
-  } else if (k === 'm' && a === 'u') {
-    return "む";
-  } else if (k === 'm' && a === 'e') {
-    return "め";
-  } else if (k === 'm' && a === 'o') {
-    return "も";
-  } else if(k === 'y' && a === 'a') {
-    return "や";
-  } else if (k === 'y' && a === 'u') {
-    return "ゆ";
-  } else if (k === 'y' && a === 'o') {
-    return "よ";
-  } else if (k === 'r' && a === 'a') {
-    return "ら";
-  } else if (k === 'r' && a === 'i') {
-    return "り";
-  } else if (k === 'r' && a === 'u') {
-    return "る";
-  } else if (k === 'r' && a === 'e') {
-    return "れ";
-  } else if (k === 'r' && a === 'o') {
-    return "ろ";
-  } else if (k === 'w' && a === 'a') {
-    return "わ";
-  } else if (k === 'n' && a === 'n') {
-    return "ん";
-  }
-  
-};
+// (key !== ('a' || 'i' || 'u' || 'e' || 'o')) {
+//   throw;
+// }
