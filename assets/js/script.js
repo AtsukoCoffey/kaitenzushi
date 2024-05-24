@@ -240,10 +240,10 @@ function handleKeyPress(event) {
 /**
   * Validate user entry when correct typing, go on to next
   *///   // Enter key action
-function validateInput() {
+function validateInput(event) {
 
-  // // submit from form
-  // event.preventDefault();
+  // prevent submit from form
+  event.preventDefault();
 
   if (textOver.innerText == textDisplay.innerText || input.innerText == textDisplay.innerText) {
 
