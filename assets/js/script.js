@@ -120,6 +120,7 @@ const words = [
     "kana": 'いなりずし',
     image: 'assets/images/food_inarizushi_set.webp'
   },
+  
 ];
 
 /**
@@ -257,6 +258,8 @@ function validateInput(event) {
  * Finish game function
  */
 function finishGame() {
+  let successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
+
   textDisplay.innerHTML = "Time out";
   textOver.innerHTML = "Time out";
 
@@ -265,7 +268,7 @@ function finishGame() {
 
   // Score display
   document.getElementsByTagName('main')[0].innerHTML =
-    `<div><p>Menu</p><ul><li>Sushi menu</li><li>Travel in Japan</li><li>Greetings</li></ul></div><div><p>Score</p><ul><li>Clear : ${gameCounter}</li><li>Miss : 0</li><li>Success rate : %</li></ul></div>`;
+    `<div><p>Menu</p><ul><li>Sushi menu</li><li>Travel in Japan</li><li>Greetings</li></ul></div><div><p>Score</p><ul><li>Clear : ${gameCounter}</li><li>Miss : 0</li><li>Success rate : ${successRate}%</li></ul></div>`;
 }
 
 ///////////////////////////////////////////   Event listeners for catching users action
