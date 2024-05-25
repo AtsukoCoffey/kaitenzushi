@@ -209,10 +209,8 @@ function handleKeyPress(event) {
     // Add matched letter to the overlay div and update the div
     document.getElementById('text-overlay').innerHTML = textOver.innerText += currentLetter;
 
-    // Go to next word
+    // Go to next letter
     letterCounter++;
-    correctTypeCounter++;
-
     console.log('Letter Counter is: ', letterCounter);
 
     // Enter key action  // Check user input is correct for mobile user
@@ -247,6 +245,7 @@ function validateInput(event) {
     // letter counter reset
     letterCounter = 0;
     // kanaLetterCounter = 0;
+    correctTypeCounter += textDisplay.innerText.length;
     gameCounter++;
     // Next word
     startGame();
