@@ -2,125 +2,149 @@
 const words = [
   {
     name: 'amaebi',
-    "abc": 'amaebi',
     "kana": 'あまえび',
     image: 'assets/images/sushi_amaebi.webp'
   },
   {
     name: 'anago',
-    "abc": 'anago',
     "kana": 'あなご',
     image: 'assets/images/sushi_anago.webp'
   },
   {
     name: 'battera',
-    "abc": 'battera',
     "kana": 'ばってら',
     image: 'assets/images/sushi_battera.webp'
   },
   {
+    name: 'sabazushi',
+    "kana": 'さばずし',
+    image: 'assets/images/sushi_bouzushi_saba.webp'
+  },
+  {
     name: 'buri',
-    "abc": 'buri',
     "kana": 'ぶり',
     image: 'assets/images/sushi_buri.webp'
   },
   {
-    name: 'kappa',
-    "abc": 'buri',
-    "kana": 'かっぱ',
-    image: 'assets/images/makimono_kappa.webp'
-  },
-  {
-    name: 'negitoro',
-    "abc": 'buri',
-    "kana": 'ねぎとろ',
-    image: 'assets/images/makimono_negitoro.webp'
-  },
-  {
-    name: 'takuwan',
-    "abc": 'buri',
-    "kana": 'たくあん',
-    image: 'assets/images/makimono_takuwan.webp'
+    name: 'chirashizushi',
+    "kana": 'ちらしずし',
+    image: 'assets/images/sushi_chirashizushi.webp'
   },
   {
     name: 'chutoro',
-    "abc": 'buri',
     "kana": 'ちゅうとろ',
     image: 'assets/images/sushi_chutoro.webp'
   },
   {
     name: 'ebi',
-    "abc": 'buri',
     "kana": 'えび',
     image: 'assets/images/sushi_ebi.webp'
   },
   {
     name: 'hamachi',
-    "abc": 'buri',
     "kana": 'はまち',
     image: 'assets/images/sushi_hamachi.webp'
   },
   {
     name: 'hanba-gu',
-    "abc": 'buri',
     "kana": 'はんばーぐ',
     image: 'assets/images/sushi_hamburg_tare.webp'
   },
   {
+    name: 'harasu',
+    "kana": 'はらす',
+    image: 'assets/images/sushi_harasu.webp'
+  },
+  {
     name: 'hotate',
-    "abc": 'buri',
     "kana": 'ほたて',
     image: 'assets/images/sushi_hotate.webp'
   },
   {
     name: 'ika',
-    "abc": 'buri',
     "kana": 'いか',
     image: 'assets/images/sushi_ika.webp'
   },
   {
     name: 'ikura',
-    "abc": 'buri',
     "kana": 'いくら',
     image: 'assets/images/sushi_ikura.webp'
   },
   {
+    name: 'inarizushi',
+    "kana": 'いなりずし',
+    image: 'assets/images/sushi_inarizushi_set.webp'
+  }, 
+  {
+    name: 'hokkigai',
+    "kana": 'ほっきがい',
+    image: 'assets/images/sushi_kai_hokkigai.webp'
+  }, 
+  {
     name: 'katsuo',
-    "abc": 'buri',
     "kana": 'かつお',
     image: 'assets/images/sushi_katsuo.webp'
   },
   {
+    name: 'kazunoko',
+    "kana": 'かずのこ',
+    image: 'assets/images/sushi_kazunoko.webp'
+  },
+  {
+    name: 'kappa',
+    "kana": 'かっぱ',
+    image: 'assets/images/sushi_makimono_kappa.webp'
+  },
+  {
+    name: 'nattou',
+    "kana": 'なっとう',
+    image: 'assets/images/sushi_makimono_nattou.webp'
+  },
+  {
+    name: 'negitoro',
+    "kana": 'ねぎとろ',
+    image: 'assets/images/sushi_makimono_negitoro.webp'
+  },
+  {
+    name: 'takuan',
+    "kana": 'たくあん',
+    image: 'assets/images/sushi_makimono_takuwan.webp'
+  },
+  {
+    name: 'torotaku',
+    "kana": 'とろたく',
+    image: 'assets/images/sushi_makimono_torotaku.webp'
+  },
+  {
     name: 'sake',
-    "abc": 'buri',
     "kana": 'さけ',
     image: 'assets/images/sushi_salmon.webp'
   },
   {
     name: 'tai',
-    "abc": 'buri',
     "kana": 'たい',
     image: 'assets/images/sushi_tai.webp'
   },
   {
     name: 'tako',
-    "abc": 'buri',
     "kana": 'たこ',
     image: 'assets/images/sushi_tako.webp'
   },
   {
     name: 'tamago',
-    "abc": 'buri',
     "kana": 'たまご',
     image: 'assets/images/sushi_tamago.webp'
   },
   {
-    name: 'inarizushi',
-    "abc": 'buri',
-    "kana": 'いなりずし',
-    image: 'assets/images/food_inarizushi_set.webp'
+    name: 'temakizushi',
+    "kana": 'てまきずし',
+    image: 'assets/images/sushi_temakizushi.webp'
   },
-  
+  {
+    name: 'uni',
+    "kana": 'うに',
+    image: 'assets/images/sushi_uni.webp'
+  },
 ];
 
 /**
