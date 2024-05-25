@@ -242,9 +242,6 @@ function handleKeyPress(event) {
   *///   // Enter key action
 function validateInput(event) {
 
-  // prevent submit from form
-  event.preventDefault();
-
   if (textOver.innerText == textDisplay.innerText || input.innerText == textDisplay.innerText) {
 
     // letter counter reset
@@ -272,13 +269,14 @@ function finishGame() {
     `<div><p>Menu</p><ul><li>Sushi menu</li><li>Travel in Japan</li><li>Greetings</li></ul></div><div><p>Score</p><ul><li>Clear : ${gameCounter}</li><li>Miss : 0</li><li>Success rate : %</li></ul></div>`;
 }
 
+///////////////////////////////////////////   Event listeners for catching users action
 
 // keyboard window event
 window.addEventListener('keypress', handleKeyPress);
-// Submit for validate input - mobile device
-input.addEventListener('input', validateInput);
-let touchendForm = document.getElementById('touchend-form');
-touchendForm.addEventListener('touchend', validateInput);
+// mobile device touch start event 
+input.addEventListener('touchstart', handleKeyPress);
+// Add touchend
+input.addEventListener('touchend', validateInput);
 
 // Wait for the DOM to finish loading before running the game
 // Start the global time-limit and start game
