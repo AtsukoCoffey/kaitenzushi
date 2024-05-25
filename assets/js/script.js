@@ -242,7 +242,7 @@ function handleKeyPress(event) {
   *///   // Enter key action
 function validateInput(event) {
 
-  if (textOver.innerText == textDisplay.innerText || input.value == textDisplay.innerText) {
+  if (textOver.innerText == textDisplay.innerText || input.value.toLowerCase() == textDisplay.innerText) {
 
     // letter counter reset
     letterCounter = 0;
