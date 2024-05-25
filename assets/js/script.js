@@ -241,9 +241,9 @@ function handleKeyPress(event) {
   * Validate user entry when correct typing, go on to next
   *///   // Enter key action
 function validateInput(event) {
-
   if (textOver.innerText == textDisplay.innerText || input.value.toLowerCase() == textDisplay.innerText) {
-
+    // Clear sound
+    document.getElementById('clear-sound').play();
     // letter counter reset
     letterCounter = 0;
     // kanaLetterCounter = 0;
