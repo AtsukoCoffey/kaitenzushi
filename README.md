@@ -19,6 +19,53 @@ My challenge is to modify this game and to set the target user for non-native Ja
 
 <a id="ux"></a>
 
+# ALGORITHM
+Below numberd lists are my original idea of the game system. Also just underneath the list, [BUG] sentences are the main problem of the features.   
+ 
+I had never created a whole game before, so I was not sure if is this achivable on time or not. Just in case I set lower accomplish goal to prepare for submiting anytime. After that then I can try extra features that I hope I can implement until submition day. On the other hand, Japanese kana letter matching function was more comlicated than I expected so change it to extra feature.  
+ 
+**1. Create a new shufﬂed question** 	  
+[BUG](#bugs) Just random array -> I want shuffle properly ->  
+ 
+**2. Set & start Global time limit (60s)**  
+[BUG](#bugs)  
+
+**3. Display ﬁrst question image & texts**   
+[BUG](#bugs) display images  
+ 
+**4. Set Word time limit (10s) per question -> Move on next**  
+[BUG](#bugs) After complete the word still that time limit is working -> This time limit need to be cancelled when next question is executed.  
+ 
+**5. Detect user entry - Set on focus to input, set window.event to identify the key**   
+[BUG](#bugs) keyboard nor input event didn't work for mobile device (I didn't want to use button)   
+  
+**6. Input key matching -> matched key -> Letter matched counter +1, change the display using css, executes typing sound**   
+[BUG](#bugs) Changing the colour of a letter one by one in the word seems impossible.    
+My solution is using the another layer which was applied the style already, push the matched letter in it to look like to change the letter colour one by one.   
+[BUG](#bugs) Mobile device doesn't work the matching function as the keyboard system is deffent. Temporary, use return key to lead to validate function for mobile phone.  
+[BUG](#bugs) Matching function for japanese kana letters were much more complicated than I expected. I tried some if statement though decided to postpone to try later. 
+ 
+**7. Change user entry to the lower case**  
+  
+**8. Automatically clear the input area after (0.5 s)**  
+ 
+**9. Unmatched key -> sound < boo > , mistake counter**  
+ 
+**10. Validate the word function - If matched word counter + 1 and start new game. Reset the letter counter to 0**   
+[BUG](#bugs) Because input key matching `hundleKeyPress()` did not function for mobile device, make this can handle 2 ways of  validations.   
+[BUG](#bugs) `innerText` and `value` property.  
+ 
+**11. Stop word time limit and new game function after expires the global time limit, ﬁnale sound, show score**  
+[BUG](#bugs) Stop the word time limit and new game function is not completed.
+
+
+## If I had enough time...
+* Use local storage
+* Animation - Question’s word image. Move from left to right (in 10 seconds)
+* Background music gets up tenpo with lessing left over time
+* Award some extra time when repeatedly type correctly in 1 second (?)
+
+
 # UX DESIGN
 
 ## 1. Strategy Plane
@@ -78,7 +125,7 @@ For the mobile screen wireframe.
 <details open>
 <summary>Mobile - 320px - Wireframe</summary>
 
-![Home page mobile Wireframe](readme/wireframe-mobile.webp "Home page mobile Wireframe")
+![Home page mobile Wireframe](readme/wireframe-mobile800.png "Home page mobile Wireframe")
 </details>  
 
 
@@ -310,14 +357,70 @@ The footer section includes links to the relevant social media sites. The links 
 
 # BUGS
 
-## ....................................
+## Create a new shufﬂed question  `shuffledWords()`
+First I found this way of the shuffle in stackoverflow `const randomElement = array[Math.floor(Math.random() * array.length)];` 
 
-................................................ 
-  
+![Getting a random value from a JavaScript array - Stack Overflow](readme/credit-get-random-value.png "Getting a random value from a JavaScript array - Stack Overflow")  
+    
+but, that was just random array and I wanted shuffle properly, I mean I don't want to show same word few times in the array. Tryed with ushing `pop` and `push` but I could found the better way and looks like popular convention. 
+ 
+Solution : **Fisher Yates Shuffle**   
+![`const randomElement = array[Math.floor(Math.random() * array.length)`](readme/bug-shuffle-stackoverflow.png "Google Lighthouse audit index.html - stackoverflow") 
+ 
+## Set & start Global time limit `startGame()`
+I set the reset code that clears out the display texts and the input texts inplement in the start game function. I got error that was `innerText` property wasn't working well.
+![`innerText` and `value` property.](readme/bug-innertext-to-value.png "`innerText` and `value` property.")
+ 
 Solution :   
+The difference of `innerText` `innerHTML` and `value` was that value was using for form element.
 
-<a id="bugs"></a>
+![setting timeout 1](readme/bug-stop-setinterval-error1.png "`setting timeout 1")   
+![setting timeout 2](readme/bug-stop-setinterval.png "`setting timeout 1")
+ 
+  
+## Display ﬁrst question image & texts  
+I was wondering how to hold image data in the array, but after searching that found what I needed it was just path. It wan't difficult than I thought. But after implemented it I got link error as I'm writing in javascript though this code will be call from index.html  
+ 
+Solution :  
+Fix the path from index.html  
+ 
+## Set Word time limit (10s) per question -> Move on next**  
+[BUG] After complete the word still that time limit is working -> This time limit need to be cancelled when next question is executed.  
+![setting timeout 1](readme/bug-setting-timeout.png "`setting timeout 1")   
+![setting timeout 2](readme/bug-setting-timeout2.png "`setting timeout 1")
+ 
+## Detect user entry - Set on focus to input, set window.event to identify the key**   
+[BUG] keyboard nor input event didn't work for mobile device (I didn't want to use button)   
+  
+## Input key matching `handleKeyPress()` matched key -> Letter matched counter +1, change the display using css, executes typing sound**   
+[BUG] Changing the colour of a letter one by one in the word seems impossible.    
+My solution is using the another layer which was applied the style already, push the matched letter in it to look like to change the letter colour one by one.   
+[BUG] Mobile device doesn't work the matching function as the keyboard system is deffent. Temporary, use return key to lead to validate function for mobile phone.  
+[BUG] Matching function for japanese kana letters were much more complicated than I expected. I tried some if statement though decided to postpone to try later. 
+ 
+## Change user entry to the lower case**  
+  
+## Automatically clear the input area after (0.5 s)**  
+ 
+## Unmatched key -> sound < boo > , mistake counter**  
+ 
+## Validate the word function `validateInput()` If matched word counter + 1 and start new game. Reset the letter counter to 0**   
+[BUG] Because input key matching `hundleKeyPress()` did not function for mobile device, I made this can handle both ways of validations.   
+ 
+Solution : 
+Set conditons for keyboard and use `||` logical operator to mobile device. Keyboard validation can use the overlay text which were generated by mey matching function though mobile validation use direct user input data. 
+ 
+Later I found this function wasn't working in the mobile device, because same issu as `startGame()`
+![`innerText` and `value` property.](readme/bug-innertext-to-value.png "")
 
+
+[BUG] `innerText` and `value` property.  
+
+Stopped the correct letter counting at `handleKeyPress` one by one. So I tried to add the letter counter's number when validate the word. How ever, `textDisplay.length` wasn't a number, 
+![TextDisplay.length](readme/bug-getting-number-of-length.png "`TextDisplay.length")
+ 
+**11. Stop word time limit and new game function after expires the global time limit, ﬁnale sound, show score**  
+[BUG] Stop the word time limit and new game function is not completed.
 
 
 
@@ -535,44 +638,3 @@ I would like to give great thanks to my mentor Alan Bushell and cover session's 
 Also my cohort facilitator Amy Richardson for all the support and assistance.  
 
 And great thanks to my family Sean Coffey and Dean Coffey for all the support.
-
-
-<!-- ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-Welcome,
-
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
-
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
-
-## Codeanywhere Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
-
-`python3 -m http.server`
-
-A button should appear to click: _Open Preview_ or _Open Browser_.
-
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
-
-`http_server`
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A button should appear to click: _Open Preview_ or _Open Browser_.
-
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
----
-
-Happy coding! -->
