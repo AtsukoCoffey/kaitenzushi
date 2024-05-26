@@ -74,12 +74,12 @@ const words = [
     name: 'inarizushi',
     "kana": 'いなりずし',
     image: 'assets/images/sushi_inarizushi_set.webp'
-  }, 
+  },
   {
     name: 'hokkigai',
     "kana": 'ほっきがい',
     image: 'assets/images/sushi_kai_hokkigai.webp'
-  }, 
+  },
   {
     name: 'katsuo',
     "kana": 'かつお',
@@ -190,27 +190,41 @@ let missTypeCounter = 0;
 ///////////////////////////////////////////   All the main functions
 
 /**
+ * Set one word timer and restart
+ * Use variable to store Timeout for passing to clearTimeout
+ * Referenced from stackoverflow and perplexity : README [BUGS]
+ */
+
+/// Variable to store the timeout identifier
+let oneWordTimeoutId;
+
+/**
  * Start game function
- * loop through the shuffled question
+ * Display shuffled question word [game counter index]
+ * Set one word timer Referenced : README [BUGS]
  */
 function startGame() {
+  // Clear the previous timeout if it exists
+  clearTimeout(oneWordTimeoutId);
+
   // Display next shuffled word
   imageDisplay.innerHTML = '<img src="' + shuffledWords[gameCounter].image + '" width="100" height="100" alt="Question word">';
   kanaDisplay.innerHTML = shuffledWords[gameCounter].kana;
   textDisplay.innerHTML = shuffledWords[gameCounter].name;
 
-  // Reset the div with empty value
+  // Reset the overlay div and input with empty value
   document.getElementById('text-overlay').textContent = "";
   document.getElementById('kana-overlay').textContent = "";
   document.getElementById('input').value = "";
 
-  // // Set one word timer and restart
-  // setTimeout(function () {
-  //   document.getElementById('hit-sound').play();
-  //   gameCounter++;
-  //   letterCounter = 0;
-  //   startGame();
-  // }, 20000);
+  // Set one word timeout
+  oneWordTimeoutId = setTimeout(function () {
+    document.getElementById('click-sound').play();
+    gameCounter++;
+    letterCounter = 0;
+    missTypeCounter++;
+    startGame();
+  }, 5000);
 
 }
 
@@ -263,7 +277,7 @@ function handleKeyPress(event) {
 /**
   * Validate user entry when correct typing, go on to next
   *///   // Enter key action
-function validateInput(event) {
+function validateInput() {
   if (textOver.innerText == textDisplay.innerText || input.value.toLowerCase() == textDisplay.innerText) {
     // Clear sound
     document.getElementById('clear-sound').play();
@@ -274,7 +288,6 @@ function validateInput(event) {
     gameCounter++;
     // Next word
     startGame();
-
   }
 }
 
@@ -282,6 +295,9 @@ function validateInput(event) {
  * Finish game function
  */
 function finishGame() {
+  //Clear one word time limit
+  clearTimeout(oneWordTimeoutId);
+
   let successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
 
   textDisplay.innerHTML = "Time out";
