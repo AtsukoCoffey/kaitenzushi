@@ -17,14 +17,14 @@ My challenge is to modify this game and to set the target user for non-native Ja
 **[Live site >> url](url)**
 
 
-<a id="ux"></a>
+
 
 # ALGORITHM
-Below numberd lists are my original idea of the game system. Also just underneath the list, [BUG] sentences are the main problem of the features.   
+Below numbered lists are my original idea of the game system. Also just underneath the list, [BUG] sentences that describe the main problems with the features.   
  
-I had never created a whole game before, so I was not sure if is this achivable on time or not. Just in case I set lower accomplish goal to prepare for submiting anytime. After that then I can try extra features that I hope I can implement until submition day. On the other hand, Japanese kana letter matching function was more comlicated than I expected so change it to extra feature.  
+I had never created a whole game before, so I was unsure if this was achievable within the given time or not. As a precaution, I set lower accomplish goal to prepare for submitting anytime. After that then I can try extra features that I hope I can implement until submission day. On the other hand, Japanese kana letter matching function was more complicated than I expected so I decided to make it an extra feature.  
  
-**1. Create a new shufﬂed question** 	  
+**1. Create a new shufﬂed question**    
 [BUG](#bugs) Just random array -> I want shuffle properly ->  
  
 **2. Set & start Global time limit (60s)**  
@@ -41,9 +41,9 @@ I had never created a whole game before, so I was not sure if is this achivable 
   
 **6. Input key matching -> matched key -> Letter matched counter +1, change the display using css, executes typing sound**   
 [BUG](#bugs) Changing the colour of a letter one by one in the word seems impossible.    
-My solution is using the another layer which was applied the style already, push the matched letter in it to look like to change the letter colour one by one.   
-[BUG](#bugs) Mobile device doesn't work the matching function as the keyboard system is deffent. Temporary, use return key to lead to validate function for mobile phone.  
-[BUG](#bugs) Matching function for japanese kana letters were much more complicated than I expected. I tried some if statement though decided to postpone to try later. 
+My solution is using an another layer which was applied the style already, push the matched letter in it to look like to change the letter colour one by one.   
+[BUG](#bugs) Mobile device doesn't work the matching function as the keyboard system is different. Temporary, use return key to lead to validate function for mobile phone.  
+[BUG](#bugs) Matching function for Japanese kana letters were much more complicated than I expected. I tried some if statement though decided to postpone to try later. 
  
 **7. Change user entry to the lower case**  
   
@@ -58,12 +58,12 @@ My solution is using the another layer which was applied the style already, push
 **11. Stop word time limit and new game function after expires the global time limit, ﬁnale sound, show score**  
 [BUG](#bugs) Stop the word time limit and new game function is not completed.
 
-
 ## If I had enough time...
 * Use local storage
 * Animation - Question’s word image. Move from left to right (in 10 seconds)
-* Background music gets up tenpo with lessing left over time
-* Award some extra time when repeatedly type correctly in 1 second (?)
+* Award some extra time when repeatedly type correctly (booster)
+
+
 
 
 # UX DESIGN
@@ -358,33 +358,32 @@ The footer section includes links to the relevant social media sites. The links 
 # BUGS
 
 ## Create a new shufﬂed question  `shuffledWords()`
-First I found this way of the shuffle in stackoverflow `const randomElement = array[Math.floor(Math.random() * array.length)];` 
-
-![Getting a random value from a JavaScript array - Stack Overflow](readme/credit-get-random-value.png "Getting a random value from a JavaScript array - Stack Overflow")  
+First I found this to shuffle in stackoverflow `const randomElement = array[Math.floor(Math.random() * array.length)];`  
+ 
+![Getting a random value from a JavaScript array - Stack Overflow](readme/bug-shuffle-get-random-value.png "Getting a random value from a JavaScript array - Stack Overflow")  
     
-but, that was just random array and I wanted shuffle properly, I mean I don't want to show same word few times in the array. Tryed with ushing `pop` and `push` but I could found the better way and looks like popular convention. 
+But that creates a random array literally and what I wanted was to shuffle properly, meaning I didn't want to show the same word a few times in the array. I tried using `pop` and `push`, but I couldn’t find out a better way or a popular convention.  
  
 Solution : **Fisher Yates Shuffle**   
 ![`const randomElement = array[Math.floor(Math.random() * array.length)`](readme/bug-shuffle-stackoverflow.png "Google Lighthouse audit index.html - stackoverflow") 
  
 ## Set & start Global time limit `startGame()`
-I set the reset code that clears out the display texts and the input texts inplement in the start game function. I got error that was `innerText` property wasn't working well.
+I implement the reset code that clears out the display texts and the input texts in the start game function. Then, I got an error which  `innerText` property wasn't working well.
 ![`innerText` and `value` property.](readme/bug-innertext-to-value.png "`innerText` and `value` property.")
  
 Solution :   
-The difference of `innerText` `innerHTML` and `value` was that value was using for form element.
+The difference between `innerText` and `value` property was that value was used for form elements.
 
-![setting timeout 1](readme/bug-stop-setinterval-error1.png "`setting timeout 1")   
-![setting timeout 2](readme/bug-stop-setinterval.png "`setting timeout 1")
+
  
   
 ## Display ﬁrst question image & texts  
-I was wondering how to hold image data in the array, but after searching that found what I needed it was just path. It wan't difficult than I thought. But after implemented it I got link error as I'm writing in javascript though this code will be call from index.html  
+I was wondering how to hold image’s data in the array, but after this researching, I found that what I needed it was a just text path. It wasn't difficult than I thought. But after implemented it I got link error. Because I was writing in assets’ JavaScript file, even though this code will be executed from index.html   
  
 Solution :  
 Fix the path from index.html  
  
-## Set Word time limit (10s) per question -> Move on next**  
+## Set Word time limit (10s) per question -> Move on next   
 [BUG] After complete the word still that time limit is working -> This time limit need to be cancelled when next question is executed.  
 ![setting timeout 1](readme/bug-setting-timeout.png "`setting timeout 1")   
 ![setting timeout 2](readme/bug-setting-timeout2.png "`setting timeout 1")
@@ -419,11 +418,13 @@ Later I found this function wasn't working in the mobile device, because same is
 Stopped the correct letter counting at `handleKeyPress` one by one. So I tried to add the letter counter's number when validate the word. How ever, `textDisplay.length` wasn't a number, 
 ![TextDisplay.length](readme/bug-getting-number-of-length.png "`TextDisplay.length")
  
-**11. Stop word time limit and new game function after expires the global time limit, ﬁnale sound, show score**  
+## Stop word time limit and new game function after expires the global time limit, ﬁnale sound, show score   
 [BUG] Stop the word time limit and new game function is not completed.
 
+## DIsplay of the global time limits
 
-
+![setting timeout 1](readme/bug-stop-setinterval-error1.png "`setting timeout 1")   
+![setting timeout 2](readme/bug-stop-setinterval.png "`setting timeout 1")
 
 # DEPLOYMENT
 
