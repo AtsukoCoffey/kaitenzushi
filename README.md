@@ -33,7 +33,7 @@ I had never created a whole game before, so I was unsure if this was achievable 
 **3. Display ﬁrst question image & texts**   
 [BUG](#bugs) display images  
  
-**4. Set Word time limit (10s) per question -> Move on next**  
+**4. Set one word timer (10s) per question -> Move on next**  
 [BUG](#bugs) After complete the word still that time limit is working -> This time limit need to be cancelled when next question is executed.  
  
 **5. Detect user entry - Set on focus to input, set window.event to identify the key**   
@@ -54,9 +54,7 @@ My solution is using an another layer which was applied the style already, push 
 **10. Validate the word function - If matched word counter + 1 and start new game. Reset the letter counter to 0**   
 [BUG](#bugs) Because input key matching `hundleKeyPress()` did not function for mobile device, make this can handle 2 ways of  validations.   
 [BUG](#bugs) `innerText` and `value` property.  
- 
-**11. Stop word time limit and new game function after expires the global time limit, ﬁnale sound, show score**  
-[BUG](#bugs) Stop the word time limit and new game function is not completed.
+
 
 ## If I had enough time...
 * Use local storage
@@ -383,11 +381,15 @@ I was wondering how to hold image’s data in the array, but after this research
 Solution :  
 Fix the path from index.html  
  
-## Set Word time limit (10s) per question -> Move on next   
-[BUG] After complete the word still that time limit is working -> This time limit need to be cancelled when next question is executed.  
-![setting timeout 1](readme/bug-setting-timeout.png "`setting timeout 1")   
-![setting timeout 2](readme/bug-setting-timeout2.png "`setting timeout 1")
- 
+## Set one word timer (10s) per question -> Move on next word   
+My global timer which executes when the page is loaded, is working fine so I tried to use the `setTimeout` method same way. But for one word timer it didn't work well with `clearTimeout` method. This timer need to be cancelled when next question is executed or users have completed the typing successfully. Under below was an article at stackoverflow, I understand the variable should be in global scope but my code didn't use any variable. I looked for MDN or W3chool but still I didn't find out my problem. So I asked to perplexity, it explained me really well what was my problem.
+![setting timeout stackoverflow1](readme/bug-setting-timeout.png "`stackoverflow1")   
+![setting timeout stackoverflow2](readme/bug-setting-timeout2.png "`stackoverflow2")
+![setting timeout perplexity](readme/bug-setting-timeoutp.png "`setting timeout perplexity")
+ Solution :  
+Use a variable to make sure that the correct `setTimeout` identifier for passing to `clearTimeout` 
+
+
 ## Detect user entry - Set on focus to input, set window.event to identify the key**   
 [BUG] keyboard nor input event didn't work for mobile device (I didn't want to use button)   
   
@@ -418,8 +420,7 @@ Later I found this function wasn't working in the mobile device, because same is
 Stopped the correct letter counting at `handleKeyPress` one by one. So I tried to add the letter counter's number when validate the word. How ever, `textDisplay.length` wasn't a number, 
 ![TextDisplay.length](readme/bug-getting-number-of-length.png "`TextDisplay.length")
  
-## Stop word time limit and new game function after expires the global time limit, ﬁnale sound, show score   
-[BUG] Stop the word time limit and new game function is not completed.
+
 
 ## DIsplay of the global time limits
 
