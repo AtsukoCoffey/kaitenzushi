@@ -213,17 +213,19 @@ const words = [
  *  */
 // Create a shalow copy of words array
 let shuffledWords = [...words];
-// for loop from last index
-for (i = shuffledWords.length - 1; i > 0; i--) {
-  randomIndexOfWords = Math.floor(Math.random() * i)
-  // escape value of last index of shuffledWords array
-  temporaryValue = shuffledWords[i]
-  // swap last index value to random value
-  shuffledWords[i] = shuffledWords[randomIndexOfWords]
-  // swap random index value to last index valu
-  shuffledWords[randomIndexOfWords] = temporaryValue
-}
 
+function shuffle() {
+  // for loop from last index
+  for (i = shuffledWords.length - 1; i > 0; i--) {
+    randomIndexOfWords = Math.floor(Math.random() * i)
+    // escape value of last index of shuffledWords array
+    temporaryValue = shuffledWords[i]
+    // swap last index value to random value
+    shuffledWords[i] = shuffledWords[randomIndexOfWords]
+    // swap random index value to last index valu
+    shuffledWords[randomIndexOfWords] = temporaryValue
+  }
+};
 
 
 
@@ -256,12 +258,19 @@ let missTypeCounter = 0;
  * Start the global time-limit and start game
  */
 function loadGame() {
-  // shuffle();
+  // Reset the overlay div and input with empty value
+  document.getElementById('text-overlay').textContent = "";
+  document.getElementById('kana-overlay').textContent = "";
+  document.getElementById('input').value = "";
+  // Shuffle again for new order - question array
+  shuffle();
   startGame();
   setTimeout(function () {
     finishGame();
   }, 60000);
   input.focus();
+  // Game counter reset
+  gameCounter = 0;
 };
 
 /**
@@ -303,7 +312,7 @@ function startGame() {
     letterCounter = 0;
     missTypeCounter++;
     startGame();
-  }, 5000);
+  }, 10000);
 
 }
 
