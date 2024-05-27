@@ -126,8 +126,9 @@ nav {
   background-color: #F27272;
   border-radius: 10px;
   color: #0D0D0D;
-  padding: 10px 25px 25px;
-  margin: 0 20px;
+  padding: 10px 10%;
+  margin: 0 auto;
+  max-width: 500px;
   text-align: left;
   line-height: 150%;
 }
