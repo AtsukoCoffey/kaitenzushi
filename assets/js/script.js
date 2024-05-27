@@ -1,3 +1,23 @@
+////////////////////////////////////////////// 
+// Wait for the DOM to finish loading before running the game
+/////////////
+document.addEventListener("DOMContentLoaded", function(){
+  let gameStartButton = document.getElementById('game-start');
+  gameStartButton.addEventListener('click', gamePageToggle);
+});
+
+
+////////////////////////////////////////////// Setting screen
+// Access the screens and butons
+let settingScreen = document.getElementById('setting');
+let gameScreen = document.getElementById('game');
+
+function gamePageToggle() {
+  settingScreen.style.display = "none";
+  gameScreen.style.display = "block";
+  loadGame();
+}
+
 ////////////////////////////////////////////// Question array object
 const words = [
   {
@@ -190,6 +210,20 @@ let missTypeCounter = 0;
 ///////////////////////////////////////////   All the main functions
 
 /**
+ * Game screen function
+ * Load by setting screen start button
+ * Start the global time-limit and start game
+ */
+function loadGame () {
+  // shuffle();
+  startGame();
+  setTimeout(function () {
+    finishGame();
+  }, 60000);
+  input.focus();
+};
+
+/**
  * Set one word timer and restart
  * Use variable to store Timeout for passing to clearTimeout
  * Referenced from stackoverflow and perplexity : README [BUGS]
@@ -306,29 +340,25 @@ function finishGame() {
   // Ending sound
   document.getElementById('ending-sound').play();
 
+  // Screen toggle to setting & score
+  settingScreen.style.display = "block";
+  gameScreen.style.display = "none";
+
   // Score display
-  document.getElementsByTagName('main')[0].innerHTML =
-    `<div><p>Menu</p><ul><li>Sushi menu</li><li>Travel in Japan</li><li>Greetings</li></ul></div><div><p>Score</p><ul><li>Clear : ${gameCounter}</li><li>Miss : 0</li><li>Success rate : ${successRate}%</li></ul></div>`;
+  document.getElementsByClassName('score')[0].innerHTML =
+    `<h4>Score</h4><ul><li>Correct Type : ${correctTypeCounter}</li><li>Miss Type : ${missTypeCounter}</li><li>Success rate : ${successRate}%</li></ul></div>`;
+  
 }
 
 ///////////////////////////////////////////   Event listeners for catching users action
 
 // keyboard window event
-window.addEventListener('keypress', handleKeyPress);
+input.addEventListener('keypress', handleKeyPress);
 // mobile device touch start event 
 input.addEventListener('touchstart', handleKeyPress);
 // Add touchend
 input.addEventListener('touchend', validateInput);
 
-// Wait for the DOM to finish loading before running the game
-// Start the global time-limit and start game
-document.addEventListener("DOMContentLoaded", function () {
-  // shuffle();
-  startGame();
-  setTimeout(function () {
-    finishGame();
-  }, 60000);
-}); //Add event listener
 
 
 

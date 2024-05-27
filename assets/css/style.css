@@ -72,10 +72,9 @@ h1 {
 }
 
 h2 {
-  font-family: "Swanky and Moo Moo", cursive;
   font-weight: 400;
   font-style: normal;
-  font-size: medium;
+  font-size: 150%;
 }
 
 h3 {
@@ -116,20 +115,50 @@ nav {
   display: none;
 }
 
-/* General element styles //////////////////////////////////*/
+/* Setting screen styles //////////////////////////////////*/
 
-input {
-  width: 200px;
-  height: 100px;
-  color: #0D0D0D;
-  background-color: #F2F2F2;
-  text-align: center;
-  font-family: "Patrick Hand", cursive;
-  font-weight: 400;
-  font-size: 1.3rem;
-  font-style: normal;
-  letter-spacing: 0.2rem;
+#setting {
+  display: block;
+  background-color: rgba(255, 255, 255, 0.5);
 }
+
+#setting div:first-child {
+  background-color: #F27272;
+  border-radius: 10px;
+  color: #0D0D0D;
+  padding: 10px 25px 25px;
+  margin: 0 20px;
+  text-align: left;
+  line-height: 200%;
+}
+
+#setting button {
+  display: block;
+  width: 100px;
+  height: 40px;
+  margin: auto;
+  padding: 5px;
+  font: inherit;
+  line-height: 100%;
+  letter-spacing: 3px;
+  border-radius: 7px;
+  background-color: #0D0D0D;
+  color: #F2F2F2;
+}
+.score {
+  margin: 25px;
+  padding-bottom: 25px;
+}
+
+/* Game screen styles //////////////////////////////////*/
+
+#game {
+  display: none;
+  width: 100%;
+  background: #F2F2F2 url(../images/kaitenzushi0.webp) center top/400px no-repeat;
+}
+
+
 
 li {
   list-style: none;
@@ -160,11 +189,6 @@ a:hover {
   font-size: 95%;
   letter-spacing: 2px;
   line-height: 155%;
-}
-
-#game {
-  width: 100%;
-  background: #F2F2F2 url(../images/kaitenzushi0.webp) center top/400px no-repeat;
 }
 
 #img-display {
@@ -221,7 +245,14 @@ a:hover {
   height: 100px;
   color: #0D0D0D;
   background-color: #F2F2F2;
+  font-family: "Patrick Hand", cursive;
+  font-weight: 400;
+  font-size: 1.3rem;
+  font-style: normal;
+  letter-spacing: 0.2rem;
+  text-align: center;
 }
+
 /* Class styles ////////////////////////////////////////////*/
 .kana {
   font-family: "Yomogi", cursive;
