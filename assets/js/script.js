@@ -207,13 +207,13 @@ const words = [
   },
 ];
 
+// Create a shalow copy of words array
+let shuffledWords = [...words];
+
 /**
  *  Shuffle the question array object 
  *  Using Fisher Yates shuffle method : [BUG] article from stackoverflow
  *  */
-// Create a shalow copy of words array
-let shuffledWords = [...words];
-
 function shuffle() {
   // for loop from last index
   for (i = shuffledWords.length - 1; i > 0; i--) {
@@ -253,8 +253,8 @@ let missTypeCounter = 0;
 ///////////////////////////////////////////   All the main functions
 
 /**
- * Game screen function
- * Load by setting screen start button
+ * Load Game - from setting & score screen 
+ * Reset the question contents and input text area, shuffle the question array
  * Start the global time-limit and start game
  */
 function loadGame() {
@@ -264,13 +264,21 @@ function loadGame() {
   document.getElementById('input').value = "";
   // Shuffle again for new order - question array
   shuffle();
-  startGame();
+  // Start the game - question word
+  nextWord();
+  // Set global timer (60s)
   setTimeout(function () {
     finishGame();
+    // Time limit 60 secounds
   }, 60000);
+  // Focus on input area
   input.focus();
-  // Game counter reset
-  gameCounter = 0;
+  // All the counter reset
+  let gameCounter = 0;
+  let letterCounter = 0;
+  // let kanaLetterCounter = 0;
+  let correctTypeCounter = 0;
+  let missTypeCounter = 0;
 };
 
 /**
@@ -278,16 +286,16 @@ function loadGame() {
  * Use variable to store Timeout for passing to clearTimeout
  * Referenced from stackoverflow and perplexity : README [BUGS]
  */
-
 /// Variable to store the timeout identifier
 let oneWordTimeoutId;
 
 /**
- * Start game function
+ * Next word function - Start game and every time completed typing or
+ * got time out executes this function for next word question
  * Display shuffled question word [game counter index]
  * Set one word timer Referenced : README [BUGS]
  */
-function startGame() {
+function nextWord() {
   // Clear the previous timeout if it exists
   clearTimeout(oneWordTimeoutId);
 
@@ -307,11 +315,17 @@ function startGame() {
 
   // Set one word timeout
   oneWordTimeoutId = setTimeout(function () {
+    // Actions when it reached time out
     document.getElementById('click-sound').play();
+    // Next word
     gameCounter++;
+    // Reset word counter
     letterCounter = 0;
-    missTypeCounter++;
-    startGame();
+    // Mobile user can't count mis-type at handleKeyPress function so count in this function
+    missTypeCounter += textDisplay.innerText.length;
+    // Next word - game restart
+    nextWord();
+    // Time limit 10 secounds
   }, 10000);
 
 }
@@ -319,7 +333,7 @@ function startGame() {
 /**
  * Determine pressed key function
  * if matched change color, add counter to go next letter
- * NOT work for mobile screen keyboard --> validate function
+ * NOT work for mobile screen keyboard --> validate function for mobile
  */
 function handleKeyPress(event) {
 
@@ -328,43 +342,40 @@ function handleKeyPress(event) {
 
   // Check whether match the letter
   if (key == textDisplay.textContent.charAt(letterCounter)) {
-    // typing sound
-    document.getElementById('type-sound').play();
 
+    // Save the matched key into currentLetter variable
     let currentLetter = textDisplay.innerText.charAt(letterCounter);
 
-    // Add matched letter to the overlay div and update the div
+    // typing sound for matched key
+    document.getElementById('type-sound').play();
+
+    // Add matched letter to the overlay div and update the display div
     document.getElementById('text-overlay').innerHTML = textOver.innerText += currentLetter;
 
     // Go to next letter
     letterCounter++;
-    console.log('Letter Counter is: ', letterCounter);
 
-    // Enter key action  // Check user input is correct for mobile user
-
-  } else if (key === "Enter") {
-    validateInput();
-
+    // When overlay text complete the word go to validate function
+    if (textOver.innerText == textDisplay.innerText) {
+      validateInput();
+    }
   } else {
     // wrong typing sound
     document.getElementById('hit-sound').play();
 
     // Mistake counter
     missTypeCounter++;
-
   }
 
   // Reset input box
   document.getElementById('input').value = "";
-
-  // console the pressed key
-  console.log('Key pressed: ' + key);
-
 }
 
 /**
   * Validate user entry when correct typing, go on to next
-  *///   // Enter key action
+  * For keyboard user - check displayed question text and overlay text
+  * For mobile user - check displayed question text and input data
+  */
 function validateInput() {
   if (textOver.innerText == textDisplay.innerText || input.value.toLowerCase() == textDisplay.innerText) {
     // Clear sound
@@ -375,18 +386,17 @@ function validateInput() {
     correctTypeCounter += textDisplay.innerText.length;
     gameCounter++;
     // Next word
-    startGame();
+    nextWord();
   }
 }
 
 /**
  * Finish game function
+ * Clear one word timer, clear all the counters, toggle to Setting & score screen
  */
 function finishGame() {
   //Clear one word time limit
   clearTimeout(oneWordTimeoutId);
-
-  let successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
 
   textDisplay.innerHTML = "Time out";
   textOver.innerHTML = "Time out";
@@ -398,10 +408,10 @@ function finishGame() {
   settingScreen.style.display = "block";
   gameScreen.style.display = "none";
 
-  // Score display
+  // Score display in setting & score screen
+  let successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
   document.getElementsByClassName('score')[0].innerHTML =
     `<h4>Score</h4><ul><li>Correct Type : ${correctTypeCounter}</li><li>Miss Type : ${missTypeCounter}</li><li>Success rate : ${successRate}%</li></ul></div>`;
-
 }
 
 ///////////////////////////////////////////   Event listeners for catching users action
