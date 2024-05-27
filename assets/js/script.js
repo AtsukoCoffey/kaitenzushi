@@ -1,7 +1,7 @@
 ////////////////////////////////////////////// 
 // Wait for the DOM to finish loading before running the game
 /////////////
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function () {
   let gameStartButton = document.getElementById('game-start');
   gameStartButton.addEventListener('click', gamePageToggle);
 });
@@ -16,8 +16,19 @@ function gamePageToggle() {
   settingScreen.style.display = "none";
   gameScreen.style.display = "block";
   loadGame();
-}
+  turnOnSounds();
+};
 
+// Sounds on when sounds check box is checked
+const audioSounds = document.getElementsByClassName('audio-sounds');
+function turnOnSounds() {
+  if (document.getElementById('sounds').checked) {
+    // loop through to unmute
+    for (let i = 0; i < audioSounds.length; i++) {
+      audioSounds[i].muted = false;
+    }
+  }
+};
 ////////////////////////////////////////////// Question array object
 const words = [
   {
@@ -214,7 +225,7 @@ let missTypeCounter = 0;
  * Load by setting screen start button
  * Start the global time-limit and start game
  */
-function loadGame () {
+function loadGame() {
   // shuffle();
   startGame();
   setTimeout(function () {
@@ -347,7 +358,7 @@ function finishGame() {
   // Score display
   document.getElementsByClassName('score')[0].innerHTML =
     `<h4>Score</h4><ul><li>Correct Type : ${correctTypeCounter}</li><li>Miss Type : ${missTypeCounter}</li><li>Success rate : ${successRate}%</li></ul></div>`;
-  
+
 }
 
 ///////////////////////////////////////////   Event listeners for catching users action

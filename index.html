@@ -59,12 +59,7 @@
         <label for="play-easy">Easy</label>
         <input type="radio" name="Play_mode" id="play-hard">
         <label for="play-hard">Hard</label><br>
-        <audio src="assets/sounds/audio_9955-typing9.wav" id="type-sound" muted></audio>
-          <audio src="assets/sounds/audio_23261-mouseclick.wav" id="click-sound" muted></audio>
-          <audio src="assets/sounds/audio_1328-kotsu.wav" id="hit-sound" muted></audio>
-          <audio src="assets/sounds/audio_22292-coin.wav" id="clear-sound" muted></audio>
-          <audio src="assets/sounds/audio_12948-wafu-eyecatch.wav" id="ending-sound" muted></audio>
-          <button id="game-start">START!</button>
+        <button id="game-start">START!</button>
       </div>
       <div class="score">
         <h4>Score</h4>
@@ -87,6 +82,13 @@
         </div>
       </div>
       <input type="text" id="input" placeholder="Input here!" autocomplete="off">
+      <script src="assets/js/script.js"></script>
+      <script src="https://kit.fontawesome.com/c9e3fbf0ad.js" crossorigin="anonymous"></script>
+      <audio src="assets/sounds/audio_9955-typing9.wav" id="type-sound" class="audio-sounds" muted></audio>
+      <audio src="assets/sounds/audio_23261-mouseclick.wav" id="click-sound" class="audio-sounds" muted></audio>
+      <audio src="assets/sounds/audio_1328-kotsu.wav" id="hit-sound" class="audio-sounds" muted></audio>
+      <audio src="assets/sounds/audio_22292-coin.wav" id="clear-sound" class="audio-sounds" muted></audio>
+      <audio src="assets/sounds/audio_12948-wafu-eyecatch.wav" id="ending-sound" class="audio-sounds" muted></audio>
     </div>
   </main>
   <!-- Footer -->
@@ -106,9 +108,6 @@
             title="Visit our instagram page (opens in a new tab)"></i></a></li>
     </ul>
   </footer>
-  <script src="assets/js/script.js"></script>
-  <script src="https://kit.fontawesome.com/c9e3fbf0ad.js" crossorigin="anonymous"></script>
-
 </body>
 
 </html>
