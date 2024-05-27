@@ -1,5 +1,5 @@
 /* Google font import */
-@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Swanky+and+Moo+Moo&family=Yomogi&family=Warnes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Delius&family=Patrick+Hand&family=Yomogi&family=Warnes&display=swap');
 
 /* Asterisk wildcard selector to override default styles added by the browser */
 * {
@@ -22,8 +22,8 @@ body {
   font-weight: 400;
   font-size: 1.3rem;
   font-style: normal;
-  letter-spacing: 0.2rem;
   color: #594B46;
+  background-color: #F2F2F2;
 }
 
 header {
@@ -32,13 +32,13 @@ header {
   justify-content: center;
   align-items: baseline;
   width: 100%;
-  background: #F2F2F2 url('../images/head-logo.png') center top/280px no-repeat;
+  background: url('../images/head-logo.png') center top/280px no-repeat;
 }
 
 main {
   margin-top: 130px;
   flex: 1 0 auto;
-  background: #F2F2F2 url("../images/kaitenzushi1.webp") center top/400px no-repeat;
+  background: url("../images/kaitenzushi1.webp") center top/400px no-repeat;
   width: 100%;
 }
 
@@ -55,15 +55,16 @@ footer li {
 }
 
 /* Headings styles : h1 ~ h3 ///////////////////////////////*/
-h1,
-h2 {
+
+h2,
+h3 {
   color: #594B46;
+  font-family: "Caveat", cursive;
+  font-weight: 700;
 }
 
 h1 {
   font-family: "Warnes", cursive;
-  font-weight: 400;
-  font-style: normal;
   margin-top: 85px;
   margin-right: 2rem;
   font-size: 145%;
@@ -72,19 +73,47 @@ h1 {
 }
 
 h2 {
-  font-weight: 400;
-  font-style: normal;
   font-size: 150%;
+  padding: 20px 0px;
 }
 
 h3 {
-  color: #F2F2F2;
+  color: #0D0D0D;
 }
 
 h4 {
+  color: #F2F2F2;
   color: #8C8684;
   color: #F27272;
   color: #0D0D0D;
+}
+
+/* Other general styles : a, li, input  ///////////////////////////////*/
+a {
+  color: #594B46;
+}
+
+a:visited {
+  color: #594B46;
+}
+
+a:hover {
+  color: #F27272;
+}
+
+button {
+  padding: 5px;
+  border-radius: 8px;
+  font: inherit;
+}
+
+input {
+  padding: 10px;
+  border-radius: 8px;
+}
+
+li {
+  list-style: none;
 }
 
 /* Nav dropdown toggle button - CodeInstitute learning material */
@@ -115,11 +144,23 @@ nav {
   display: none;
 }
 
-/* Setting screen styles //////////////////////////////////*/
+/* Landing page screen styles    //////////////////////////////////*/
+#landing {
+  display: none;
+  background-color: rgba(13, 13, 13, 0.7);
+  padding-top: 30px;
+  padding-bottom: 40px;
+  margin-top: 220px;
+}
 
+#landing label {
+  color: #F2F2F2;
+}
+
+/* Setting & score screen styles //////////////////////////////////*/
 #setting {
-  display: block;
-  background-color: rgba(255, 255, 255, 0.5);
+  display: none;
+  background-color: rgba(242, 242, 242, 0.5);
 }
 
 #setting div:first-child {
@@ -128,7 +169,7 @@ nav {
   color: #0D0D0D;
   padding: 10px 10%;
   margin: 0 auto;
-  max-width: 500px;
+  max-width: 350px;
   text-align: left;
   line-height: 150%;
   letter-spacing: 3px;
@@ -140,13 +181,12 @@ nav {
   height: 40px;
   margin: auto;
   padding: 5px;
-  font: inherit;
   line-height: 100%;
   letter-spacing: 3px;
-  border-radius: 7px;
   background-color: #0D0D0D;
   color: #F2F2F2;
 }
+
 .score {
   margin: 25px;
   padding-bottom: 25px;
@@ -158,24 +198,6 @@ nav {
   display: none;
   width: 100%;
   background: #F2F2F2 url(../images/kaitenzushi0.webp) center top/400px no-repeat;
-}
-
-
-
-li {
-  list-style: none;
-}
-
-a {
-  color: #594B46;
-}
-
-a:visited {
-  color: #594B46;
-}
-
-a:hover {
-  color: #F27272;
 }
 
 /* Id styles ///////////////////////////////////////////////*/
@@ -241,13 +263,12 @@ a:hover {
   text-align: left;
 }
 
-
 #input {
   width: 100%;
   height: 100px;
   color: #0D0D0D;
   background-color: #F2F2F2;
-  font-family: "Patrick Hand", cursive;
+  font-family: "cursive", cursive;
   font-weight: 400;
   font-size: 1.3rem;
   font-style: normal;
@@ -255,7 +276,7 @@ a:hover {
   text-align: center;
 }
 
-/* Class styles ////////////////////////////////////////////*/
+/* Class styles          ////////////////////////////////////////////*/
 .kana {
   font-family: "Yomogi", cursive;
   font-weight: 400;
@@ -269,6 +290,7 @@ a:hover {
 }
 
 .text-box {
+  font-family: "Delius", cursive;
   display: block;
   position: relative;
   width: 150px;
@@ -278,10 +300,16 @@ a:hover {
 }
 
 /* Media query: General smart phone (390px and up) */
-@media screen and (min-width:390px) {}
+@media screen and (min-width:390px) {
+
+}
 
 /* Media query: General smart phone (768px and up) */
-@media screen and (min-width:768px) {}
+@media screen and (min-width:768px) {
+  #setting div:first-child {
+    max-width: 500px;
+  }
+}
 
 /* Media query: General smart phone (1024px and up) */
 @media screen and (min-width:1024px) {}

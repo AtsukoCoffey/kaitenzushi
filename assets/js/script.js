@@ -1,34 +1,3 @@
-////////////////////////////////////////////// 
-// Wait for the DOM to finish loading before running the game
-/////////////
-document.addEventListener("DOMContentLoaded", function () {
-  let gameStartButton = document.getElementById('game-start');
-  gameStartButton.addEventListener('click', gamePageToggle);
-});
-
-
-////////////////////////////////////////////// Setting screen
-// Access the screens and butons
-let settingScreen = document.getElementById('setting');
-let gameScreen = document.getElementById('game');
-
-function gamePageToggle() {
-  settingScreen.style.display = "none";
-  gameScreen.style.display = "block";
-  loadGame();
-  turnOnSounds();
-};
-
-// Sounds on when sounds check box is checked
-const audioSounds = document.getElementsByClassName('audio-sounds');
-function turnOnSounds() {
-  if (document.getElementById('sounds').checked) {
-    // loop through to unmute
-    for (let i = 0; i < audioSounds.length; i++) {
-      audioSounds[i].muted = false;
-    }
-  }
-};
 ////////////////////////////////////////////// Question array object
 const words = [
   {
@@ -207,7 +176,83 @@ const words = [
   },
 ];
 
-// Create a shalow copy of words array
+/////////////////////////////////////////////////////////////// 
+// Landing page
+// For skipping user click - Entry form automatically show up 
+///////////////////////////////////////////////////////////////
+
+// Access the screens - Modal
+let landingScreen = document.getElementById('landing');
+let settingScreen = document.getElementById('setting');
+let gameScreen = document.getElementById('game');
+
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(function () {
+    landing.style.display = "block";
+  }, 1000);
+
+  // Add event listeners to the buttons
+  let entryButton = document.getElementById('entty-submit')
+  entryButton.addEventListener('click', gamePageToggle);
+  let gameStartButton = document.getElementById('game-start');
+  gameStartButton.addEventListener('click', gamePageToggle);
+});
+
+// Toggle function of the screens < Landing - Setting & score - Game >
+function gamePageToggle() {
+  if (landingScreen.style.display === "block") {
+    landingScreen.style.display = "none";
+    settingScreen.style.display = "block";
+  } else if (settingScreen.style.display === "block") {
+    settingScreen.style.display = "none";
+    gameScreen.style.display = "block";
+    loadGame();
+    turnOnSounds();
+  }
+};
+
+/////////////////////////////////////////////////////////////// 
+// Setting & score screen
+// Choose the settings and submit to game screen 
+///////////////////////////////////////////////////////////////
+
+// Sounds on when sounds check box is checked
+const audioSounds = document.getElementsByClassName('audio-sounds');
+function turnOnSounds() {
+  if (document.getElementById('sounds').checked) {
+    // loop through to unmute
+    for (let i = 0; i < audioSounds.length; i++) {
+      audioSounds[i].muted = false;
+    }
+  }
+};
+
+/////////////////////////////////////////////////////////////// 
+// Game screen
+// Choose the settings and submit to game screen 
+///////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////   All the global counters and variables for game
+let imageDisplay = document.getElementById('img-display');
+let textDisplay = document.getElementById('text-display');
+let textOver = document.getElementById('text-overlay');
+let kanaDisplay = document.getElementById('kana-display');
+let kanaOver = document.getElementById('kana-overlay');
+let input = document.getElementById('input'); // input box
+let wordAudio = document.getElementById('sound');
+
+// Game counter  
+let gameCounter = 0;
+// Letter counter 
+let letterCounter = 0;
+// let kanaLetterCounter = 0;
+// Correct / Mistake Letter counter
+let correctTypeCounter = 0;
+let missTypeCounter = 0;
+
+
+
+// Create a shalow copy of words array Original array is the bottom of the script
 let shuffledWords = [...words];
 
 /**
@@ -229,25 +274,7 @@ function shuffle() {
 
 
 
-///////////////////////////////////////////   All the global counter and variables
 
-// Get div for display questions
-let imageDisplay = document.getElementById('img-display');
-let textDisplay = document.getElementById('text-display');
-let textOver = document.getElementById('text-overlay');
-let kanaDisplay = document.getElementById('kana-display');
-let kanaOver = document.getElementById('kana-overlay');
-let input = document.getElementById('input'); // input box
-let wordAudio = document.getElementById('sound');
-
-// Game counter  
-let gameCounter = 0;
-// Letter counter 
-let letterCounter = 0;
-// let kanaLetterCounter = 0;
-// Correct / Mistake Letter counter
-let correctTypeCounter = 0;
-let missTypeCounter = 0;
 
 
 ///////////////////////////////////////////   All the main functions
@@ -274,11 +301,11 @@ function loadGame() {
   // Focus on input area
   input.focus();
   // All the counter reset
-  let gameCounter = 0;
-  let letterCounter = 0;
+  gameCounter = 0;
+  letterCounter = 0;
   // let kanaLetterCounter = 0;
-  let correctTypeCounter = 0;
-  let missTypeCounter = 0;
+  correctTypeCounter = 0;
+  missTypeCounter = 0;
 };
 
 /**
@@ -411,7 +438,7 @@ function finishGame() {
   // Score display in setting & score screen
   let successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
   document.getElementsByClassName('score')[0].innerHTML =
-    `<h4>Score</h4><ul><li>Correct Type : ${correctTypeCounter}</li><li>Miss Type : ${missTypeCounter}</li><li>Success rate : ${successRate}%</li></ul></div>`;
+    `<h3>Score</h3><ul><li>Correct Type : ${correctTypeCounter}</li><li>Miss Type : ${missTypeCounter}</li><li>Success rate : ${successRate}%</li></ul></div>`;
 }
 
 ///////////////////////////////////////////   Event listeners for catching users action
