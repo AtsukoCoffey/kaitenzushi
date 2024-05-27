@@ -34,147 +34,176 @@ const words = [
   {
     name: 'amaebi',
     "kana": 'あまえび',
-    image: 'assets/images/sushi_amaebi.webp'
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3'
   },
   {
     name: 'anago',
     "kana": 'あなご',
-    image: 'assets/images/sushi_anago.webp'
+    image: 'assets/images/sushi_anago.webp',
+    sound: 'assets/sounds/su-anago.mp3'
   },
   {
     name: 'battera',
     "kana": 'ばってら',
-    image: 'assets/images/sushi_battera.webp'
+    image: 'assets/images/sushi_battera.webp',
+    sound: 'assets/sounds/su-battera.mp3'
   },
   {
     name: 'sabazushi',
     "kana": 'さばずし',
-    image: 'assets/images/sushi_bouzushi_saba.webp'
+    image: 'assets/images/sushi_bouzushi_saba.webp',
+    sound: 'assets/sounds/su-sabazushi.mp3'
   },
   {
     name: 'buri',
     "kana": 'ぶり',
-    image: 'assets/images/sushi_buri.webp'
+    image: 'assets/images/sushi_buri.webp',
+    sound: 'assets/sounds/su-buri.mp3'
   },
   {
     name: 'chirashizushi',
     "kana": 'ちらしずし',
-    image: 'assets/images/sushi_chirashizushi.webp'
+    image: 'assets/images/sushi_chirashizushi.webp',
+    sound: 'assets/sounds/su-chirashizushi.mp3'
   },
   {
     name: 'chutoro',
     "kana": 'ちゅうとろ',
-    image: 'assets/images/sushi_chutoro.webp'
+    image: 'assets/images/sushi_chutoro.webp',
+    sound: 'assets/sounds/su-chutoro.mp3'
   },
   {
     name: 'ebi',
     "kana": 'えび',
-    image: 'assets/images/sushi_ebi.webp'
+    image: 'assets/images/sushi_ebi.webp',
+    sound: 'assets/sounds/su-ebi.mp3'
   },
   {
     name: 'hamachi',
     "kana": 'はまち',
-    image: 'assets/images/sushi_hamachi.webp'
+    image: 'assets/images/sushi_hamachi.webp',
+    sound: 'assets/sounds/su-hamachi.mp3'
   },
   {
     name: 'hanba-gu',
     "kana": 'はんばーぐ',
-    image: 'assets/images/sushi_hamburg_tare.webp'
+    image: 'assets/images/sushi_hamburg_tare.webp',
+    sound: 'assets/sounds/su-hanba-gu.mp3'
   },
   {
     name: 'harasu',
     "kana": 'はらす',
-    image: 'assets/images/sushi_harasu.webp'
+    image: 'assets/images/sushi_harasu.webp',
+    sound: 'assets/sounds/su-harasu.mp3'
   },
   {
     name: 'hotate',
     "kana": 'ほたて',
-    image: 'assets/images/sushi_hotate.webp'
+    image: 'assets/images/sushi_hotate.webp',
+    sound: 'assets/sounds/su-hotate.mp3'
   },
   {
     name: 'ika',
     "kana": 'いか',
-    image: 'assets/images/sushi_ika.webp'
+    image: 'assets/images/sushi_ika.webp',
+    sound: 'assets/sounds/su-ika.mp3'
   },
   {
     name: 'ikura',
     "kana": 'いくら',
-    image: 'assets/images/sushi_ikura.webp'
+    image: 'assets/images/sushi_ikura.webp',
+    sound: 'assets/sounds/su-ikura.mp3'
   },
   {
     name: 'inarizushi',
     "kana": 'いなりずし',
-    image: 'assets/images/sushi_inarizushi_set.webp'
+    image: 'assets/images/sushi_inarizushi_set.webp',
+    sound: 'assets/sounds/su-inarizushi.mp3'
   },
   {
     name: 'hokkigai',
     "kana": 'ほっきがい',
-    image: 'assets/images/sushi_kai_hokkigai.webp'
+    image: 'assets/images/sushi_kai_hokkigai.webp',
+    sound: 'assets/sounds/su-hokkigai.mp3'
   },
   {
     name: 'katsuo',
     "kana": 'かつお',
-    image: 'assets/images/sushi_katsuo.webp'
+    image: 'assets/images/sushi_katsuo.webp',
+    sound: 'assets/sounds/su-katsuo.mp3'
   },
   {
     name: 'kazunoko',
     "kana": 'かずのこ',
-    image: 'assets/images/sushi_kazunoko.webp'
+    image: 'assets/images/sushi_kazunoko.webp',
+    sound: 'assets/sounds/su-kazunoko.mp3'
   },
   {
     name: 'kappa',
     "kana": 'かっぱ',
-    image: 'assets/images/sushi_makimono_kappa.webp'
+    image: 'assets/images/sushi_makimono_kappa.webp',
+    sound: 'assets/sounds/su-kappa.mp3'
   },
   {
     name: 'nattou',
     "kana": 'なっとう',
-    image: 'assets/images/sushi_makimono_nattou.webp'
+    image: 'assets/images/sushi_makimono_nattou.webp',
+    sound: 'assets/sounds/su-nattou.mp3'
   },
   {
     name: 'negitoro',
     "kana": 'ねぎとろ',
-    image: 'assets/images/sushi_makimono_negitoro.webp'
+    image: 'assets/images/sushi_makimono_negitoro.webp',
+    sound: 'assets/sounds/su-negitoro.mp3'
   },
   {
     name: 'takuan',
     "kana": 'たくあん',
-    image: 'assets/images/sushi_makimono_takuwan.webp'
+    image: 'assets/images/sushi_makimono_takuwan.webp',
+    sound: 'assets/sounds/su-takuan.mp3'
   },
   {
     name: 'torotaku',
     "kana": 'とろたく',
-    image: 'assets/images/sushi_makimono_torotaku.webp'
+    image: 'assets/images/sushi_makimono_torotaku.webp',
+    sound: 'assets/sounds/su-torotaku.mp3'
   },
   {
     name: 'sake',
     "kana": 'さけ',
-    image: 'assets/images/sushi_salmon.webp'
+    image: 'assets/images/sushi_salmon.webp',
+    sound: 'assets/sounds/su-sake.mp3'
   },
   {
     name: 'tai',
     "kana": 'たい',
-    image: 'assets/images/sushi_tai.webp'
+    image: 'assets/images/sushi_tai.webp',
+    sound: 'assets/sounds/su-tai.mp3'
   },
   {
     name: 'tako',
     "kana": 'たこ',
-    image: 'assets/images/sushi_tako.webp'
+    image: 'assets/images/sushi_tako.webp',
+    sound: 'assets/sounds/su-tako.mp3'
   },
   {
     name: 'tamago',
     "kana": 'たまご',
-    image: 'assets/images/sushi_tamago.webp'
+    image: 'assets/images/sushi_tamago.webp',
+    sound: 'assets/sounds/su-tamago.mp3'
   },
   {
     name: 'temakizushi',
     "kana": 'てまきずし',
-    image: 'assets/images/sushi_temakizushi.webp'
+    image: 'assets/images/sushi_temakizushi.webp',
+    sound: 'assets/sounds/su-temakizushi.mp3'
   },
   {
     name: 'uni',
     "kana": 'うに',
-    image: 'assets/images/sushi_uni.webp'
+    image: 'assets/images/sushi_uni.webp',
+    sound: 'assets/sounds/su-uni.mp3'
   },
 ];
 
@@ -207,6 +236,7 @@ let textOver = document.getElementById('text-overlay');
 let kanaDisplay = document.getElementById('kana-display');
 let kanaOver = document.getElementById('kana-overlay');
 let input = document.getElementById('input'); // input box
+let wordAudio = document.getElementById('sound');
 
 // Game counter  
 let gameCounter = 0;
@@ -256,6 +286,10 @@ function startGame() {
   imageDisplay.innerHTML = '<img src="' + shuffledWords[gameCounter].image + '" width="100" height="100" alt="Question word">';
   kanaDisplay.innerHTML = shuffledWords[gameCounter].kana;
   textDisplay.innerHTML = shuffledWords[gameCounter].name;
+
+  // Play word sound
+  wordAudio.setAttribute('src', shuffledWords[gameCounter].sound);
+  document.getElementById('sound').play();
 
   // Reset the overlay div and input with empty value
   document.getElementById('text-overlay').textContent = "";
