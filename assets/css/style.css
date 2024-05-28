@@ -9,8 +9,8 @@
   box-sizing: border-box;
   /* border: 1px solid #F27272; */
 }
-
-/* General structure styles : body ~ footer   */
+/* //////////////////////////////////////////////////////////////////////////////////////// */
+/*////////////////////////////////////////////// General structure styles : body ~ footer   */
 body {
   min-height: 100vh;
   display: flex;
@@ -34,10 +34,12 @@ header {
   width: 100%;
   background: #F2F2F2 url('../images/head-logo.png') center top/280px no-repeat;
   padding-bottom: 8px;
+  z-index: 99;
 }
 
 main {
   margin-top: 135px;
+  /* position: relative; */
   flex: 1 0 auto;
   background: url("../images/kaitenzushi1.webp") center top/400px no-repeat;
   width: 100%;
@@ -55,9 +57,8 @@ footer li {
   margin-left: 1rem;
   margin-right: 1rem;
 }
-
-/* Headings styles : h1 ~ h3 ///////////////////////////////*/
-
+/* //////////////////////////////////////////////////////////////////////////////////////// */
+/*////////////////////////////////////////////////////////////// Headings styles : h1 ~ h3  */
 h2,
 h3 {
   color: #594B46;
@@ -76,11 +77,12 @@ h1 {
 
 h2 {
   font-size: 150%;
-  padding: 0 auto;
+  margin: 0 auto;
 }
 
 h3 {
   color: #0D0D0D;
+  line-height: 125%;
 }
 
 h4 {
@@ -89,8 +91,8 @@ h4 {
   color: #F27272;
   color: #0D0D0D;
 }
-
-/* Other general styles : a, li, input  ///////////////////////////////*/
+/* //////////////////////////////////////////////////////////////////////////////////////// */
+/*//////////////////////////////////////////////////// Other general styles : a, li, input  */
 a {
   color: #594B46;
   text-decoration: none;
@@ -120,7 +122,8 @@ li {
   list-style: none;
 }
 
-/* Nav dropdown toggle button - CodeInstitute learning material */
+/* //////////////////////////////////////////////////////////////////////////////////////// */
+/*/////////////////////////////Nav dropdown toggle button - CodeInstitute learning material */
 nav {
   display: none;
   position: absolute;
@@ -155,8 +158,8 @@ nav {
 #nav-toggle {
   display: none;
 }
-
-/* Landing page screen styles    //////////////////////////////////*/
+/* //////////////////////////////////////////////////////////////////////////////////////// */
+/*/////////////////////////////////////////////////////////////////// Landing screen styles */
 #landing {
   display: none;
   background-color: rgba(13, 13, 13, 0.7);
@@ -168,23 +171,41 @@ nav {
 #landing label {
   color: #F2F2F2;
 }
-
-/* Setting & score screen styles //////////////////////////////////*/
+/* //////////////////////////////////////////////////////////////////////////////////////// */
+/*/////////////////////////////////////////////////////////////////// Setting screen styles */
 #setting {
   display: none;
+  margin: 0 auto;
+  position: relative;
+  top: -100px;
   background-color: rgba(242, 242, 242, 0.5);
 }
 
-#setting div:first-child {
-  background-color: #F27272;
+#pink-box {
+  position: relative;
+  top: 50px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(242, 114, 114, .8);
   border-radius: 10px;
   color: #0D0D0D;
-  padding: 10px 10%;
-  margin: 0 auto;
+  padding: 20px 2rem;
   max-width: 350px;
   text-align: left;
-  line-height: 150%;
-  letter-spacing: 3px;
+  line-height: 130%;
+  letter-spacing: 2px;
+  margin: auto;
+  margin-top: 100px;
+}
+
+#pink-box:first-child div {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+#pink-box>div>div {
+  margin: 2px 5px;
 }
 
 #setting button {
@@ -201,31 +222,19 @@ nav {
 
 #score {
   display: none;
-  margin: 25px;
+  margin: 15px;
   padding-bottom: 100px;
 }
 
-/* Game screen styles //////////////////////////////////*/
-
+.course {
+  flex: 1 0 120px;
+}
+/* //////////////////////////////////////////////////////////////////////////////////////// */
+/*////////////////////////////////////////////////////////////////////// Game screen styles */
 #game {
   display: none;
   width: 100%;
   background: #F2F2F2 url(../images/kaitenzushi0.webp) center top/400px no-repeat;
-}
-
-/* Id styles ///////////////////////////////////////////////*/
-#social-networks {
-  display: block;
-}
-
-#social-networks li {
-  display: inline-block;
-}
-
-#menu {
-  font-size: 95%;
-  letter-spacing: 2px;
-  line-height: 155%;
 }
 
 #img-display {
@@ -289,7 +298,6 @@ nav {
   text-align: center;
 }
 
-/* Class styles          ////////////////////////////////////////////*/
 .kana {
   font-family: "Yomogi", cursive;
   font-weight: 400;
@@ -311,14 +319,37 @@ nav {
   margin-left: auto;
   margin-right: auto;
 }
+/* //////////////////////////////////////////////////////////////////////////////////////// */
+/*/////////////////////////////////////////////////////////// Footer and toggle menu styles */
+#social-networks {
+  display: block;
+}
+
+#social-networks li {
+  display: inline-block;
+}
+
+#menu {
+  font-size: 95%;
+  letter-spacing: 2px;
+  line-height: 155%;
+}
 
 /* Media query: General smart phone (390px and up) */
-@media screen and (min-width:390px) {}
+@media screen and (min-width:390px) {
+  main {
+    background-size: 500px;
+  }
+}
 
 /* Media query: General smart phone (768px and up) */
 @media screen and (min-width:768px) {
   header {
     max-width: 768px;
+  }
+
+  main {
+    background-size: 600px;
   }
 
   #setting div:first-child {
@@ -329,13 +360,13 @@ nav {
 /* Media query: General smart phone (1024px and up) */
 @media screen and (min-width:1024px) {
   #setting div:first-child {
-    max-width: 600px;
+    max-width: 550px;
   }
 }
 
 /* Media query: General smart phone (1440px and up) */
 @media screen and (min-width:1024px) {
   #setting div:first-child {
-    max-width: 800px;
+    max-width: 600px;
   }
 }

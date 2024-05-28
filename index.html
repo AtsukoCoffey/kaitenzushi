@@ -56,29 +56,43 @@
     </div>
     <!-- Setting div -->
     <div id="setting">
-      <div>
+      <div id="pink-box">
         <h3><i class="fa-solid fa-user-gear" title="Setting & Contact"></i>Setting</h3>
-        <input type="radio" name="game_course" id="sushi-menu" checked>
-        <label for="sushi-menu">Sushi menu</label><br>
-        <input type="radio" name="game_course" id="school-life">
-        <label for="school-life">School life</label><br>
-        <input type="radio" name="game_course" id="greetings">
-        <label for="greetings">Greetings</label><br>
-        <i class="fa-solid fa-volume-low" title="Adjust volume"></i>
-        <input type="checkbox" id="w-sounds">
-        <label for="w-sounds">Word</label><br>
-        <i class="fa-solid fa-volume-low" title="Adjust volume"></i>
-        <input type="checkbox" id="sounds">
-        <label for="sounds">Effect</label>
-        <input type="checkbox" id="bgm">
-        <label for="bgm">BGM</label><br>
-        Play mode<br>
-        <input type="radio" name="Play_mode" id="play-easy" checked>
-        <label for="play-easy">Easy</label>
-        <input type="radio" name="Play_mode" id="play-hard">
-        <label for="play-hard">Hard</label><br>
+        <div>
+          <div class="course"><input type="radio" name="game_course" id="sushi-menu" checked>
+            <label for="sushi-menu">Sushi menu</label>
+          </div>
+          <div class="course"><input type="radio" name="game_course" id="school-life">
+            <label for="school-life">School life</label>
+          </div>
+          <div class="course"><input type="radio" name="game_course" id="greetings">
+            <label for="greetings">Greetings</label>
+          </div>
+        </div>
+        <h3><i class="fa-solid fa-volume-low" title="Adjust volume"></i>Sound</h3>
+        <div>
+          <div><input type="checkbox" id="w-sounds">
+            <label for="w-sounds">Word</label>
+          </div>
+          <div>
+            <input type="checkbox" id="sounds"><label for="sounds">Effect</label>
+          </div>
+          <div><input type="checkbox" id="bgm">
+            <label for="bgm">BGM</label>
+          </div>
+        </div>
+        <h3><i class="fa-solid fa-keyboard"></i>Play mode</h3>
+        <div>
+          <div><input type="radio" name="Play_mode" id="play-easy" checked>
+            <label for="play-easy">Easy</label>
+          </div>
+          <div><input type="radio" name="Play_mode" id="play-hard">
+            <label for="play-hard">Hard</label>
+          </div>
+        </div>
         <button id="game-start">START!</button>
       </div>
+    </div>
     </div>
     <!-- Game div -->
     <div id="game">
@@ -110,9 +124,11 @@
     <!-- Score display - it is on in setting and game both pages -->
     <div id="score">
       <h3>Score</h3>
-      Clear words:<span>0</span><br>
-      <span>Miss words:0</span><br>
-      <span>Success rate:100%</span>
+      <div>
+        <span>Clear words:0</span>
+        <span>Miss words:0</span>
+        <span>Success rate:100%</span>
+      </div>
     </div>
   </main>
   <!-- Footer -->
