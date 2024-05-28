@@ -47,6 +47,7 @@ footer {
   bottom: 0%;
   width: 100%;
   text-align: center;
+  z-index: -99;
 }
 
 footer li {
@@ -91,6 +92,7 @@ h4 {
 /* Other general styles : a, li, input  ///////////////////////////////*/
 a {
   color: #594B46;
+  text-decoration: none;
 }
 
 a:visited {
@@ -99,6 +101,7 @@ a:visited {
 
 a:hover {
   color: #F27272;
+  text-decoration: none;
 }
 
 button {
@@ -122,7 +125,11 @@ nav {
   position: absolute;
   top: 100%;
   right: 0%;
-  padding-right: 0.8rem;
+  padding: 1rem;
+  background-color: #F2F2F2;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px #594B46;
+  text-align: left;
 }
 
 #nav-toggle:checked~nav {
@@ -136,8 +143,12 @@ nav {
   right: 0%;
   font-size: 1.8rem;
   padding-top: 80px;
-  padding-right: 0.8rem;
+  padding-right: 1.5rem;
   color: #594B46;
+}
+
+.nav-toggle-label:hover {
+ color: #F27272;
 }
 
 #nav-toggle {
@@ -189,7 +200,7 @@ nav {
 
 .score {
   margin: 25px;
-  padding-bottom: 25px;
+  padding-bottom: 100px;
 }
 
 /* Game screen styles //////////////////////////////////*/
@@ -300,16 +311,29 @@ nav {
 }
 
 /* Media query: General smart phone (390px and up) */
-@media screen and (min-width:390px) {
-
-}
+@media screen and (min-width:390px) {}
 
 /* Media query: General smart phone (768px and up) */
 @media screen and (min-width:768px) {
+  header {
+    max-width: 768px;
+  }
+
   #setting div:first-child {
     max-width: 500px;
   }
 }
 
 /* Media query: General smart phone (1024px and up) */
-@media screen and (min-width:1024px) {}
+@media screen and (min-width:1024px) {
+  #setting div:first-child {
+    max-width: 600px;
+  }
+}
+
+/* Media query: General smart phone (1440px and up) */
+@media screen and (min-width:1024px) {
+  #setting div:first-child {
+    max-width: 800px;
+  }
+}

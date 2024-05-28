@@ -23,14 +23,23 @@
 <body>
   <!-- Header -->
   <header>
-    <h1>Kaiten Zushi</h1>
+    <a href="index.html" title="Go back to Top page" aria-label="Go back to Top page"><h1>Kaiten Zushi</h1></a>
     <input type="checkbox" name="nav-toggle" id="nav-toggle">
-    <label for="nav-toggle" class="nav-toggle-label"><i class="fa-solid fa-user-gear"
-        title="Setting & Contact"></i></label>
+    <label for="nav-toggle" class="nav-toggle-label"><i class="fa-solid fa-volume-low"
+        title="Sound Toggle Button"></i></label>
     <nav>
       <ul id="menu">
-        <li>Setting</li>
-        <li>Contact</li>
+        <li><input type="checkbox" id="w-sounds">
+          <label for="w-sounds">Word</label>
+        </li>
+        <li>
+          <input type="checkbox" id="sounds">
+          <label for="sounds">Effect</label>
+        </li>
+        <li>
+          <input type="checkbox" id="bgm">
+          <label for="bgm">BGM</label>
+        </li>
       </ul>
     </nav>
   </header>
@@ -39,14 +48,14 @@
     <!-- Layer of div : Modal -->
     <!-- Landing div -->
     <div id="landing">
-      <label for="entry">Entry name</label>
+      <label for="entry">Enter Name</label>
       <input type="text" name="entry" id="entry">
       <button id="entty-submit">SUBMIT</button>
     </div>
     <!-- Setting div -->
     <div id="setting">
       <div>
-        <h2>Setting</h2>
+        <h3><i class="fa-solid fa-user-gear" title="Setting & Contact"></i>Setting</h3>
         <input type="radio" name="game_course" id="sushi-menu" checked>
         <label for="sushi-menu">Sushi menu</label><br>
         <input type="radio" name="game_course" id="school-life">
