@@ -23,7 +23,9 @@
 <body>
   <!-- Header -->
   <header>
-    <a href="index.html" title="Go back to Top page" aria-label="Go back to Top page"><h1>Kaiten Zushi</h1></a>
+    <a href="index.html" title="Go back to Top page" aria-label="Go back to Top page">
+      <h1>Kaiten Zushi</h1>
+    </a>
     <input type="checkbox" name="nav-toggle" id="nav-toggle">
     <label for="nav-toggle" class="nav-toggle-label"><i class="fa-solid fa-volume-low"
         title="Sound Toggle Button"></i></label>
@@ -77,12 +79,6 @@
         <label for="play-hard">Hard</label><br>
         <button id="game-start">START!</button>
       </div>
-      <div class="score">
-        <h3>Score</h3>
-        Clear words:<span>0</span><br>
-        <span>Miss words:0</span><br>
-        <span>Success rate:100%</span>
-      </div>
     </div>
     <!-- Game div -->
     <div id="game">
@@ -97,13 +93,26 @@
           <div id="text-overlay"></div>
         </div>
       </div>
-      <input type="text" id="input" placeholder="Input here!" autocomplete="off">
+      <input type="text" id="input" placeholder="Input here!" autocomplete="off" autocorrect="off" autocapitalize="off"
+        spellcheck="false">
+      <!-- Audio sounds embedding here -->
+      <!-- Word sounds -->
       <audio src="" id="sound" class="" class="audio-sounds"></audio>
-      <audio src="assets/sounds/audio_9955-typing9.mp3" id="type-sound" class="audio-sounds" muted></audio>
-      <audio src="assets/sounds/audio_23261-mouseclick.mp3" id="click-sound" class="audio-sounds" muted></audio>
-      <audio src="assets/sounds/audio_1328-kotsu.mp3" id="hit-sound" class="audio-sounds" muted></audio>
-      <audio src="assets/sounds/audio_22292-coin.mp3" id="clear-sound" class="audio-sounds" muted></audio>
-      <audio src="assets/sounds/audio_12948-wafu-eyecatch.mp3" id="ending-sound" class="audio-sounds" muted></audio>
+      <!-- Effect sounds -->
+      <audio src="assets/sounds/audio_9955-typing9.mp3" id="type-sound" class="effect-sounds" muted></audio>
+      <audio src="assets/sounds/audio_23261-mouseclick.mp3" id="click-sound" class="effect-sounds" muted></audio>
+      <audio src="assets/sounds/audio_1328-kotsu.mp3" id="hit-sound" class="effect-sounds" muted></audio>
+      <audio src="assets/sounds/audio_22292-coin.mp3" id="clear-sound" class="effect-sounds" muted></audio>
+      <audio src="assets/sounds/audio_12948-wafu-eyecatch.mp3" id="ending-sound" class="effect-sounds" muted></audio>
+      <!-- Back Ground Music -->
+      <audio src="" id="sound" class="" class="audio-sounds"></audio>
+    </div>
+    <!-- Score display - it is on in setting and game both pages -->
+    <div id="score">
+      <h3>Score</h3>
+      Clear words:<span>0</span><br>
+      <span>Miss words:0</span><br>
+      <span>Success rate:100%</span>
     </div>
   </main>
   <!-- Footer -->
@@ -126,6 +135,7 @@
   </footer>
   <script src="assets/js/script.js"></script>
   <script src="https://kit.fontawesome.com/c9e3fbf0ad.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </body>
 
 </html>

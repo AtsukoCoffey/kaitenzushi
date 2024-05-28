@@ -32,11 +32,12 @@ header {
   justify-content: center;
   align-items: baseline;
   width: 100%;
-  background: url('../images/head-logo.png') center top/280px no-repeat;
+  background: #F2F2F2 url('../images/head-logo.png') center top/280px no-repeat;
+  padding-bottom: 8px;
 }
 
 main {
-  margin-top: 130px;
+  margin-top: 135px;
   flex: 1 0 auto;
   background: url("../images/kaitenzushi1.webp") center top/400px no-repeat;
   width: 100%;
@@ -75,7 +76,7 @@ h1 {
 
 h2 {
   font-size: 150%;
-  padding: 20px 0px;
+  padding: 0 auto;
 }
 
 h3 {
@@ -198,7 +199,8 @@ nav {
   color: #F2F2F2;
 }
 
-.score {
+#score {
+  display: none;
   margin: 25px;
   padding-bottom: 100px;
 }

@@ -178,21 +178,22 @@ const words = [
 
 /////////////////////////////////////////////////////////////// 
 // Landing page
-// For skipping user click - Entry form automatically show up 
+// Entry form automatically show up in 1 second
 ///////////////////////////////////////////////////////////////
 
 // Access the screens - Modal
 let landingScreen = document.getElementById('landing');
 let settingScreen = document.getElementById('setting');
 let gameScreen = document.getElementById('game');
+let scoreDisplay = document.getElementById('score');
 
 document.addEventListener("DOMContentLoaded", function () {
   setTimeout(function () {
-    landing.style.display = "block";
+    landingScreen.style.display = "block";
   }, 1000);
 
   // Add event listeners to the buttons
-  let entryButton = document.getElementById('entty-submit')
+  let entryButton = document.getElementById('entty-submit');
   entryButton.addEventListener('click', gamePageToggle);
   let gameStartButton = document.getElementById('game-start');
   gameStartButton.addEventListener('click', gamePageToggle);
@@ -203,6 +204,7 @@ function gamePageToggle() {
   if (landingScreen.style.display === "block") {
     landingScreen.style.display = "none";
     settingScreen.style.display = "block";
+    scoreDisplay.style.display = "block";
   } else if (settingScreen.style.display === "block") {
     settingScreen.style.display = "none";
     gameScreen.style.display = "block";
@@ -217,12 +219,12 @@ function gamePageToggle() {
 ///////////////////////////////////////////////////////////////
 
 // Sounds on when sounds check box is checked
-const audioSounds = document.getElementsByClassName('audio-sounds');
+const effectSounds = document.getElementsByClassName('effect-sounds');
 function turnOnSounds() {
   if (document.getElementById('sounds').checked) {
     // loop through to unmute
-    for (let i = 0; i < audioSounds.length; i++) {
-      audioSounds[i].muted = false;
+    for (let i = 0; i < effectSounds.length; i++) {
+      effectSounds[i].muted = false;
     }
   }
 };
@@ -414,6 +416,11 @@ function validateInput() {
     gameCounter++;
     // Next word
     nextWord();
+
+    // Display score
+    let successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
+    document.getElementsByClassName('score')[0].innerHTML =
+      `<h3>Score</h3><ul><li>Correct Type : ${correctTypeCounter}</li><li>Miss Type : ${missTypeCounter}</li><li>Success rate : ${successRate}%</li></ul></div>`;
   }
 }
 
@@ -434,11 +441,6 @@ function finishGame() {
   // Screen toggle to setting & score
   settingScreen.style.display = "block";
   gameScreen.style.display = "none";
-
-  // Score display in setting & score screen
-  let successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
-  document.getElementsByClassName('score')[0].innerHTML =
-    `<h3>Score</h3><ul><li>Correct Type : ${correctTypeCounter}</li><li>Miss Type : ${missTypeCounter}</li><li>Success rate : ${successRate}%</li></ul></div>`;
 }
 
 ///////////////////////////////////////////   Event listeners for catching users action
