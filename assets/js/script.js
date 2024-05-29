@@ -251,6 +251,8 @@ let letterCounter = 0;
 // Correct / Mistake Letter counter
 let correctTypeCounter = 0;
 let missTypeCounter = 0;
+let clearWord = 0;
+let missWord = 0;
 
 
 
@@ -308,6 +310,8 @@ function loadGame() {
   // let kanaLetterCounter = 0;
   correctTypeCounter = 0;
   missTypeCounter = 0;
+  clearWord = 0;
+  missWord = 0;
 };
 
 /**
@@ -350,12 +354,15 @@ function nextWord() {
     gameCounter++;
     // Reset word counter
     letterCounter = 0;
-    // Mobile user can't count mis-type at handleKeyPress function so count in this function
+    // Mobile user can't count miss-type at handleKeyPress function so count in this function
     missTypeCounter += textDisplay.innerText.length;
+    missWord++;
+    // Display score
+    inputScore();
     // Next word - game restart
     nextWord();
     // Time limit 10 secounds
-  }, 10000);
+  }, 15000);
 
 }
 
@@ -418,15 +425,26 @@ function validateInput() {
     letterCounter = 0;
     // kanaLetterCounter = 0;
     correctTypeCounter += textDisplay.innerText.length;
+    clearWord++;
     gameCounter++;
     // Next word
     nextWord();
 
     // Display score
-    let successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
-    document.getElementsByClassName('score')[0].innerHTML =
-      `<h3>Score</h3><ul><li>Correct Type : ${correctTypeCounter}</li><li>Miss Type : ${missTypeCounter}</li><li>Success rate : ${successRate}%</li></ul></div>`;
+    inputScore();
   }
+}
+
+/**
+ * Display score function
+ * This function is implemented in validateInput(), and setTimeout() in the nextWord() function
+ */
+function inputScore() {
+  let successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
+  document.getElementById('clear-words').innerText = `${clearWord}`;
+  document.getElementById('miss-words').innerText = `${missWord}`;
+  document.getElementById('miss-type').innerText = `${missTypeCounter}`;
+  document.getElementById('success-rate').innerText = `${successRate}`;
 }
 
 /**
