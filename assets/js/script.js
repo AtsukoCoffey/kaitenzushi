@@ -452,8 +452,8 @@ function finishGame() {
 
 // keyboard window event
 input.addEventListener('keypress', handleKeyPress);
-// mobile device input event 
-input.addEventListener('input', handleKeyPress);
+// mobile device touchstart event 
+input.addEventListener('touchstart', handleKeyPress);
 // Add touchend
 input.addEventListener('touchend', validateInput);
 
