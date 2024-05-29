@@ -388,6 +388,11 @@ function handleKeyPress(event) {
     if (textOver.innerText == textDisplay.innerText) {
       validateInput();
     }
+    // For mobile keyboard set Return key for validate function
+  } else if (key == 'return') {
+    validateInput();
+
+    // Everything else is miss typing
   } else {
     // wrong typing sound
     document.getElementById('hit-sound').play();
@@ -447,8 +452,8 @@ function finishGame() {
 
 // keyboard window event
 input.addEventListener('keypress', handleKeyPress);
-// mobile device touch start event 
-input.addEventListener('touchstart', handleKeyPress);
+// mobile device input event 
+input.addEventListener('input', handleKeyPress);
 // Add touchend
 input.addEventListener('touchend', validateInput);
 
