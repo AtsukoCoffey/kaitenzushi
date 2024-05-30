@@ -519,12 +519,14 @@ function finishGame() {
 ///////////////////////////////////////////   Event listeners for catching users action
 
 // keyboard window event
-input.addEventListener('keypress', handleKeyPress);
+input.addEventListener('keydown', handleKeyPress);
 // mobile device touchstart event 
-input.addEventListener('touchstart', handleKeyPress);
-// Add touchend
-input.addEventListener('change', validateInput);
-
+// input.addEventListener('touchstart', handleKeyPress);
+// // Add touchend
+// // input.addEventListener('change', validateInput);
+// input.addEventListener("change" (event) => {
+//   console.log(event.target.value)
+//   });
 
 
 
