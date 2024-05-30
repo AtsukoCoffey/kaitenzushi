@@ -523,7 +523,7 @@ input.addEventListener('keypress', handleKeyPress);
 // mobile device touchstart event 
 input.addEventListener('touchstart', handleKeyPress);
 // Add touchend
-input.addEventListener('touchend', validateInput);
+input.addEventListener('change', validateInput);
 
 
 
