@@ -31,16 +31,16 @@
         title="Sound Toggle Button"></i></label>
     <nav>
       <ul id="menu">
-        <li><input type="checkbox" id="w-sounds">
-          <label for="w-sounds">Word</label>
+        <li><input type="checkbox" id="w-sound-check1" class="word-sound-checkbox">
+          <label for="w-sound-check1">Word</label>
         </li>
         <li>
-          <input type="checkbox" id="sounds">
-          <label for="sounds">Effect</label>
+          <input type="checkbox" id="effect-sound-check1" class="effect-sound-checkbox">
+          <label for="effect-sound-check1">Effect</label>
         </li>
         <li>
-          <input type="checkbox" id="bgm">
-          <label for="bgm">BGM</label>
+          <input type="checkbox" id="bgm-check1" class="bgm-checkbox">
+          <label for="bgm-check1">BGM</label>
         </li>
       </ul>
     </nav>
@@ -71,14 +71,15 @@
         </div>
         <h3><i class="fa-solid fa-volume-low" title="Adjust volume"></i>Sound</h3>
         <div>
-          <div><input type="checkbox" id="w-sounds">
-            <label for="w-sounds">Word</label>
+          <div><input type="checkbox" id="w-sound-check2" class="word-sound-checkbox">
+            <label for="w-sound-check2">Word</label>
           </div>
           <div>
-            <input type="checkbox" id="sounds"><label for="sounds">Effect</label>
+            <input type="checkbox" id="effect-sound-check2" class="effect-sound-checkbox">
+            <label for="effect-sound-check2">Effect</label>
           </div>
-          <div><input type="checkbox" id="bgm">
-            <label for="bgm">BGM</label>
+          <div><input type="checkbox" id="bgm-check2" class="bgm-checkbox">
+            <label for="bgm-check2">BGM</label>
           </div>
         </div>
         <h3><i class="fa-solid fa-keyboard"></i>Play mode</h3>
@@ -93,7 +94,6 @@
         <button id="game-start">START!</button>
       </div>
     </div>
-    </div>
     <!-- Game div -->
     <div id="game">
       <div id="img-display">
@@ -107,11 +107,11 @@
           <div id="text-overlay"></div>
         </div>
       </div>
-      <input type="text" id="input" placeholder="Input here!" autocomplete="off" autocorrect="off" autocapitalize="off"
+      <input type="text" id="input" placeholder="Input here!" autocomplete="off" autocapitalize="off"
         spellcheck="false">
       <!-- Audio sounds embedding here -->
       <!-- Word sounds -->
-      <audio src="" id="sound" class="" class="audio-sounds"></audio>
+      <audio src="assets/sounds/su-amaebi.mp3" id="wr-sound" class="word-sound" muted></audio>
       <!-- Effect sounds -->
       <audio src="assets/sounds/audio_9955-typing9.mp3" id="type-sound" class="effect-sounds" muted></audio>
       <audio src="assets/sounds/audio_23261-mouseclick.mp3" id="click-sound" class="effect-sounds" muted></audio>
@@ -119,7 +119,7 @@
       <audio src="assets/sounds/audio_22292-coin.mp3" id="clear-sound" class="effect-sounds" muted></audio>
       <audio src="assets/sounds/audio_12948-wafu-eyecatch.mp3" id="ending-sound" class="effect-sounds" muted></audio>
       <!-- Back Ground Music -->
-      <audio src="" id="sound" class="" class="audio-sounds"></audio>
+      <audio src="assets/sounds/audio_21169-android-music.mp3" id="bgm" muted></audio>
     </div>
     <!-- Score display - it is on in setting and game both pages -->
     <div id="score">

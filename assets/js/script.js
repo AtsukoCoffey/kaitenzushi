@@ -209,25 +209,76 @@ function gamePageToggle() {
     settingScreen.style.display = "none";
     gameScreen.style.display = "block";
     loadGame();
-    turnOnSounds();
   }
 };
 
 /////////////////////////////////////////////////////////////// 
-// Setting & score screen
-// Choose the settings and submit to game screen 
+// Audio files on off toggle function
+// ON OFF check boxes are in Header nav toggle, and setting screen 
 ///////////////////////////////////////////////////////////////
+// Access sound check boxes 
+const wordSoundsCheckbox = document.getElementsByClassName('word-sound-checkbox');
+const effectSoundsCheckbox = document.getElementsByClassName('effect-sound-checkbox');
+const bgmSoundsCheckbox = document.getElementsByClassName('bgm-checkbox');
+let wordAudio = document.getElementById('wr-sound');
 
-// Sounds on when sounds check box is checked
-const effectSounds = document.getElementsByClassName('effect-sounds');
-function turnOnSounds() {
-  if (document.getElementById('sounds').checked) {
-    // loop through to unmute
-    for (let i = 0; i < effectSounds.length; i++) {
-      effectSounds[i].muted = false;
-    }
+// Give event listener -> turnOnSounds function
+// Bug - Solution from tutor support Sean using "for each" method and event listener "change" 
+[...wordSoundsCheckbox].forEach(checkbox => checkbox.addEventListener("change", (event) => turnOnWords(event)));
+[...effectSoundsCheckbox].forEach(checkbox => checkbox.addEventListener("change", (event) => turnOnEffect(event)));
+[...bgmSoundsCheckbox].forEach(checkbox => checkbox.addEventListener("change", (event) => turnOnBgm(event)));
+
+// Effect sound array on when check box is checked
+const effectSoundsArray = document.getElementsByClassName('effect-sounds');
+
+/**
+ * Turn on sounds function
+ * give this function all the sounds checkbox and submit button 
+ */
+function turnOnWords(event) {
+  if (event.target.checked) {
+    wordAudio.muted = false;
+    wordSoundsCheckbox[0].checked = true;
+    wordSoundsCheckbox[1].checked = true;
   }
-};
+  else {
+    wordAudio.muted = true;
+    wordSoundsCheckbox[0].checked = false;
+    wordSoundsCheckbox[1].checked = false;
+  }
+}
+
+function turnOnEffect(event) {
+  // If one of them checked -> automatically check another one and sound muted OFF
+  if (event.target.checked) {
+    // loop through to unmute
+    for (let i = 0; i < effectSoundsArray.length; i++) {
+      effectSoundsArray[i].muted = false;
+      effectSoundsCheckbox[0].checked = true;
+      effectSoundsCheckbox[1].checked = true;
+    }
+  } else {
+    // loop through to mute
+    for (let i = 0; i < effectSoundsArray.length; i++) {
+      effectSoundsArray[i].muted = true;
+      effectSoundsCheckbox[0].checked = false;
+      effectSoundsCheckbox[1].checked = false;
+    }
+  } 
+}
+
+function turnOnBgm(event) {
+if (event.target.checked) {
+  document.getElementById('bgm').muted = false;
+  bgmSoundsCheckbox[0].checked = true;
+  bgmSoundsCheckbox[1].checked = true;
+} else {
+  document.getElementById('bgm').muted = true;
+  bgmSoundsCheckbox[0].checked = false;
+  bgmSoundsCheckbox[1].checked = false;
+}
+}
+
 
 /////////////////////////////////////////////////////////////// 
 // Game screen
@@ -241,7 +292,6 @@ let textOver = document.getElementById('text-overlay');
 let kanaDisplay = document.getElementById('kana-display');
 let kanaOver = document.getElementById('kana-overlay');
 let input = document.getElementById('input'); // input box
-let wordAudio = document.getElementById('sound');
 
 // Game counter  
 let gameCounter = 0;
@@ -339,7 +389,7 @@ function nextWord() {
 
   // Play word sound
   wordAudio.setAttribute('src', shuffledWords[gameCounter].sound);
-  document.getElementById('sound').play();
+  document.getElementById('wr-sound').play();
 
   // Reset the overlay div and input with empty value
   document.getElementById('text-overlay').textContent = "";
@@ -418,7 +468,7 @@ function handleKeyPress(event) {
   * For mobile user - check displayed question text and input data
   */
 function validateInput() {
-  if (textOver.innerText == textDisplay.innerText || input.value.toLowerCase() == textDisplay.innerText) {
+  if (textOver.innerText == textDisplay.innerText || input.value == textDisplay.innerText) {
     // Clear sound
     document.getElementById('clear-sound').play();
     // letter counter reset
