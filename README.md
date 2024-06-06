@@ -17,53 +17,6 @@ My challenge is to modify this game and to set the target user for non-native Ja
 **[Live site >> url](url)**
 
 
-
-
-# ALGORITHM
-Below numbered lists are my original idea of the game system. Also just underneath the list, [BUG] sentences that describe the main problems with the features.   
- 
-I had never created a whole game before, so I was unsure if this was achievable within the given time or not. As a precaution, I set lower accomplish goal to prepare for submitting anytime. After that then I can try extra features that I hope I can implement until submission day. On the other hand, Japanese kana letter matching function was more complicated than I expected so I decided to make it an extra feature.  
- 
-**1. Create a new shufﬂed question**    
-[BUG](#bugs) Just random array -> I want shuffle properly ->  
- 
-**2. Set & start Global time limit (60s)**  
-[BUG](#bugs)  
-
-**3. Display ﬁrst question image & texts**   
-[BUG](#bugs) display images  
- 
-**4. Set one word timer (10s) per question -> Move on next**  
-[BUG](#bugs) After complete the word still that time limit is working -> This time limit need to be cancelled when next question is executed.  
- 
-**5. Detect user entry - Set on focus to input, set window.event to identify the key**   
-[BUG](#bugs) keyboard nor input event didn't work for mobile device (I didn't want to use button)   
-  
-**6. Input key matching -> matched key -> Letter matched counter +1, change the display using css, executes typing sound**   
-[BUG](#bugs) Changing the colour of a letter one by one in the word seems impossible.    
-My solution is using an another layer which was applied the style already, push the matched letter in it to look like to change the letter colour one by one.   
-[BUG](#bugs) Mobile device doesn't work the matching function as the keyboard system is different. Temporary, use return key to lead to validate function for mobile phone.  
-[BUG](#bugs) Matching function for Japanese kana letters were much more complicated than I expected. I tried some if statement though decided to postpone to try later. 
- 
-**7. Change user entry to the lower case**  
-  
-**8. Automatically clear the input area after (0.5 s)**  
- 
-**9. Unmatched key -> sound < boo > , mistake counter**  
- 
-**10. Validate the word function - If matched word counter + 1 and start new game. Reset the letter counter to 0**   
-[BUG](#bugs) Because input key matching `hundleKeyPress()` did not function for mobile device, make this can handle 2 ways of  validations.   
-[BUG](#bugs) `innerText` and `value` property.  
-
-
-## If I had enough time...
-* Use local storage
-* Animation - Question’s word image. Move from left to right (in 10 seconds)
-* Award some extra time when repeatedly type correctly (booster)
-
-
-
-
 # UX DESIGN
 
 ## 1. Strategy Plane
@@ -221,6 +174,50 @@ The footer section includes links to the relevant social media sites. The links 
 * Typing area  
 ........................................
 [CREDITS - Code Institute learning material](#credits-content)  
+
+
+# ALGORITHM
+Below numbered lists are my original idea of the game system. Also just underneath the list, [BUG] sentences that describe the main problems with the features.   
+ 
+I had never created a whole game before, so I was unsure if this was achievable within the given time or not. As a precaution, I set lower accomplish goal to prepare for submitting anytime. After that then I can try extra features that I hope I can implement until submission day. On the other hand, Japanese kana letter matching function was more complicated than I expected so I decided to make it an extra feature.  
+ 
+**1. Create a new shufﬂed question**    
+[BUG](#bugs) Just random array -> I want shuffle properly ->  
+ 
+**2. Set & start Global time limit (60s)**  
+[BUG](#bugs)  
+
+**3. Display ﬁrst question image & texts**   
+[BUG](#bugs) display images  
+ 
+**4. Set one word timer (10s) per question -> Move on next**  
+[BUG](#bugs) After complete the word still that time limit is working -> This time limit need to be cancelled when next question is executed.  
+ 
+**5. Detect user entry - Set on focus to input, set window.event to identify the key**   
+[BUG](#bugs) keyboard nor input event didn't work for mobile device (I didn't want to use button)   
+  
+**6. Input key matching -> matched key -> Letter matched counter +1, change the display using css, executes typing sound**   
+[BUG](#bugs) Changing the colour of a letter one by one in the word seems impossible.    
+My solution is using an another layer which was applied the style already, push the matched letter in it to look like to change the letter colour one by one.   
+[BUG](#bugs) Mobile device doesn't work the matching function as the keyboard system is different. Temporary, use return key to lead to validate function for mobile phone.  
+[BUG](#bugs) Matching function for Japanese kana letters were much more complicated than I expected. I tried some if statement though decided to postpone to try later. 
+ 
+**7. Change user entry to the lower case**  
+  
+**8. Automatically clear the input area after (0.5 s)**  
+ 
+**9. Unmatched key -> sound < boo > , mistake counter**  
+ 
+**10. Validate the word function - If matched word counter + 1 and start new game. Reset the letter counter to 0**   
+[BUG](#bugs) Because input key matching `hundleKeyPress()` did not function for mobile device, make this can handle 2 ways of  validations.   
+[BUG](#bugs) `innerText` and `value` property.  
+
+
+## If I had enough time...
+* Use local storage
+* Animation - Question’s word image. Move from left to right (in 10 seconds)
+* Award some extra time when repeatedly type correctly (booster)
+
 
 
 # FUTURE FEATURES
@@ -399,7 +396,7 @@ My solution is using the another layer which was applied the style already, push
 [BUG] Mobile device doesn't work the matching function as the keyboard system is deffent. Temporary, use return key to lead to validate function for mobile phone.  
 [BUG] Matching function for japanese kana letters were much more complicated than I expected. I tried some if statement though decided to postpone to try later. 
  
-## Change user entry to the lower case**  
+## Change user entry to the lower case  
   
 ## Automatically clear the input area after (0.5 s)**  
  
@@ -419,13 +416,22 @@ Later I found this function wasn't working in the mobile device, because same is
 
 Stopped the correct letter counting at `handleKeyPress` one by one. So I tried to add the letter counter's number when validate the word. How ever, `textDisplay.length` wasn't a number, 
 ![TextDisplay.length](readme/bug-getting-number-of-length.png "`TextDisplay.length")
- 
 
 
 ## DIsplay of the global time limits
 
 ![setting timeout 1](readme/bug-stop-setinterval-error1.png "`setting timeout 1")   
 ![setting timeout 2](readme/bug-stop-setinterval.png "`setting timeout 1")
+
+## AUDIO CONTROL CHECKBOXES
+
+When I was working on this audio control checkbox, it was just the timing to Gitpod migration. I made a commitment though it wasn’t succeeded in my new Gitpod environment. I noticed the terminal text's colour was different but I didn’t really look at the warning by my mistake. I want to leave my track here for detail references.
+Beforehand I implemented the `turnOnSound()` function to see the checkbox can control the audio files. There were 5 audio files so I used for loop to iterate to go through each other. At this time code was really simple, using just if statement and iterate `muted = false` all the checkboxes. So this time I duplicated the checkboxes into the nav toggle header menu. What I wanted to do was the linking those same function buttons. If a checkbox at main div was checked then header nav’s same function checkbox is checked automatically along with audio control. There are 3 types of controls and all duplicated so same function’s checkboxes are 2 each, I tried to get the array from get ElementsByClassName, and specify with using index number to connect to 3 different functions. Also added event listener `click` and use `if statement` to toggle the audio muted attribute; automatically checked or unchecked. Strangely it worked half way. When I checked the other checkbox was checked automatically and audio controlling OK, but can’t uncheck again and not control audio anymore. For a while I tried to solve it but didn’t work, and this point I failed to the commitment.
+Tutor Sean at Tutor support helped me to solve this problem, he checked one by one my code and he suggested me to use event listener “change” also using “event.target” then this checkbox worked properly. Also he used .forEach method even only 2 in the array, it might be simpler than specify one by one.
+
+## TYPING AREA – INPUT TEXT AREA FOR MOBILE KEYBOARD ISSUE
+From Audio control bug I learned `change` event listener and using `event.target` to specify precisely that solved some errors. I had an issue with mobile devise only, both `validateInput()` and `handleKeypress()` functions didn’t work properly. I thought it might be similar problem so I asked this issue to tutor support again. I was trying to fix this issue long time with using event listener `input` `keypress` `touchstart` `touchend`. Tutor Sean suggested me to use `change` or `keydown` `keyup`. `keydown` worked for Mac OS mobiles, iPhone and iPad. But I found it didn’t work for android OS later.
+
 
 # DEPLOYMENT
 
