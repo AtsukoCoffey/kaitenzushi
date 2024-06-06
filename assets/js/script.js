@@ -424,7 +424,7 @@ function nextWord() {
 function handleKeyPress(event) {
 
   // Access the key that was pressed
-  const key = event.key;
+  const key = event.target.value;
 
   // Check whether match the letter
   if (key == textDisplay.textContent.charAt(letterCounter)) {
