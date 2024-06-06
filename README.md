@@ -222,6 +222,7 @@ My solution is using an another layer which was applied the style already, push 
 
 # FUTURE FEATURES
 
+* Another site for mobile phone or diffferent system; This app is using input value, not using return key so some mobile phone's keyboard need to erase the input text after typed. 
 * Use local storage.  
 * The feature - background music gets faster with lessing the time.
 * The feature - Award some extra time when repeatedly type correctly in 1 second (?)
@@ -431,7 +432,8 @@ Tutor Sean at Tutor support helped me to solve this problem, he checked one by o
 
 ## TYPING AREA – INPUT TEXT AREA FOR MOBILE KEYBOARD ISSUE
 From Audio control bug I learned `change` event listener and using `event.target` to specify precisely that solved some errors. I had an issue with mobile devise only, both `validateInput()` and `handleKeypress()` functions didn’t work properly. I thought it might be similar problem so I asked this issue to tutor support again. I was trying to fix this issue long time with using event listener `input` `keypress` `touchstart` `touchend`. Tutor Sean suggested me to use `change` or `keydown` `keyup`. `keydown` worked for Mac OS mobiles, iPhone and iPad, but I found it didn’t work for android OS later.
-I tried to change `const key = event.key` to `const key = event.target.value` to see work on Android OS phone, finally it succeeded to work on Android OS phone. However there is a little problem still left that is the event doesn't immediately change the overlay text in Android OS phone. The issue make user can't find out the input was correct or not immediately.
+I tried to change `const key = event.key` to `const key = event.target.value` in the `handleKeypress()` to see work on Android OS phone, finally it had succeeded to work on Android OS phone. However not perfectly, there is a problem still that is the event doesn't immediately change the overlay text in Android OS phone. The issue makes user can't find out the input was correct or not immediately. 
+Next I did was the input text event listener, I tried `change` from `keydown` that brings backword; `handleKeyPress()` doesn't work at all. Then tried `input` it seems this is the best way; input value immediately goes to `handleKeyPress()` and change the ovelay text. I found an another problem that is the text user input in the mobile keyboard, user have to erase it by their self. But this is mobile kyboard system and not under the this website control, so leave this issue for a future impruvement. 
 
 
 # DEPLOYMENT
