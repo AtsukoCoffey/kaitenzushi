@@ -182,10 +182,10 @@ const words = [
 ///////////////////////////////////////////////////////////////
 
 // Access the screens - Modal
-let landingScreen = document.getElementById('landing');
-let settingScreen = document.getElementById('setting');
-let gameScreen = document.getElementById('game');
-let scoreDisplay = document.getElementById('score');
+const landingScreen = document.getElementById('landing');
+const settingScreen = document.getElementById('setting');
+const gameScreen = document.getElementById('game');
+const scoreDisplay = document.getElementById('score');
 
 document.addEventListener("DOMContentLoaded", function () {
   setTimeout(function () {
@@ -193,9 +193,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 1000);
 
   // Add event listeners to the buttons
-  let entryButton = document.getElementById('entty-submit');
+  const entryButton = document.getElementById('entty-submit');
   entryButton.addEventListener('click', gamePageToggle);
-  let gameStartButton = document.getElementById('game-start');
+  const gameStartButton = document.getElementById('game-start');
   gameStartButton.addEventListener('click', gamePageToggle);
 });
 
@@ -287,12 +287,12 @@ function turnOnBgm(event) {
 ///////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////   All the global counters and variables for game
-let imageDisplay = document.getElementById('img-display');
-let textDisplay = document.getElementById('text-display');
-let textOver = document.getElementById('text-overlay');
-let kanaDisplay = document.getElementById('kana-display');
-let kanaOver = document.getElementById('kana-overlay');
-let input = document.getElementById('input'); // input box
+const imageDisplay = document.getElementById('img-display');
+const textDisplay = document.getElementById('text-display');
+const textOver = document.getElementById('text-overlay');
+const kanaDisplay = document.getElementById('kana-display');
+const kanaOver = document.getElementById('kana-overlay');
+const input = document.getElementById('input'); // input box
 
 // Game counter  
 let gameCounter = 0;
