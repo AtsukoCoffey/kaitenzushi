@@ -341,11 +341,23 @@ function loadGame() {
   shuffle();
   // Start the game - question word
   nextWord();
-  // Set global timer (60s)
-  setTimeout(function () {
-    finishGame();
-    // Time limit 60 secounds
-  }, 60000);
+  // Set interval and after 60 seconds finishGame()
+  let timeDisplay = 60;
+  document.getElementById('time-left').textContent = `${timeDisplay}`;
+
+    const globalTimerId = setInterval(() => {
+      timeDisplay--;
+      document.getElementById('time-left').textContent = `${timeDisplay}`;
+      if (timeDisplay === 0) {
+        clearInterval(globalTimerId);
+        finishGame();
+      }
+    }, 1000)
+  // // Set global timer (60s)
+  // setTimeout(function () {
+  //   finishGame();
+  //   // Time limit 60 secounds
+  // }, 60000);
   // Focus on input area
   input.focus();
   // All the counter reset

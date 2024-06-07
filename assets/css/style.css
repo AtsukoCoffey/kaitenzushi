@@ -238,7 +238,21 @@ nav {
 }
 
 #img-display {
+  position: relative;
   min-height: 150px;
+}
+
+#game p {
+  position: relative; 
+  top: -30px;
+  left: 45%;
+  width: 100px;
+  height: 30px;
+  border: 1px solid red;
+  z-index: 99;
+  color: #F27272;
+  font-weight: 600;
+  font-size: 1.3rem;
 }
 
 #text-display {
