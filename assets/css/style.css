@@ -244,15 +244,12 @@ nav {
 
 #game p {
   position: relative; 
-  top: -30px;
+  top: -33px;
   left: 45%;
-  width: 100px;
-  height: 30px;
-  border: 1px solid red;
-  z-index: 99;
-  color: #F27272;
+  color: #0D0D0D;
   font-weight: 600;
   font-size: 1.3rem;
+  width: 150px;
 }
 
 #text-display {
