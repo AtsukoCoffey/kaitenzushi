@@ -237,6 +237,25 @@ nav {
 .play-mode {
   flex: 1 0 110px;
 }
+
+#new-score {
+  display: none;
+  background-color: #F2F2F2;
+  position: absolute;
+  top: -30px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  color: #0D0D0D;
+  padding: 15px 2rem;
+  max-width: 350px;
+  text-align: left;
+  line-height: 150%;
+  letter-spacing: 2px;
+  margin: auto;
+  margin-top: 100px;
+
+}
 /* //////////////////////////////////////////////////////////////////////////////////////// */
 /*////////////////////////////////////////////////////////////////////// Game screen styles */
 #game {
