@@ -103,7 +103,7 @@ const words = [
     "kana": 'いなりずし',
     image: 'assets/images/sushi_inarizushi_set.webp',
     sound: 'assets/sounds/su-inarizushi.mp3',
-    english: 'Pickled fried tofu and sushi'
+    english: 'Pickled fried tofu sushi'
   },
   {
     name: 'hokkigai',
