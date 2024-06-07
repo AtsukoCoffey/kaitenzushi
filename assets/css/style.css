@@ -254,7 +254,7 @@ nav {
 
 #text-display {
   position: absolute;
-  top: 45px;
+  top: 35px;
   left: 15%;
   width: 100%;
   color: #F2F2F2;
@@ -265,7 +265,7 @@ nav {
 
 #text-overlay {
   position: absolute;
-  top: 45px;
+  top: 35px;
   left: 15%;
   width: 100%;
   z-index: 99;
@@ -277,7 +277,7 @@ nav {
 
 #kana-display {
   position: absolute;
-  top: 5px;
+  top: 3px;
   left: 15%;
   width: 100%;
   color: #F2F2F2;
@@ -287,13 +287,24 @@ nav {
 
 #kana-overlay {
   position: absolute;
-  top: 5px;
+  top: 3px;
   left: 15%;
   width: 100%;
   z-index: 99;
   color: #f0bc11;
   padding-top: 0.8rem;
   text-align: left;
+}
+
+#english {
+  position: absolute;
+  top: -35px;
+  left: 15%;
+  width: 100%;
+  color: #594B46;
+  padding-top: 0.8rem;
+  text-align: left;
+  font-size: 0.9rem;
 }
 
 #input {
