@@ -220,7 +220,6 @@ function gamePageToggle() {
 const wordSoundsCheckbox = document.getElementsByClassName('word-sound-checkbox');
 const effectSoundsCheckbox = document.getElementsByClassName('effect-sound-checkbox');
 const bgmSoundsCheckbox = document.getElementsByClassName('bgm-checkbox');
-let wordAudio = document.getElementById('wr-sound');
 
 // Give event listener -> turnOnSounds function
 // Bug - Solution from tutor support Sean using "for each" method and event listener "change" 
@@ -228,8 +227,10 @@ let wordAudio = document.getElementById('wr-sound');
 [...effectSoundsCheckbox].forEach(checkbox => checkbox.addEventListener("change", (event) => turnOnEffect(event)));
 [...bgmSoundsCheckbox].forEach(checkbox => checkbox.addEventListener("change", (event) => turnOnBgm(event)));
 
-// Effect sound array on when check box is checked
+// Access sounds file and Effect sound files
+const wordAudio = document.getElementById('wr-sound');
 const effectSoundsArray = document.getElementsByClassName('effect-sounds');
+const bgmAudio = document.getElementById('bgm');
 
 /**
  * Turn on sounds function
@@ -264,19 +265,19 @@ function turnOnEffect(event) {
       effectSoundsCheckbox[0].checked = false;
       effectSoundsCheckbox[1].checked = false;
     }
-  } 
+  }
 }
 
 function turnOnBgm(event) {
-if (event.target.checked) {
-  document.getElementById('bgm').muted = false;
-  bgmSoundsCheckbox[0].checked = true;
-  bgmSoundsCheckbox[1].checked = true;
-} else {
-  document.getElementById('bgm').muted = true;
-  bgmSoundsCheckbox[0].checked = false;
-  bgmSoundsCheckbox[1].checked = false;
-}
+  if (event.target.checked) {
+    bgmAudio.muted = false;
+    bgmSoundsCheckbox[0].checked = true;
+    bgmSoundsCheckbox[1].checked = true;
+  } else {
+    bgmAudio.muted = true;
+    bgmSoundsCheckbox[0].checked = false;
+    bgmSoundsCheckbox[1].checked = false;
+  }
 }
 
 
@@ -304,9 +305,7 @@ let missTypeCounter = 0;
 let clearWord = 0;
 let missWord = 0;
 
-
-
-// Create a shalow copy of words array Original array is the bottom of the script
+// Create a shallow copy of words array, Original array is the top of the script
 let shuffledWords = [...words];
 
 /**
@@ -326,12 +325,7 @@ function shuffle() {
   }
 };
 
-
-
-
-
-
-///////////////////////////////////////////   All the main functions
+///////////////////////////////////////////   All the game main functions
 
 /**
  * Load Game - from setting & score screen 
@@ -362,6 +356,8 @@ function loadGame() {
   missTypeCounter = 0;
   clearWord = 0;
   missWord = 0;
+  // Back ground music on
+  bgmAudio.play();
 };
 
 /**
@@ -389,7 +385,7 @@ function nextWord() {
 
   // Play word sound
   wordAudio.setAttribute('src', shuffledWords[gameCounter].sound);
-  document.getElementById('wr-sound').play();
+  wordAudio.play();
 
   // Reset the overlay div and input with empty value
   document.getElementById('text-overlay').textContent = "";
@@ -505,6 +501,10 @@ function finishGame() {
   //Clear one word time limit
   clearTimeout(oneWordTimeoutId);
 
+  //Stop back ground music
+  bgmAudio.pause();
+  bgmAudio.currentTime = 0;
+
   textDisplay.innerHTML = "Time out";
   textOver.innerHTML = "Time out";
 
@@ -520,7 +520,7 @@ function finishGame() {
 
 // keyboard window event
 input.addEventListener('input', handleKeyPress);
-// mobile device touchstart event 
+// mobile device touchstart event
 // input.addEventListener('touchstart', handleKeyPress);
 // // Add touchend
 // // input.addEventListener('change', validateInput);
