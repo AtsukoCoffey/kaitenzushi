@@ -552,15 +552,16 @@ function finishGame() {
   // Screen toggle to setting & score
   settingScreen.style.display = "block";
   gameScreen.style.display = "none";
+  document.getElementById('new-score').style.display = "block"
 
   document.getElementById('new-score').innerHTML = `<h3>Hooray! Your New Score!</h3><div><p>Clear words : <span id="clear-words">` + `${clearWord}` + `</span></p><p>Missed words : <span id="miss-words">` + `${missWord}` + `</span></p><p>Miss type : <span id="miss-type">` + `${missTypeCounter}` + `</span></p><p>Success rate : <span id="success-rate">` + `${successRate}` + `</span></p><i title="Close" class="fa-solid fa-square-xmark"></i></div>`;
 
-  const closeX = document.getElementsByClassName('fa-square-xmark');
-  closeX.addEventListener('click', () => {
-    document.getElementById('new-score').style.display = none;
-  })
 
-  document.getElementById('new-score').style.display = block;
+  const closeX = document.getElementsByClassName('fa-square-xmark');
+
+  closeX[0].addEventListener('click', () => {
+    document.getElementById('new-score').style.display = "none";
+  })
 }
 ///////////////////////////////////////////   Event listeners for catching users action
 
