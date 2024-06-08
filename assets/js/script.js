@@ -523,8 +523,8 @@ function validateInput() {
  * Display score function
  * This function is implemented in validateInput(), and setTimeout() in the nextWord() function
  */
-let successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
 function inputScore() {
+  let successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
   document.getElementById('clear-words').innerText = `${clearWord}`;
   document.getElementById('miss-words').innerText = `${missWord}`;
   document.getElementById('miss-type').innerText = `${missTypeCounter}`;
@@ -552,8 +552,11 @@ function finishGame() {
   // Screen toggle to setting & score
   settingScreen.style.display = "block";
   gameScreen.style.display = "none";
-  document.getElementById('new-score').style.display = "block"
+  // New score display
+  const newScore = document.getElementById('new-score');
+  newScore.style.display = "block";
 
+  let successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
   document.getElementById('new-score').innerHTML = `<h3>Hooray! Your New Score!</h3><div><p>Clear words : <span id="clear-words">` + `${clearWord}` + `</span></p><p>Missed words : <span id="miss-words">` + `${missWord}` + `</span></p><p>Miss type : <span id="miss-type">` + `${missTypeCounter}` + `</span></p><p>Success rate : <span id="success-rate">` + `${successRate}` + `</span></p><i title="Close" class="fa-solid fa-square-xmark"></i></div>`;
 
 
