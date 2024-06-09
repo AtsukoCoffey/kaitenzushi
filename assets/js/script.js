@@ -622,7 +622,7 @@ function finishGame() {
 
   // SuccessRate calculate - in case of the calculation goes 66.66666666 use Math.floor
   let successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
-  document.getElementById('new-score').innerHTML = `<h3>Hooray! Your New Score!</h3><div><p>Clear words : <span id="clear-words">` + `${clearWord}` + `</span></p><p>Missed words : <span id="miss-words">` + `${missWord}` + `</span></p><p>Miss type : <span id="miss-type">` + `${missTypeCounter}` + `</span></p><p>Success rate : <span id="success-rate">` + `${successRate}` + `</span></p><i title="Close" class="fa-solid fa-square-xmark"></i></div>`;
+  document.getElementById('new-score').innerHTML = `<h3>Hooray! Your New Score!</h3><div><p>Clear words : <span>` + `${clearWord}` + `</span></p><p>Missed words : <span>` + `${missWord}` + `</span></p><p>Miss type : <span>` + `${missTypeCounter}` + `</span></p><p>Success rate : <span>` + `${successRate}` + `</span></p><i title="Close" class="fa-solid fa-square-xmark"></i></div>`;
 
   // Add close X button to the New score display
   const closeX = document.getElementsByClassName('fa-square-xmark');
@@ -645,13 +645,18 @@ function finishGame() {
   if (clearWord > recentClearWord.innerText) {
     recentClearWord.innerText = clearWord;
     recentSuccessRate.innerText = successRate;
-  } 
+  }
   // Save the Recent scores into local storage
   localStorage.setItem("recentUserName", document.getElementById('input-name').value);
   localStorage.setItem("recentClearWord", recentClearWord.innerText);
 
   // localStorage.setItem("recentMissType", missTypeCounter);
   localStorage.setItem("recentSuccessRate", recentSuccessRate.innerText);
+  // Reset the new score
+  document.getElementById('clear-words').textContent = "";
+  document.getElementById('miss-words').textContent = "";
+  document.getElementById('miss-type').textContent = "";
+  document.getElementById('success-rate').textContent = "";
 }
 ///////////////////////////////////////////   Event listeners for catching users action
 
