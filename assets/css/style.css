@@ -38,7 +38,7 @@ header {
 }
 
 main {
-  margin-top: 135px;
+  margin-top: 125px;
   /* position: relative; */
   flex: 1 0 auto;
   background: url("../images/kaitenzushi1.webp") center top/400px no-repeat;
@@ -111,6 +111,7 @@ button {
   padding: 5px;
   border-radius: 8px;
   font: inherit;
+  background-color: #F2F2F2;
 }
 
 input {
@@ -238,8 +239,11 @@ nav {
   flex: 1 0 110px;
 }
 
-#new-score {
+#new-score-container {
   display: none;
+}
+
+#new-score {
   position: absolute;
   top: 180px;
   margin-left: auto;

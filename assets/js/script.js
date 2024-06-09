@@ -553,18 +553,34 @@ function finishGame() {
   settingScreen.style.display = "block";
   gameScreen.style.display = "none";
   // New score display
-  const newScore = document.getElementById('new-score');
-  newScore.style.display = "block";
+  const newScoreContainer = document.getElementById('new-score-container');
+  newScoreContainer.style.display = "block";
 
   let successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
   document.getElementById('new-score').innerHTML = `<h3>Hooray! Your New Score!</h3><div><p>Clear words : <span id="clear-words">` + `${clearWord}` + `</span></p><p>Missed words : <span id="miss-words">` + `${missWord}` + `</span></p><p>Miss type : <span id="miss-type">` + `${missTypeCounter}` + `</span></p><p>Success rate : <span id="success-rate">` + `${successRate}` + `</span></p><i title="Close" class="fa-solid fa-square-xmark"></i></div>`;
 
-
+  // Add close X button to the New score display
   const closeX = document.getElementsByClassName('fa-square-xmark');
-
   closeX[0].addEventListener('click', () => {
-    document.getElementById('new-score').style.display = "none";
+    newScoreContainer.style.display = "none";
   })
+
+  ///////////////////////////////////////////   Store the score into local storage
+  const recentClearWord = document.getElementById('r-clear-words');
+  const recentSuccessRate = document.getElementById('r-success-rate');
+  recentClearWord.innerText = 0;
+  recentSuccessRate.innerText = 0;
+
+  if (clearWord > recentClearWord.innerText) {
+    recentClearWord.innerText = clearWord;
+  } else if (successRate > recentSuccessRate) {
+    recentSuccessRate.innerText = successRate;
+  }
+  // Save the Recent scores into local storage
+      localStorage.setItem("recentClearWord", clearWord);
+      // localStorage.setItem("recentMissWord", missWord);
+      // localStorage.setItem("recentMissType", missTypeCounter);
+      localStorage.setItem("recentSuccessRate", successRate);
 }
 ///////////////////////////////////////////   Event listeners for catching users action
 
@@ -577,7 +593,6 @@ input.addEventListener('input', handleKeyPress);
 // input.addEventListener("change" (event) => {
 //   console.log(event.target.value)
 //   });
-
 
 
 /**
