@@ -615,10 +615,10 @@ function finishGame() {
   // Get recent best score 
   // From local storage 
   ///////////////////////////////////////////////////////////////
-  const recentUserName = localStorage.getItem('recentUserName');
+  let recentUserName = localStorage.getItem('recentUserName');
   // Keys and values of stored data is string so JSON.parse to number
-  const recentClearScore = JSON.parse(localStorage.getItem('recentClearScore'));
-  const recentSuccessRate = JSON.parse(localStorage.getItem('recentSuccessRate'));
+  let recentClearScore = JSON.parse(localStorage.getItem('recentClearScore'));
+  let recentSuccessRate = JSON.parse(localStorage.getItem('recentSuccessRate'));
   // First time, if Recent score is NaN, set 0
   if (recentClearScore === NaN) {
     recentClearScore.innerText = 0;
@@ -643,9 +643,9 @@ function finishGame() {
   ///////////////////////////////////////////////////////////////
 
   // If New score is higher than Recent score, New score = Recent score
-  if (clearWord > recentClearScore.innerText) {
-    recentClearScore.innerText = clearWord;
-    recentSuccessRate.innerText = successRate;
+  if (clearWord > recentClearScore) {
+    recentClearScore = clearWord;
+    recentSuccessRate = successRate;
   }
   // Save the Recent scores into local storage
   localStorage.setItem("recentUserName", document.getElementById('input-name').value);
