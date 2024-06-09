@@ -203,6 +203,56 @@ const words = [
     sound: 'assets/sounds/su-uni.mp3',
     english: 'Sea urchin'
   },
+  // Add more data later-----
+  {
+    name: 'amaebi',
+    "kana": 'あまえび',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'Sweet shrimp'
+  },
+  {
+    name: 'anago',
+    "kana": 'あなご',
+    image: 'assets/images/sushi_anago.webp',
+    sound: 'assets/sounds/su-anago.mp3',
+    english: 'Conger eel'
+  },
+  {
+    name: 'battera',
+    "kana": 'ばってら',
+    image: 'assets/images/sushi_battera.webp',
+    sound: 'assets/sounds/su-battera.mp3',
+    english: 'Mackerel sushi'
+  },
+  {
+    name: 'sabazushi',
+    "kana": 'さばずし',
+    image: 'assets/images/sushi_bouzushi_saba.webp',
+    sound: 'assets/sounds/su-sabazushi.mp3',
+    english: 'Mackerel sushi'
+  },
+  {
+    name: 'buri',
+    "kana": 'ぶり',
+    image: 'assets/images/sushi_buri.webp',
+    sound: 'assets/sounds/su-buri.mp3',
+    english: 'Big yellowtail'
+  },
+  {
+    name: 'chirashizushi',
+    "kana": 'ちらしずし',
+    image: 'assets/images/sushi_chirashizushi.webp',
+    sound: 'assets/sounds/su-chirashizushi.mp3',
+    english: 'Sprinkled sushi'
+  },
+  {
+    name: 'chutoro',
+    "kana": 'ちゅうとろ',
+    image: 'assets/images/sushi_chutoro.webp',
+    sound: 'assets/sounds/su-chutoro.mp3',
+    english: 'Medium tuna Toro'
+  },
 ];
 
 /////////////////////////////////////////////////////////////// 
@@ -251,8 +301,8 @@ function gamePageToggle() {
 let recentClearScoreFromStorage = document.getElementById('r-clear-words').innerText;
 let recentSuccessRateFromStorage = document.getElementById('r-success-rate').innerText;
 if (!localStorage['recentClearWord']) {
-recentClearScoreFromStorage = parseInt(localStorage('recentClearWord'));
-recentSuccessRateFromStorage = parseInt(localStorage('recentSuccessRate'));
+  recentClearScoreFromStorage = parseInt(localStorage('recentClearWord'));
+  recentSuccessRateFromStorage = parseInt(localStorage('recentSuccessRate'));
 }
 /////////////////////////////////////////////////////////////// 
 // Audio files on off toggle function
@@ -537,10 +587,11 @@ function validateInput() {
  * This function is implemented in validateInput(), and setTimeout() in the nextWord() function
  */
 function inputScore() {
-  let successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
   document.getElementById('clear-words').innerText = `${clearWord}`;
   document.getElementById('miss-words').innerText = `${missWord}`;
   document.getElementById('miss-type').innerText = `${missTypeCounter}`;
+  // SuccessRate calculate - in case of the calculation goes 66.66666666 use Math.floor
+  let successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
   document.getElementById('success-rate').innerText = `${successRate}`;
 }
 
@@ -569,6 +620,7 @@ function finishGame() {
   const newScoreContainer = document.getElementById('new-score-container');
   newScoreContainer.style.display = "block";
 
+  // SuccessRate calculate - in case of the calculation goes 66.66666666 use Math.floor
   let successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
   document.getElementById('new-score').innerHTML = `<h3>Hooray! Your New Score!</h3><div><p>Clear words : <span id="clear-words">` + `${clearWord}` + `</span></p><p>Missed words : <span id="miss-words">` + `${missWord}` + `</span></p><p>Miss type : <span id="miss-type">` + `${missTypeCounter}` + `</span></p><p>Success rate : <span id="success-rate">` + `${successRate}` + `</span></p><i title="Close" class="fa-solid fa-square-xmark"></i></div>`;
 
@@ -592,12 +644,12 @@ function finishGame() {
   // If New score is higher than Recent score, New score = Recent score
   if (clearWord > recentClearWord.innerText) {
     recentClearWord.innerText = clearWord;
-  } else if (successRate > recentSuccessRate) {
     recentSuccessRate.innerText = successRate;
-  }
+  } 
   // Save the Recent scores into local storage
+  localStorage.setItem("recentUserName", document.getElementById('input-name').value);
   localStorage.setItem("recentClearWord", recentClearWord.innerText);
-  // localStorage.setItem("recentMissWord", missWord);
+
   // localStorage.setItem("recentMissType", missTypeCounter);
   localStorage.setItem("recentSuccessRate", recentSuccessRate.innerText);
 }
