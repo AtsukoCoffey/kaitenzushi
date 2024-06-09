@@ -234,12 +234,23 @@ function gamePageToggle() {
     landingScreen.style.display = "none";
     settingScreen.style.display = "block";
     scoreDisplay.style.display = "block";
+    // Display user name in the Recent score area
+    document.getElementById('name').innerText = document.getElementById('input-name').value;
   } else if (settingScreen.style.display === "block") {
     settingScreen.style.display = "none";
     gameScreen.style.display = "block";
     loadGame();
   }
 };
+
+/////////////////////////////////////////////////////////////// 
+// Get recent best score 
+// From local storage 
+///////////////////////////////////////////////////////////////
+// Keys and values of stored data is string so ParseInt to number
+document.getElementById('r-clear-words').innerText = parseInt(localStorage('recentClearWord'));
+document.getElementById('r-success-rate').innerText = parseInt(localStorage('recentSuccessRate'));
+
 
 /////////////////////////////////////////////////////////////// 
 // Audio files on off toggle function
@@ -565,22 +576,28 @@ function finishGame() {
     newScoreContainer.style.display = "none";
   })
 
-  ///////////////////////////////////////////   Store the score into local storage
+  /////////////////////////////////////////////////////////////// 
+  // Store the recent best score into local storage
+  //  
+  ///////////////////////////////////////////////////////////////
+  // First time, if Recent score is NaN, set 0
   const recentClearWord = document.getElementById('r-clear-words');
   const recentSuccessRate = document.getElementById('r-success-rate');
-  recentClearWord.innerText = 0;
-  recentSuccessRate.innerText = 0;
-
+  if (recentClearWord.value === NaN) {
+    recentClearWord.innerText = 0;
+    recentSuccessRate.innerText = 0;
+  }
+  // If New score is higher than Recent score, New score = Recent score
   if (clearWord > recentClearWord.innerText) {
     recentClearWord.innerText = clearWord;
   } else if (successRate > recentSuccessRate) {
     recentSuccessRate.innerText = successRate;
   }
   // Save the Recent scores into local storage
-      localStorage.setItem("recentClearWord", clearWord);
-      // localStorage.setItem("recentMissWord", missWord);
-      // localStorage.setItem("recentMissType", missTypeCounter);
-      localStorage.setItem("recentSuccessRate", successRate);
+  localStorage.setItem("recentClearWord", recentClearWord.innerText);
+  // localStorage.setItem("recentMissWord", missWord);
+  // localStorage.setItem("recentMissType", missTypeCounter);
+  localStorage.setItem("recentSuccessRate", recentSuccessRate.innerText);
 }
 ///////////////////////////////////////////   Event listeners for catching users action
 
