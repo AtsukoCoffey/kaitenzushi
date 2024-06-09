@@ -274,6 +274,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // Add event listeners to the buttons
   const entryButton = document.getElementById('entty-submit');
   entryButton.addEventListener('click', gamePageToggle);
+  entryButton.addEventListener('click', ()=> {
+    const userName = document.getElementById('input-name').value;
+    document.getElementById('user-name').textContent = userName;
+  });
   const gameStartButton = document.getElementById('game-start');
   gameStartButton.addEventListener('click', gamePageToggle);
 });
@@ -284,8 +288,6 @@ function gamePageToggle() {
     landingScreen.style.display = "none";
     settingScreen.style.display = "block";
     scoreDisplay.style.display = "block";
-    // Display user name in the Recent score area
-    document.getElementById('name').innerText = document.getElementById('input-name').value;
   } else if (settingScreen.style.display === "block") {
     settingScreen.style.display = "none";
     gameScreen.style.display = "block";
@@ -293,17 +295,6 @@ function gamePageToggle() {
   }
 };
 
-/////////////////////////////////////////////////////////////// 
-// Get recent best score 
-// From local storage 
-///////////////////////////////////////////////////////////////
-// Keys and values of stored data is string so ParseInt to number
-let recentClearScoreFromStorage = document.getElementById('r-clear-words');
-let recentSuccessRateFromStorage = document.getElementById('r-success-rate');
-if (!localStorage['recentClearWord']) {
-  recentClearScoreFromStorage.textContent = parseInt(localStorage.getItem('recentClearWord'));
-  recentSuccessRateFromStorage.textContent = parseInt(localStorage.getItem('recentSuccessRate'));
-}
 /////////////////////////////////////////////////////////////// 
 // Audio files on off toggle function
 // ON OFF check boxes are in Header nav toggle, and setting screen 
@@ -624,7 +615,7 @@ function finishGame() {
   let successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
   document.getElementById('new-score').innerHTML = `<h3>Hooray! Your New Score!</h3><div class="new-score-display"><p>Clear words : <span>` + `${clearWord}` + `</span></p><p>Missed words : <span>` + `${missWord}` + `</span></p><p>Miss type : <span>` + `${missTypeCounter}` + `</span></p><p>Success rate : <span>` + `${successRate}` + `</span></p></div><h3>Recent Best Score</h3>
   <div class="new-score-display">
-    <p>Name : <span id="name"></span></p>
+    <p>Name : <span id="recent-name"></span></p>
     <p>Clear words : <span id="r-clear-words"></span></p>
     <p>Success rate : <span id="r-success-rate"></span></p>
   
@@ -635,29 +626,39 @@ function finishGame() {
   closeX[0].addEventListener('click', () => {
     newScoreContainer.style.display = "none";
   })
+  /////////////////////////////////////////////////////////////// 
+  // Get recent best score 
+  // From local storage 
+  ///////////////////////////////////////////////////////////////
+  const recentUserName = localStorage.getItem('recentUserName');
+  // Keys and values of stored data is string so JSON.parse to number
+  const recentClearScore = JSON.parse(localStorage.getItem('recentClearScore'));
+  const recentSuccessRate = JSON.parse(localStorage.getItem('recentSuccessRate'));
+  // First time, if Recent score is NaN, set 0
+  if (recentClearScore === NaN) {
+    recentClearScore.innerText = 0;
+    recentSuccessRate.innerText = 0;
+  } // Insert to the HTML
+  document.getElementById('recent-name') = recentUserName;
+  document.getElementById('r-clear-words') = recentClearScore;
+  document.getElementById('r-success-rate') = recentSuccessRate;
 
   /////////////////////////////////////////////////////////////// 
   // Store the recent best score into local storage
   //  
   ///////////////////////////////////////////////////////////////
-  // First time, if Recent score is NaN, set 0
-  const recentClearWord = document.getElementById('r-clear-words');
-  const recentSuccessRate = document.getElementById('r-success-rate');
-  if (recentClearWord.value === NaN) {
-    recentClearWord.innerText = 0;
-    recentSuccessRate.innerText = 0;
-  }
+
   // If New score is higher than Recent score, New score = Recent score
-  if (clearWord > recentClearWord.innerText) {
-    recentClearWord.innerText = clearWord;
+  if (clearWord > recentClearScore.innerText) {
+    recentClearScore.innerText = clearWord;
     recentSuccessRate.innerText = successRate;
   }
   // Save the Recent scores into local storage
   localStorage.setItem("recentUserName", document.getElementById('input-name').value);
-  localStorage.setItem("recentClearWord", recentClearWord.innerText);
+  localStorage.setItem("recentClearScore", JSON.stringify(recentClearScore.innerText));
 
   // localStorage.setItem("recentMissType", missTypeCounter);
-  localStorage.setItem("recentSuccessRate", recentSuccessRate.innerText);
+  localStorage.setItem("recentSuccessRate", JSON.stringify(recentSuccessRate.innerText));
   // Reset the new score
   document.getElementById('clear-words').textContent = "";
   document.getElementById('miss-words').textContent = "";
