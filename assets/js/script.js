@@ -203,56 +203,6 @@ const words = [
     sound: 'assets/sounds/su-uni.mp3',
     english: 'Sea urchin'
   },
-  // Add more data later-----
-  {
-    name: 'amaebi',
-    "kana": 'あまえび',
-    image: 'assets/images/sushi_amaebi.webp',
-    sound: 'assets/sounds/su-amaebi.mp3',
-    english: 'Sweet shrimp'
-  },
-  {
-    name: 'anago',
-    "kana": 'あなご',
-    image: 'assets/images/sushi_anago.webp',
-    sound: 'assets/sounds/su-anago.mp3',
-    english: 'Conger eel'
-  },
-  {
-    name: 'battera',
-    "kana": 'ばってら',
-    image: 'assets/images/sushi_battera.webp',
-    sound: 'assets/sounds/su-battera.mp3',
-    english: 'Mackerel sushi'
-  },
-  {
-    name: 'sabazushi',
-    "kana": 'さばずし',
-    image: 'assets/images/sushi_bouzushi_saba.webp',
-    sound: 'assets/sounds/su-sabazushi.mp3',
-    english: 'Mackerel sushi'
-  },
-  {
-    name: 'buri',
-    "kana": 'ぶり',
-    image: 'assets/images/sushi_buri.webp',
-    sound: 'assets/sounds/su-buri.mp3',
-    english: 'Big yellowtail'
-  },
-  {
-    name: 'chirashizushi',
-    "kana": 'ちらしずし',
-    image: 'assets/images/sushi_chirashizushi.webp',
-    sound: 'assets/sounds/su-chirashizushi.mp3',
-    english: 'Sprinkled sushi'
-  },
-  {
-    name: 'chutoro',
-    "kana": 'ちゅうとろ',
-    image: 'assets/images/sushi_chutoro.webp',
-    sound: 'assets/sounds/su-chutoro.mp3',
-    english: 'Medium tuna Toro'
-  },
 ];
 
 /////////////////////////////////////////////////////////////// 
@@ -264,7 +214,6 @@ const words = [
 const landingScreen = document.getElementById('landing');
 const settingScreen = document.getElementById('setting');
 const gameScreen = document.getElementById('game');
-const scoreDisplay = document.getElementById('score');
 
 document.addEventListener("DOMContentLoaded", function () {
   setTimeout(function () {
@@ -282,12 +231,11 @@ document.addEventListener("DOMContentLoaded", function () {
   gameStartButton.addEventListener('click', gamePageToggle);
 });
 
-// Toggle function of the screens < Landing - Setting & score - Game >
+// Toggle function of the screens < Landing - Setting - Game >
 function gamePageToggle() {
   if (landingScreen.style.display === "block") {
     landingScreen.style.display = "none";
     settingScreen.style.display = "block";
-    scoreDisplay.style.display = "block";
   } else if (settingScreen.style.display === "block") {
     settingScreen.style.display = "none";
     gameScreen.style.display = "block";
@@ -363,12 +311,10 @@ function turnOnBgm(event) {
   }
 }
 
-
 /////////////////////////////////////////////////////////////// 
 // Game screen
 // Choose the settings and submit to game screen 
 ///////////////////////////////////////////////////////////////
-
 ///////////////////////////////////////////   All the global counters and variables for game
 const imageDisplay = document.getElementById('img-display');
 const textDisplay = document.getElementById('text-display');
@@ -412,7 +358,7 @@ function shuffle() {
 ///////////////////////////////////////////   All the game main functions
 
 /**
- * Load Game - from setting & score screen 
+ * Load Game - from setting screen 
  * Reset the question contents and input text area, shuffle the question array
  * Start the global time-limit and start game
  */
