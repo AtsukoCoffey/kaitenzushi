@@ -9,6 +9,7 @@
   box-sizing: border-box;
   /* border: 1px solid #F27272; */
 }
+
 /* //////////////////////////////////////////////////////////////////////////////////////// */
 /*////////////////////////////////////////////// General structure styles : body ~ footer   */
 body {
@@ -57,6 +58,7 @@ footer li {
   margin-left: 1rem;
   margin-right: 1rem;
 }
+
 /* //////////////////////////////////////////////////////////////////////////////////////// */
 /*////////////////////////////////////////////////////////////// Headings styles : h1 ~ h3  */
 h2,
@@ -91,6 +93,7 @@ h4 {
   color: #F27272;
   color: #0D0D0D;
 }
+
 /* //////////////////////////////////////////////////////////////////////////////////////// */
 /*//////////////////////////////////////////////////// Other general styles : a, li, input  */
 a {
@@ -153,12 +156,13 @@ nav {
 }
 
 .nav-toggle-label:hover {
- color: #F27272;
+  color: #F27272;
 }
 
 #nav-toggle {
   display: none;
 }
+
 /* //////////////////////////////////////////////////////////////////////////////////////// */
 /*/////////////////////////////////////////////////////////////////// Landing screen styles */
 #landing {
@@ -172,6 +176,7 @@ nav {
 #landing label {
   color: #F2F2F2;
 }
+
 /* //////////////////////////////////////////////////////////////////////////////////////// */
 /*/////////////////////////////////////////////////////////////////// Setting screen styles */
 #setting {
@@ -250,8 +255,8 @@ nav {
   margin-right: auto;
   left: 0;
   right: 0;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   background-color: #F2F2F2;
   border-radius: 10px;
   color: #0D0D0D;
@@ -262,11 +267,22 @@ nav {
   letter-spacing: 2px;
 }
 
+.new-score-display {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.new-score-display p {
+  flex: 1 0 150px;
+}
+
 .fa-square-xmark {
   text-align: center;
   padding-left: 90%;
   font-size: 1.6rem;
 }
+
 /* //////////////////////////////////////////////////////////////////////////////////////// */
 /*////////////////////////////////////////////////////////////////////// Game screen styles */
 #game {
@@ -281,7 +297,7 @@ nav {
 }
 
 #game p {
-  position: relative; 
+  position: relative;
   top: -33px;
   left: 45%;
   color: #0D0D0D;
@@ -394,12 +410,14 @@ nav {
   margin-left: auto;
   margin-right: auto;
 }
+
 /* //////////////////////////////////////////////////////////////////////////////////////// */
 /*////////////////////////////////////////////////////////////////////// Score display styles */
 #score div {
   display: flex;
   justify-content: center;
 }
+
 #score p {
   padding: 0 1rem;
 }
@@ -440,6 +458,11 @@ nav {
   #setting div:first-child {
     max-width: 500px;
   }
+
+  #new-score {
+    max-width: 500px;
+  }
+
 }
 
 /* Media query: General smart phone (1024px and up) */
@@ -447,11 +470,19 @@ nav {
   #setting div:first-child {
     max-width: 550px;
   }
+
+  #new-score {
+    max-width: 550px;
+  }
 }
 
 /* Media query: General smart phone (1440px and up) */
 @media screen and (min-width:1024px) {
   #setting div:first-child {
+    max-width: 600px;
+  }
+
+  #new-score {
     max-width: 600px;
   }
 }

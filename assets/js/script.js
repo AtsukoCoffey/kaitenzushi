@@ -298,11 +298,11 @@ function gamePageToggle() {
 // From local storage 
 ///////////////////////////////////////////////////////////////
 // Keys and values of stored data is string so ParseInt to number
-let recentClearScoreFromStorage = document.getElementById('r-clear-words').innerText;
-let recentSuccessRateFromStorage = document.getElementById('r-success-rate').innerText;
+let recentClearScoreFromStorage = document.getElementById('r-clear-words');
+let recentSuccessRateFromStorage = document.getElementById('r-success-rate');
 if (!localStorage['recentClearWord']) {
-  recentClearScoreFromStorage = parseInt(localStorage('recentClearWord'));
-  recentSuccessRateFromStorage = parseInt(localStorage('recentSuccessRate'));
+  recentClearScoreFromStorage.textContent = parseInt(localStorage.getItem('recentClearWord'));
+  recentSuccessRateFromStorage.textContent = parseInt(localStorage.getItem('recentSuccessRate'));
 }
 /////////////////////////////////////////////////////////////// 
 // Audio files on off toggle function
@@ -435,7 +435,7 @@ function loadGame() {
   // Start the game - question word
   nextWord();
   // Set interval and after 60 seconds finishGame()
-  let timeDisplay = 60;
+  let timeDisplay = 20;
   document.getElementById('time-left').textContent = `${timeDisplay}`;
   // Display time limit every second
   const globalTimerId = setInterval(() => {
@@ -622,7 +622,13 @@ function finishGame() {
 
   // SuccessRate calculate - in case of the calculation goes 66.66666666 use Math.floor
   let successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
-  document.getElementById('new-score').innerHTML = `<h3>Hooray! Your New Score!</h3><div><p>Clear words : <span>` + `${clearWord}` + `</span></p><p>Missed words : <span>` + `${missWord}` + `</span></p><p>Miss type : <span>` + `${missTypeCounter}` + `</span></p><p>Success rate : <span>` + `${successRate}` + `</span></p><i title="Close" class="fa-solid fa-square-xmark"></i></div>`;
+  document.getElementById('new-score').innerHTML = `<h3>Hooray! Your New Score!</h3><div class="new-score-display"><p>Clear words : <span>` + `${clearWord}` + `</span></p><p>Missed words : <span>` + `${missWord}` + `</span></p><p>Miss type : <span>` + `${missTypeCounter}` + `</span></p><p>Success rate : <span>` + `${successRate}` + `</span></p></div><h3>Recent Best Score</h3>
+  <div class="new-score-display">
+    <p>Name : <span id="name"></span></p>
+    <p>Clear words : <span id="r-clear-words"></span></p>
+    <p>Success rate : <span id="r-success-rate"></span></p>
+  
+  <i title="Close" class="fa-solid fa-square-xmark"></i></div>`;
 
   // Add close X button to the New score display
   const closeX = document.getElementsByClassName('fa-square-xmark');
