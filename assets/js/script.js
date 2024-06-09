@@ -248,10 +248,12 @@ function gamePageToggle() {
 // From local storage 
 ///////////////////////////////////////////////////////////////
 // Keys and values of stored data is string so ParseInt to number
-document.getElementById('r-clear-words').innerText = parseInt(localStorage('recentClearWord'));
-document.getElementById('r-success-rate').innerText = parseInt(localStorage('recentSuccessRate'));
-
-
+let recentClearScoreFromStorage = document.getElementById('r-clear-words').innerText;
+let recentSuccessRateFromStorage = document.getElementById('r-success-rate').innerText;
+if (!localStorage['recentClearWord']) {
+recentClearScoreFromStorage = parseInt(localStorage('recentClearWord'));
+recentSuccessRateFromStorage = parseInt(localStorage('recentSuccessRate'));
+}
 /////////////////////////////////////////////////////////////// 
 // Audio files on off toggle function
 // ON OFF check boxes are in Header nav toggle, and setting screen 
