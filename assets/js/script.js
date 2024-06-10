@@ -437,8 +437,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const entryButton = document.getElementById('entty-submit');
   entryButton.addEventListener('click', gamePageToggle);
   entryButton.addEventListener('click', () => {
-    const userName = document.getElementById('input-name').value;
-    document.getElementById('user-name').textContent = userName;
+    const userName = document.getElementById('input-name');
+    if (userName === undefined || userName === null) {
+      userName.setCustomValidity('Enter your name - Only alphabet please');
+    }
+    document.getElementById('user-name').textContent = userName.value;
   });
   const gameStartButton = document.getElementById('game-start');
   gameStartButton.addEventListener('click', gamePageToggle);

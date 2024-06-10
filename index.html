@@ -26,20 +26,22 @@
     <a href="index.html" title="Go back to Top page" aria-label="Go back to Top page">
       <h1>Kaiten Zushi</h1>
     </a>
-    <input type="checkbox" name="nav-toggle" id="nav-toggle">
+    <!-- Sound controll ON/OFF checkbox - Same options are implemented in main pink div -->
+    <input type="checkbox" name="nav-toggle" id="nav-toggle" title="Sound control ON/OFF checkbox">
     <label for="nav-toggle" class="nav-toggle-label"><i class="fa-solid fa-volume-low"
         title="Sound Toggle Button"></i></label>
     <nav>
       <ul id="menu">
-        <li><input type="checkbox" id="w-sound-check1" class="word-sound-checkbox">
+        <li><input type="checkbox" id="w-sound-check1" class="word-sound-checkbox"
+            title="Question words readig in Japanese">
           <label for="w-sound-check1">Word</label>
         </li>
         <li>
-          <input type="checkbox" id="effect-sound-check1" class="effect-sound-checkbox">
+          <input type="checkbox" id="effect-sound-check1" class="effect-sound-checkbox" title="Effect sounds">
           <label for="effect-sound-check1">Effect</label>
         </li>
         <li>
-          <input type="checkbox" id="bgm-check1" class="bgm-checkbox">
+          <input type="checkbox" id="bgm-check1" class="bgm-checkbox" title="Back ground music">
           <label for="bgm-check1">BGM</label>
         </li>
       </ul>
@@ -50,10 +52,12 @@
     <!-- Layer of div : Modal -->
     <!-- Landing div -->
     <div id="landing">
-      <label for="input-name">Enter Name</label>
-      <input type="text" name="input-name" id="input-name" autocomplete="given-name"
-      pattern="[A-Za-z]{2,}" title="Name - Only alphabet please" required>
-      <button id="entty-submit">SUBMIT</button>
+      <form aria-label="Enter name for game option screen" title="Enter name for game option screen">
+        <label for="input-name">Enter Name</label>
+        <input type="text" name="input-name" id="input-name" autocomplete="given-name" pattern="[A-Za-z]{2,}"
+          title="Name - Only alphabet please" required>
+        <button type="button" id="entty-submit">SUBMIT</button>
+      </form>
     </div>
     <!-- Setting div -->
     <div id="setting">
@@ -69,23 +73,24 @@
         </div>
         <h3><i class="fa-solid fa-volume-low" title="Adjust volume"></i>Sound</h3>
         <div>
-          <div class="sound"><input type="checkbox" id="w-sound-check2" class="word-sound-checkbox">
+          <div class="sound"><input type="checkbox" id="w-sound-check2" class="word-sound-checkbox"
+              title="Question words readig in Japanese">
             <label for="w-sound-check2">Word</label>
           </div>
           <div class="sound">
-            <input type="checkbox" id="effect-sound-check2" class="effect-sound-checkbox">
+            <input type="checkbox" id="effect-sound-check2" class="effect-sound-checkbox" title="Effect sounds">
             <label for="effect-sound-check2">Effect</label>
           </div>
-          <div class="sound"><input type="checkbox" id="bgm-check2" class="bgm-checkbox">
+          <div class="sound"><input type="checkbox" id="bgm-check2" class="bgm-checkbox" title="Back ground music">
             <label for="bgm-check2">BGM</label>
           </div>
         </div>
-        <h3><i class="fa-solid fa-keyboard"></i>Play mode</h3>
+        <h3><i class="fa-solid fa-keyboard" title="Play mode option"></i>Play mode</h3>
         <div>
-          <div class="play-mode"><input type="radio" name="Play_mode" id="play-easy" checked>
+          <div class="play-mode"><input type="radio" name="Play_mode" id="play-easy" checked title="Easy mode play">
             <label for="play-easy">Easy</label>
           </div>
-          <div class="play-mode"><input type="radio" name="Play_mode" id="play-hard">
+          <div class="play-mode"><input type="radio" name="Play_mode" id="play-hard" title="Easy mode play">
             <label for="play-hard">Hard</label>
           </div>
         </div>
@@ -93,7 +98,9 @@
       </div>
     </div>
     <!-- New score display div -->
-    <div id="new-score-container"><div id="new-score"></div></div>
+    <div id="new-score-container">
+      <div id="new-score"></div>
+    </div>
     <!-- Game div -->
     <div id="game">
       <div id="img-display">
@@ -123,7 +130,7 @@
       <audio src="assets/sounds/audio_21169-android-music.mp3" id="bgm" muted></audio>
       <h3>Score</h3>
       <div id="score">
-        <p>Name : <span id="user-name"></span></p> 
+        <p>Name : <span id="user-name"></span></p>
         <p>Clear words : <span id="clear-words"></span></p>
         <p>Missed words : <span id="miss-words"></span></p>
         <p>Miss type : <span id="miss-type"></span></p>
