@@ -9,7 +9,7 @@ My challenge is to modify this game and to set the target user for non-native Ja
 
 
 
-![ Live site view Am I responsive ](url "Live site view")
+![ Live site view Am I responsive ](readme/amiresponsive.png "Live site view")
 
 
 ## Live site
@@ -435,6 +435,30 @@ From Audio control bug I learned `change` event listener and using `event.target
 I tried to change `const key = event.key` to `const key = event.target.value` in the `handleKeypress()` to see work on Android OS phone, finally it had succeeded to work on Android OS phone. However not perfectly, there is a problem still that is the event doesn't immediately change the overlay text in Android OS phone. The issue makes user can't find out the input was correct or not immediately. 
 Next I did was the input text event listener, I tried `change` from `keydown` that brings backword; `handleKeyPress()` doesn't work at all. Then tried `input` it seems this is the best way; input value immediately goes to `handleKeyPress()` and change the ovelay text. I found an another problem that is the text user input in the mobile keyboard, user have to erase it by their self. But this is mobile kyboard system and not under the this website control, so leave this issue for a future impruvement. 
 
+![Getting a random value from a JavaScript array - Stack Overflow](readme/credit-get-random-value.png "Getting a random value from a JavaScript array - Stack Overflow")  
+
+![Getting a random value from a JavaScript array - Stack Overflow](readme/bug-localstorage-typeof-slack.png "Getting a random value from a JavaScript array - Stack Overflow") 
+
+
+![Getting a random value from a JavaScript array - Stack Overflow](readme/bug-local-storage-numbers-jsonstringfy.png "Getting a random value from a JavaScript array - Stack Overflow") 
+
+
+![Getting a random value from a JavaScript array - Stack Overflow](readme/bug-kana-throw-mdn.png "Getting a random value from a JavaScript array - Stack Overflow") 
+
+
+![Getting a random value from a JavaScript array - Stack Overflow](readme/bug-checkbox-check-event-listener1.png "Getting a random value from a JavaScript array - Stack Overflow") 
+
+
+![Getting a random value from a JavaScript array - Stack Overflow](readme/bug-checkbox-check-event-listener2.png "Getting a random value from a JavaScript array - Stack Overflow") 
+
+
+![Getting a random value from a JavaScript array - Stack Overflow](readme/bug-checkbox-check-event-listener3.png "Getting a random value from a JavaScript array - Stack Overflow") 
+
+
+![Getting a random value from a JavaScript array - Stack Overflow](readme/bug-autocapitalize-off.png "Getting a random value from a JavaScript array - Stack Overflow") 
+
+
+![Getting a random value from a JavaScript array - Stack Overflow](readme "Getting a random value from a JavaScript array - Stack Overflow") 
 
 # DEPLOYMENT
 
