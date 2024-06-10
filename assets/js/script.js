@@ -561,50 +561,66 @@ function finishGame() {
   // Get recent best score 
   // From local storage 
   ///////////////////////////////////////////////////////////////
-  let recentUserName = localStorage.getItem('recentUserName') || "User";
-  // Keys and values of stored data is string so JSON.parse to number
-  // Address error Undefined
-  let recentClearScore;
-  if (localStorage.getItem('recentClearScore') === undefined) {
-    localStorage.getItem('recentClearScore') = "0";
-  } else {
-    recentClearScore = JSON.parse(localStorage.getItem('recentClearScore')) || "0";
+
+  // Keys and values of stored data is string : Back to parseInte from JSON.parse
+  // THIS BASE CODE is from Slack community Clair alumni : BUGS report in README file
+  if (typeof (Storage) !== "undefined") {
+    // Check type of the local storage, if storage is undefined here so that hiScore can be retrieved only if storage exist
+
+    let recentClearScore = parseInt(localStorage.getItem('recentClearScore'));
+    if (clearWord > recentClearScore) {
+      localStorage.setItem("recentClearScore", clearWord); // then store the current score in storage
+      recentClearScore = parseInt(localStorage.getItem("recentClearScore")); // display the current score as the new high score 
+
+      // If Clear word is higher update success rate and user name together
+      const successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
+      localStorage.setItem("recentSuccessRate", successRate);
+      recentSuccessRate = parseInt(localStorage.getItem("recentSuccessRate"));
+      localStorage.setItem("recentUserName", userName);
+      recentUserName = parseInt(localStorage.getItem("recentUserName"));
+      // If Clear word is lower 
+    } else if (clearWord <= recentClearScore) {
+      recentClearScore = parseInt(localStorage.getItem("recentClearScore"));
+      recentSuccessRate = parseInt(localStorage.getItem("recentSuccessRate"));
+      recentUserName = localStorage.getItem("recentUserName");
+    } else {
+      localStorage.setItem("recentUserName", "New User");
+      localStorage.setItem("recentClearScore", 0);
+      localStorage.setItem("recentSuccessRate", 0);
+    }
+
+
+    // SuccessRate calculate - in case of the calculation goes 66.66666666 use Math.floor
+    const successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
+    const userName = document.getElementById('user-name').textContent
+    document.getElementById('new-score').innerHTML = `<h3>Hooray! Your New Score!</h3><div class="new-score-display"><p>Name : ` + `${userName}` + `</p><p>Clear words : ` + `${clearWord}` + `</p><p>Missed words : ` + `${missWord}` + `</p><p>Miss type : ` + `${missTypeCounter}` + `</p><p>Success rate : ` + `${successRate}` + `%</p></div><h3>Recent Best Score</h3><div class="new-score-display"><p>Name : ` + `${recentUserName}` + `</p><p>Clear words : ` + `${recentClearScore}` + `</p><p>Success rate : ` + `${recentSuccessRate}` + `%</p><i title="Close" class="fa-solid fa-square-xmark"></i></div>`;
+
+    // Add close X button to the New score display
+    const closeX = document.getElementsByClassName('fa-square-xmark');
+    closeX[0].addEventListener('click', () => {
+      newScoreContainer.style.display = "none";
+    })
+
   }
-  let recentSuccessRate;
-  if (localStorage.getItem('recentSuccessRate') === undefined) {
-    localStorage.getItem('recentSuccessRate') = "0";
-  } else {
-    recentSuccessRate = JSON.parse(localStorage.getItem('recentSuccessRate')) || "0";
-  }
-    
-  // SuccessRate calculate - in case of the calculation goes 66.66666666 use Math.floor
-  const successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
-  const userName = document.getElementById('user-name').textContent
-  document.getElementById('new-score').innerHTML = `<h3>Hooray! Your New Score!</h3><div class="new-score-display"><p>Name : ` + `${userName}` + `</p><p>Clear words : ` + `${clearWord}` + `</p><p>Missed words : ` + `${missWord}` + `</p><p>Miss type : ` + `${missTypeCounter}` + `</p><p>Success rate : ` + `${successRate}` + `%</p></div><h3>Recent Best Score</h3><div class="new-score-display"><p>Name : ` + `${recentUserName}` + `</p><p>Clear words : ` + `${recentClearScore}` + `</p><p>Success rate : ` + `${recentSuccessRate}` + `%</p><i title="Close" class="fa-solid fa-square-xmark"></i></div>`;
-
-  // Add close X button to the New score display
-  const closeX = document.getElementsByClassName('fa-square-xmark');
-  closeX[0].addEventListener('click', () => {
-    newScoreContainer.style.display = "none";
-  })
-
-
   /////////////////////////////////////////////////////////////// 
   // Store the recent best score into local storage
   //  
   ///////////////////////////////////////////////////////////////
 
-  // If New score is higher than Recent score, New score = Recent score
-  if (clearWord > recentClearScore) {
-    recentClearScore = clearWord;
-    recentSuccessRate = successRate;
-  }
-  // Save the Recent scores into local storage
-  localStorage.setItem("recentUserName", document.getElementById('input-name').value);
-  localStorage.setItem("recentClearScore", JSON.stringify(recentClearScore.innerText));
+  // // If New score is higher than Recent score, New score = Recent score
+  // if (clearWord > recentClearScore) {
+  //   recentClearScore = clearWord;
+  //   recentSuccessRate = successRate;
+  //   recentUserName = userName;
+  // }
+  // // Save the Recent scores into local storage
+  // let recentScoreArray = [];
 
-  // localStorage.setItem("recentMissType", missTypeCounter);
-  localStorage.setItem("recentSuccessRate", JSON.stringify(recentSuccessRate.innerText));
+  // localStorage.setItem("recentUserName", document.getElementById('input-name').value);
+  // localStorage.setItem("recentClearScore", JSON.stringify(recentClearScore.innerText));
+
+  // // localStorage.setItem("recentMissType", missTypeCounter);
+  // localStorage.setItem("recentSuccessRate", JSON.stringify(recentSuccessRate.innerText));
   // Reset the new score
   document.getElementById('clear-words').textContent = "";
   document.getElementById('miss-words').textContent = "";
