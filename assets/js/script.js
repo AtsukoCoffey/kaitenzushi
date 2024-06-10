@@ -561,10 +561,22 @@ function finishGame() {
   // Get recent best score 
   // From local storage 
   ///////////////////////////////////////////////////////////////
-  let recentUserName = localStorage.getItem('recentUserName')|| "User";
+  let recentUserName = localStorage.getItem('recentUserName') || "User";
   // Keys and values of stored data is string so JSON.parse to number
-  let recentClearScore = JSON.parse(localStorage.getItem('recentClearScore'))|| "0";
-  let recentSuccessRate = JSON.parse(localStorage.getItem('recentSuccessRate'))|| "0";
+  // Address error Undefined
+  let recentClearScore;
+  if (localStorage.getItem('recentClearScore') === undefined) {
+    localStorage.getItem('recentClearScore') = "0";
+  } else {
+    recentClearScore = JSON.parse(localStorage.getItem('recentClearScore')) || "0";
+  }
+  let recentSuccessRate;
+  if (localStorage.getItem('recentSuccessRate') === undefined) {
+    localStorage.getItem('recentSuccessRate') = "0";
+  } else {
+    recentSuccessRate = JSON.parse(localStorage.getItem('recentSuccessRate')) || "0";
+  }
+    
   // SuccessRate calculate - in case of the calculation goes 66.66666666 use Math.floor
   const successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
   const userName = document.getElementById('user-name').textContent
