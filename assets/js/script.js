@@ -1,4 +1,5 @@
-////////////////////////////////////////////// Question array object
+////////////////////////////////////////////////////////// question arrays 
+////////////////////////////////////////////// Sushi Question array object
 const words = [
   {
     name: 'amaebi',
@@ -204,7 +205,219 @@ const words = [
     english: 'Sea urchin'
   },
 ];
-
+////////////////////////////////////////////// Greeting Question array object
+const greetings = [
+  {
+    name: 'konnichiwa',
+    "kana": 'こんにちは',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'Good day'
+  },
+  {
+    name: 'ohayou',
+    "kana": 'おはよう',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'Good morning'
+  },
+  {
+    name: 'konbanwa',
+    "kana": 'こんばんは',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'Good evening'
+  },
+  {
+    name: 'ogennkidesuka',
+    "kana": 'おげんきですか',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'How are you'
+  },
+  {
+    name: 'ohisasiburi',
+    "kana": 'おひさしぶり',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'Long time no see'
+  },
+  {
+    name: 'arigatou',
+    "kana": 'ありがとう',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'thank you'
+  },
+  {
+    name: 'oishii',
+    "kana": 'おいしい',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'delicious'
+  },
+  {
+    name: 'itadakimasu',
+    "kana": 'いただきます',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'Grace - before meal'
+  },
+  {
+    name: 'gochisousama',
+    "kana": 'ごちそうさま',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'Grace - after meal'
+  },
+  {
+    name: 'douitasimasite',
+    "kana": 'どういたしまして',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'You are welcome'
+  },
+  {
+    name: 'oyasumi',
+    "kana": 'おやすみ',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'Good night'
+  },
+  {
+    name: 'iitenkidesune',
+    "kana": 'いいてんきですね',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'Good weather'
+  },
+  {
+    name: 'waruitenkidesune',
+    "kana": 'わるいてんきですね',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'Bad weather'
+  },
+  {
+    name: 'daijoubu',
+    "kana": 'だいじょうぶ',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'Good day'
+  },
+  {
+    name: 'taihendesu',
+    "kana": 'たいへんです',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'There\'s problem'
+  },
+  {
+    name: 'komarimasita',
+    "kana": 'こまりました',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'I\'m in trouble'
+  },
+  {
+    name: 'tanosii',
+    "kana": 'たのしい',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'enjoyable'
+  },
+  {
+    name: 'uresii',
+    "kana": 'うれしい',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'I\'m happy'
+  },
+  {
+    name: 'kanshasitemasu',
+    "kana": 'かんしゃしてます',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'appreciating'
+  },
+  {
+    name: 'daisuki',
+    "kana": 'だいすき',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'I love it'
+  },
+  {
+    name: 'daikirai',
+    "kana": 'だいきらい',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'I hate it'
+  },
+  {
+    name: 'joudandesu',
+    "kana": 'じょうだんです',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'It\'s kidding'
+  },
+  {
+    name: 'kireidesune',
+    "kana": 'きれいですね',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'It\'s beautiful'
+  },
+  {
+    name: 'choudoiidesu',
+    "kana": 'ちょうどいいです',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'Just right'
+  },
+  {
+    name: 'isoide',
+    "kana": 'いそいで',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'Hurry up'
+  },
+  {
+    name: 'nemuidesu',
+    "kana": 'ねむいです',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'sleepy'
+  },
+  {
+    name: 'onakasuita',
+    "kana": 'おなかすいた',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'I\'m hungry'
+  },
+  {
+    name: 'kanshasitemasu',
+    "kana": 'かんしゃしてます',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'I\'m tired'
+  },
+  {
+    name: 'yokatta',
+    "kana": 'よかった',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'That\'s good'
+  },
+  {
+    name: 'annsinndesu',
+    "kana": 'あんしんです',
+    image: 'assets/images/sushi_amaebi.webp',
+    sound: 'assets/sounds/su-amaebi.mp3',
+    english: 'I\'m releaved'
+  },
+];
 /////////////////////////////////////////////////////////////// 
 // Landing page
 // Entry form automatically show up in 1 second
@@ -388,7 +601,6 @@ function loadGame() {
   // All the counter reset
   gameCounter = 0;
   letterCounter = 0;
-  // let kanaLetterCounter = 0;
   correctTypeCounter = 0;
   missTypeCounter = 0;
   clearWord = 0;
@@ -406,8 +618,8 @@ function loadGame() {
 let oneWordTimeoutId;
 
 /**
- * Next word function - Start game and every time completed typing or
- * got time out executes this function for next word question
+ * Next word function - Start game and every time when completed typing or
+ * got time out executes this function for move on to next word question
  * Display shuffled question word [game counter index]
  * Set one word timer Referenced : README [BUGS]
  */
@@ -449,6 +661,11 @@ function nextWord() {
   }, 15000);
 
 }
+
+///////////////////////////////////////////   Event listeners for catching users action
+// Event listener - input text box 
+//There were a lot of error - using different 'listener' and 'target' property solved problem
+input.addEventListener('input', handleKeyPress);
 
 /**
  * Determine pressed key function
@@ -558,11 +775,11 @@ function finishGame() {
   newScoreContainer.style.display = "block";
 
   /////////////////////////////////////////////////////////////// 
-  // Get recent best score 
+  // Get and store recent best score 
   // From local storage 
   ///////////////////////////////////////////////////////////////
 
-  // Keys and values of stored data is string : Back to parseInte from JSON.parse
+  // Keys and values of stored data is string 
   // THIS BASE CODE is from Slack community Clair alumni : BUGS report in README file
   if (typeof (Storage) !== "undefined") {
     // Check type of the local storage, if storage is undefined here so that hiScore can be retrieved only if storage exist
@@ -578,13 +795,14 @@ function finishGame() {
       recentSuccessRate = parseInt(localStorage.getItem("recentSuccessRate"));
       localStorage.setItem("recentUserName", userName);
       recentUserName = parseInt(localStorage.getItem("recentUserName"));
-      // If Clear word is lower 
+      // If Clear word is lower just get the data from localstorage
     } else if (clearWord <= recentClearScore) {
       recentClearScore = parseInt(localStorage.getItem("recentClearScore"));
       recentSuccessRate = parseInt(localStorage.getItem("recentSuccessRate"));
       recentUserName = localStorage.getItem("recentUserName");
+      // First time loading game - no data in local storage set 0 and userName
     } else {
-      localStorage.setItem("recentUserName", "New User");
+      localStorage.setItem("recentUserName", userName);
       localStorage.setItem("recentClearScore", 0);
       localStorage.setItem("recentSuccessRate", 0);
     }
@@ -602,33 +820,12 @@ function finishGame() {
     })
 
   }
-  /////////////////////////////////////////////////////////////// 
-  // Store the recent best score into local storage
-  //  
-  ///////////////////////////////////////////////////////////////
 
-  // // If New score is higher than Recent score, New score = Recent score
-  // if (clearWord > recentClearScore) {
-  //   recentClearScore = clearWord;
-  //   recentSuccessRate = successRate;
-  //   recentUserName = userName;
-  // }
-  // // Save the Recent scores into local storage
-  // let recentScoreArray = [];
-
-  // localStorage.setItem("recentUserName", document.getElementById('input-name').value);
-  // localStorage.setItem("recentClearScore", JSON.stringify(recentClearScore.innerText));
-
-  // // localStorage.setItem("recentMissType", missTypeCounter);
-  // localStorage.setItem("recentSuccessRate", JSON.stringify(recentSuccessRate.innerText));
   // Reset the new score
   document.getElementById('clear-words').textContent = "";
   document.getElementById('miss-words').textContent = "";
   document.getElementById('miss-type').textContent = "";
   document.getElementById('success-rate').textContent = "";
 }
-///////////////////////////////////////////   Event listeners for catching users action
 
-// keyboard window event
-input.addEventListener('input', handleKeyPress);
 
