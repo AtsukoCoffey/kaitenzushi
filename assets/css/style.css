@@ -21,7 +21,7 @@ body {
   text-align: center;
   font-family: "Patrick Hand", cursive;
   font-weight: 400;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-style: normal;
   color: #594B46;
   background-color: #F2F2F2;
@@ -85,6 +85,7 @@ h2 {
 h3 {
   color: #0D0D0D;
   line-height: 125%;
+  text-decoration-skip-ink: auto;
 }
 
 h4 {
@@ -250,15 +251,14 @@ nav {
   margin-right: auto;
   left: 0;
   right: 0;
-  /* display: flex;
-  flex-direction: column; */
   background-color: #F2F2F2;
+  border: 1px solid #F27272;
   border-radius: 10px;
   color: #0D0D0D;
   padding: 15px 2rem;
   max-width: 340px;
   text-align: left;
-  line-height: 150%;
+  line-height: 180%;
   letter-spacing: 2px;
 }
 
@@ -409,7 +409,7 @@ nav {
 #score {
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-start;
+  justify-content: center;
   padding-bottom: 100px;
 
 }
