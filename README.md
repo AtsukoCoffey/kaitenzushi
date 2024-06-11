@@ -14,7 +14,7 @@ My challenge is to modify this game and to set the target user for non-native Ja
 
 ## Live site
 
-**[Live site >> url](url)**
+**[Live site >> https://atsukocoffey.github.io/kaitenzushi/](https://atsukocoffey.github.io/kaitenzushi/)**
 
 
 # UX DESIGN
@@ -354,56 +354,60 @@ My solution is using an another layer which was applied the style already, push 
 # BUGS
 
 ## Create a new shufﬂed question  `shuffledWords()`
-First I found this to shuffle in stackoverflow `const randomElement = array[Math.floor(Math.random() * array.length)];`  
+First I found this to shuffle in stackoverflow `const randomElement = array[Math.floor(Math.random() * array.length)];`   
  
-![Getting a random value from a JavaScript array - Stack Overflow](readme/bug-shuffle-get-random-value.png "Getting a random value from a JavaScript array - Stack Overflow")  
+![Getting a random value from a JavaScript array - Stack Overflow](readme/bug-shuffle-get-random-value.png "Getting a random value from a JavaScript array - Stack Overflow")   
     
-But that creates a random array literally and what I wanted was to shuffle properly, meaning I didn't want to show the same word a few times in the array. I tried using `pop` and `push`, but I couldn’t find out a better way or a popular convention.  
+But that creates a random array literally and what I wanted was to shuffle properly, meaning I didn't want to show the same word a few times in the array. I tried using `pop` and `push`, but I couldn’t find out a better way or a popular convention.   
  
 Solution : **Fisher Yates Shuffle**   
 ![`const randomElement = array[Math.floor(Math.random() * array.length)`](readme/bug-shuffle-stackoverflow.png "Google Lighthouse audit index.html - stackoverflow") 
  
-## Set & start Global time limit `startGame()`
-I implement the reset code that clears out the display texts and the input texts in the start game function. Then, I got an error which  `innerText` property wasn't working well.
-![`innerText` and `value` property.](readme/bug-innertext-to-value.png "`innerText` and `value` property.")
+## Set & start Global time limit `startGame()`  
+I implement the reset code that clears out the display texts and the input texts in the start game function. Then, I got an error which  `innerText` property wasn't working well.   
+
+![`innerText` and `value` property.](readme/bug-innertext-to-value.png "`innerText` and `value` property.")   
  
 Solution :   
 The difference between `innerText` and `value` property was that value was used for form elements.
-
-
  
-  
-## Display ﬁrst question image & texts  
-I was wondering how to hold image’s data in the array, but after this researching, I found that what I needed it was a just text path. It wasn't difficult than I thought. But after implemented it I got link error. Because I was writing in assets’ JavaScript file, even though this code will be executed from index.html   
+## Display ﬁrst question image & texts   
+I was wondering how to hold image’s data in the array, but after this researching, I found that what I needed it was a just text path. It wasn't difficult than I thought. But after implemented it I got link error. Because I was writing in assets’ JavaScript file, even though this code will be executed from index.html    
  
 Solution :  
 Fix the path from index.html  
  
 ## Set one word timer (10s) per question -> Move on next word   
-My global timer which executes when the page is loaded, is working fine so I tried to use the `setTimeout` method same way. But for one word timer it didn't work well with `clearTimeout` method. This timer need to be cancelled when next question is executed or users have completed the typing successfully. Under below was an article at stackoverflow, I understand the variable should be in global scope but my code didn't use any variable. I looked for MDN or W3chool but still I didn't find out my problem. So I asked to perplexity, it explained me really well what was my problem.
+My global timer which executes when the page is loaded, is working fine so I tried to use the `setTimeout` method same way. But for one word timer it didn't work well with `clearTimeout` method. This timer need to be cancelled when next question is executed or users have completed the typing successfully. Under below was an article at stackoverflow, I understand the variable should be in global scope but my code didn't use any variable. I looked for MDN or W3chool but still I didn't find out my problem. So I asked to perplexity, it explained me really well what was my problem.   
 ![setting timeout stackoverflow1](readme/bug-setting-timeout.png "`stackoverflow1")   
-![setting timeout stackoverflow2](readme/bug-setting-timeout2.png "`stackoverflow2")
-![setting timeout perplexity](readme/bug-setting-timeoutp.png "`setting timeout perplexity")
- Solution :  
+![setting timeout stackoverflow2](readme/bug-setting-timeout2.png "`stackoverflow2")   
+![setting timeout perplexity](readme/bug-setting-timeoutp.png "`setting timeout perplexity")   
+ Solution :   
 Use a variable to make sure that the correct `setTimeout` identifier for passing to `clearTimeout` 
+ 
+  
+## Input key matching `handleKeyPress()` 
+This function finds matched key, then if there's Letter matched counter +1, change the display using css, executes typing sound.    
+[BUG] My oridinal plan "changing the colour of a letter one by one in the word" seems impossible.    
+My solution was using the another layer which was applied the style already, push the matched letter in it to look like to change the letter colour one by one.   
+[BUG] Mobile device doesn't work the matching function, maybe the keyboard system is deffent. Temporary, use keyboard "return" key to lead to validate function for mobile phone.   
+[BUG] Matching function for japanese kana letters were much more complicated than I expected. I tried some if statement though decided to postpone to try later in the future.   
+
+## Detect user entry - Set on focus to input, set window.event to identify the key     
+[BUG]`keypress` nor `input` event listener didn't work for mobile device (I didn't want to use button for visual purpose)  
+I spent long time to dealing with this issue, I tried to use `touchstart` `touchend` `click` as well.
+Finally I could solve this issue after I learned `target` property from tutor Sean at [BUG](bug-audiocontroll) AUDIO CONTROL CHECKBOXES 
+This issue is related to "Input key matching `handleKeyPress()`" too.
+ 
+## Change user entry to the lower case   
+I found the input from the mobile phone, usually auto Capitalise first letter. That interupts to play game. I set `toLowerCase()` in Javascript, but some mobile devises not work (I assume this because not using `target` property). My mentor Alan teach me about this auto capitalise off attribute.   
+![Auto capitalise off - useful input attributes](readme/bug-autocapitalize-off.png "Auto capitalise off -useful input attributes")   
 
 
-## Detect user entry - Set on focus to input, set window.event to identify the key**   
-[BUG] keyboard nor input event didn't work for mobile device (I didn't want to use button)   
-  
-## Input key matching `handleKeyPress()` matched key -> Letter matched counter +1, change the display using css, executes typing sound**   
-[BUG] Changing the colour of a letter one by one in the word seems impossible.    
-My solution is using the another layer which was applied the style already, push the matched letter in it to look like to change the letter colour one by one.   
-[BUG] Mobile device doesn't work the matching function as the keyboard system is deffent. Temporary, use return key to lead to validate function for mobile phone.  
-[BUG] Matching function for japanese kana letters were much more complicated than I expected. I tried some if statement though decided to postpone to try later. 
+## Unmatched key -> sound < boo > , mistake counter   
+![]
  
-## Change user entry to the lower case  
-  
-## Automatically clear the input area after (0.5 s)**  
- 
-## Unmatched key -> sound < boo > , mistake counter**  
- 
-## Validate the word function `validateInput()` If matched word counter + 1 and start new game. Reset the letter counter to 0**   
+## Validate the word function `validateInput()` If matched word counter + 1 and start new game. Reset the letter counter to 0**    
 [BUG] Because input key matching `hundleKeyPress()` did not function for mobile device, I made this can handle both ways of validations.   
  
 Solution : 
@@ -424,6 +428,7 @@ Stopped the correct letter counting at `handleKeyPress` one by one. So I tried t
 ![setting timeout 1](readme/bug-stop-setinterval-error1.png "`setting timeout 1")   
 ![setting timeout 2](readme/bug-stop-setinterval.png "`setting timeout 1")
 
+<a id="bug-audiocontroll"></a>
 ## AUDIO CONTROL CHECKBOXES
 
 When I was working on this audio control checkbox, it was just the timing to Gitpod migration. I made a commitment though it wasn’t succeeded in my new Gitpod environment. I noticed the terminal text's colour was different but I didn’t really look at the warning by my mistake. I want to leave my track here for detail references.
@@ -434,9 +439,9 @@ Tutor Sean at Tutor support helped me to solve this problem, he checked one by o
 From Audio control bug I learned `change` event listener and using `event.target` to specify precisely that solved some errors. I had an issue with mobile devise only, both `validateInput()` and `handleKeypress()` functions didn’t work properly. I thought it might be similar problem so I asked this issue to tutor support again. I was trying to fix this issue long time with using event listener `input` `keypress` `touchstart` `touchend`. Tutor Sean suggested me to use `change` or `keydown` `keyup`. `keydown` worked for Mac OS mobiles, iPhone and iPad, but I found it didn’t work for android OS later.
 I tried to change `const key = event.key` to `const key = event.target.value` in the `handleKeypress()` to see work on Android OS phone, finally it had succeeded to work on Android OS phone. However not perfectly, there is a problem still that is the event doesn't immediately change the overlay text in Android OS phone. The issue makes user can't find out the input was correct or not immediately. 
 Next I did was the input text event listener, I tried `change` from `keydown` that brings backword; `handleKeyPress()` doesn't work at all. Then tried `input` it seems this is the best way; input value immediately goes to `handleKeyPress()` and change the ovelay text. I found an another problem that is the text user input in the mobile keyboard, user have to erase it by their self. But this is mobile kyboard system and not under the this website control, so leave this issue for a future impruvement. 
-
-![Getting a random value from a JavaScript array - Stack Overflow](readme/credit-get-random-value.png "Getting a random value from a JavaScript array - Stack Overflow")  
-
+## How to prevent infinite randome number
+![How to prevent infinite randome number](readme/credit-get-random-value.png "How to prevent infinite randome number")  
+## 
 ![Getting a random value from a JavaScript array - Stack Overflow](readme/bug-localstorage-typeof-slack.png "Getting a random value from a JavaScript array - Stack Overflow") 
 
 
@@ -458,7 +463,8 @@ Next I did was the input text event listener, I tried `change` from `keydown` th
 ![Getting a random value from a JavaScript array - Stack Overflow](readme/bug-autocapitalize-off.png "Getting a random value from a JavaScript array - Stack Overflow") 
 
 
-![Getting a random value from a JavaScript array - Stack Overflow](readme "Getting a random value from a JavaScript array - Stack Overflow") 
+![Getting a random value from a JavaScript array - Stack Overflow](readme/bug-undefined-mdn.png "Getting a random value from a JavaScript array - Stack Overflow") 
+![Getting a random value from a JavaScript array - Stack Overflow](readme/bug-setAttribute-audio.png "Getting a random value from a JavaScript array - Stack Overflow") 
 
 # DEPLOYMENT
 
@@ -516,75 +522,42 @@ Next I did was the input text event listener, I tried `change` from `keydown` th
 
 # CREDITS
 
-## Code References
+## Code References  
+
+### Position center (text-align center) even when using position absolute   
+I was trying to set align center using `left` or using another `div`, but this trick resolved everything.   
+![Getting a random value from a JavaScript array - Stack Overflow](readme/credit-position-absolute-center.png "Getting a random value from a JavaScript array - Stack Overflow")  
+![Getting a random value from a JavaScript array - Stack Overflow](readme/credit-how-to-center-position-absolute.png "Getting a random value from a JavaScript array - Stack Overflow")    
+
+### How to set custom input validation without using JavaScript   
+![How to set custom input validation without using JavaScript - reactgo.com](readme/credit-set-custom-validation-message.png "How to set custom input validation without using JavaScript - reactgo.com") 
+
+### How to audio sound ON or OFF - W3C   
+![How to audio sound ON or OFF - W3C](readme/credit-mutedproperty.png "How to audio sound ON or OFF - W3C")   
+
+### Using local storage - MDN
+I wanted to use local storage for keeping highest score.   
+I found the data that is stored in local storage once become `string` data.    
+![Using local storage 1 - MDN](readme/credit-localstorage1.png "Using local storage 1 - MDN")    
+![Using local storage 2 - MDN](readme/credit-localstorage-mdn.png "Using local storage 2 - MDN")   
+
+### How to toggle between hiding and showing an Element
+Using if statement and comparison operator and assign it. It seems that we can do anything using if statement like this.    
+![How to toggle between hiding and showing an Element](readme/credit-css-toggle-between.png "How to toggle between hiding and showing an Element")    
+
+### Controling checkbox - Audio file ON/Off `function()`   
+![How can I check if the checkbox is checked - Stack Overflow](readme/credit-checkbox-checked.png "How can I check if the checkbox is checked - Stack Overflow")   
+
+### Controling audio file - not just pause it but reset it   
+My back ground music audio file is long file than the game time, I wanted to start the music from the beginning every time to play game.
+![Controling audio file - not just pause it but reset it](readme/cedit-audio-pause-restart.png "Controling audio file - not just pause it but reset it") 
+
 
 ### ........................................  
 
 * [Link to W3school website - CSS Attribute Selectors](https://www.w3schools.com/css/css_attribute_selectors.asp "CSS Attribute Selectors")
 
-
-<!-- ### Meta Element `<meta http-equiv="X-UA-Compatible" content="IE=edge">`
-
-I researched what is this meta tag for, I guess we might not need this tag anymore though, just in case for the people who are still using old version of IE, it might be better to help them.   
-<details>
-<summary>Meta Element X-UA-Compatible - stackoverflow, perplexity</summary>
-
-![Meta tag X-UA-compatible - stackoverflow](readme-img/credit-perplex-meta-xua-compatible1.png "Meta tag X-UA-compatible - stackoverflow")
-![Meta tag X-UA-compatible - perplexity](readme-img/credit-perplex-meta-xua-compatible2.png "Meta tag X-UA-compatible - perplexity")
-
-</details>
-
-<a id="credits-figure"></a>
-
-### Figure And Picture Element 
-
-In the upcoming session section, I consider using the `<figure>` element for an image and the `<picture>` element for UI responsivity. But I wasn’t familiar with both elements to use so I looked for some hints. I couldn’t find out how to use both in the W3 school or MDN though there were some coversations at stackoverflow and I also asked perplexity whether I could include picture element in the figure element. It doesn't seem to be a problem to include it. 
-<details>
-<summary>Figure And Picture Element - stuckoverflow, perplexity</summary>
-
-![Figure tag and picture tag](readme-img/credit-figure-picture.png "Figure tag and picture tag")
-![Figure tag and picture tag](readme-img/credit-figure-picture2.png "Figure tag and picture tag")
-![Figure tag and picture tag](readme-img/credit-figure-picture3.png "Figure tag and picture tag")
-![Figure tag and picture tag](readme-img/credit-perplex-figure.png "Figure tag and picture tag")
-</details>
-
-<a id="credits-heroanime"></a>
-
-### Hero Image CSS Animation Scale 1 to 1.1 
-When I learned this css animation technique through the “Love Running” project in Code Institute, I was amazed to discover that I could create animation without Java Script, which was common 20 years ago. 
-
-<details>
-<summary>Hero Image CSS Animation - “Love Running” project in Code Institute</summary>
-
-![Hero image CSS animation scale 1 to 1.1](readme-img/credit-hero-css-anima.png "Hero image CSS animation scale 1 to 1.1")
-</details>
-
-<a id="credits-breadcrumb"></a>
-
-### Breadcrumb
-I looked for suitable elements for the breadcrumb links. In W3 website the answer was `<nav>` and using aria attribute for describing the location. Moreover I got an opportunity to learn about `::before` pseudo selector in relation to this.  
-
-* [Link to "::before / ::after" - CSS TRICKS ](https://css-tricks.com/almanac/selectors/a/after-and-before/)
-
- 
-<a id="credit-form"></a>
-
-### Form  Autocomplete Attribute
-Google Lighthouse audit suggested me to use autocomplete attribute for form, and I found this is really helpful for user.  
-
-* [Link to MDN website - Form autocomplete attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete "Form autocomplete attributer")
-
-### Form Input Pattern Attribute
-My mentor Alan taught me about this `<input>` pattern attribute for preventing invalid form data submission.
-EG. for alphabet only and 3 letters `pattern="[A-Za-z]{3}"`  
-
-* [Link to W3schools website - Form input pattern attribute](https://www.w3schools.com/tags/att_input_pattern.asp#:~:text=The%20pattern%20attribute%20specifies%20a,pattern%20to%20help%20the%20user "Form input pattern attribute")
-
-### Hero Image Optimizing For LCP
-The hero image is not a small size image. After I read this article, I tried to optimize the reading time of the hero image using `<link rel="preload">` for increasing LCP score.  
-
-* [Link to web.dev - Optimize Largest Contentful Paint](https://web.dev/articles/optimize-lcp?utm_source=lighthouse&utm_medium=lr#optimize_when_the_resource_is_discovered "Optimize Largest Contentful Paint")
- -->  
+  
  
 ### Clearfix using ::after pseudo selector
 ..................................................... 
