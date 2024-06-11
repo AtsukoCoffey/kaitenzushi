@@ -551,7 +551,6 @@ let correctTypeCounter = 0;
 let missTypeCounter = 0;
 let clearWord = 0;
 let missWord = 0;
-let successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
 
 // Create a shallow copy of words array, Original array is the top of the script
 let shuffledWords = [...words];
@@ -750,8 +749,8 @@ function inputScore() {
   document.getElementById('miss-words').innerText = `${missWord}`;
   document.getElementById('miss-type').innerText = `${missTypeCounter}`;
   // SuccessRate calculate - in case of the calculation goes 66.66666666 use Math.floor
-  const fSuccessRate = successRate;
-  document.getElementById('success-rate').innerText = `${fSuccessRate}`;
+  let successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
+  document.getElementById('success-rate').innerText = `${successRate}`;
 }
 
 /**
@@ -790,14 +789,16 @@ function finishGame() {
   if (typeof (Storage) !== "undefined") {
     // Check type of the local storage, if storage is undefined here so that hiScore can be retrieved only if storage exist
 
+    // Error "recentSuccessRate is not defined"
+    let recentSuccessRate = 0; // Initialize with a default 0 value
     let recentClearScore = parseInt(localStorage.getItem('recentClearScore'));
     if (clearWord > recentClearScore) {
       localStorage.setItem("recentClearScore", clearWord); // then store the current score in storage
       recentClearScore = parseInt(localStorage.getItem("recentClearScore")); // display the current score as the new high score 
 
       // If Clear word is higher update success rate and user name together
-      const fSuccessRate = successRate;
-      localStorage.setItem("recentSuccessRate", fSuccessRate);
+      const successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
+      localStorage.setItem("recentSuccessRate", successRate);
       recentSuccessRate = parseInt(localStorage.getItem("recentSuccessRate"));
       localStorage.setItem("recentUserName", userName);
       recentUserName = parseInt(localStorage.getItem("recentUserName"));
@@ -815,8 +816,8 @@ function finishGame() {
 
 
     // SuccessRate calculate - in case of the calculation goes 66.66666666 use Math.floor
-    const fSuccessRate = successRate;
-    document.getElementById('new-score').innerHTML = `<h3>Hooray! Your New Score!</h3><div class="new-score-display"><p>Name : ` + `${userName}` + `</p><p>Clear words : ` + `${clearWord}` + `</p><p>Missed words : ` + `${missWord}` + `</p><p>Miss type : ` + `${missTypeCounter}` + `</p><p>Success rate : ` + `${fSuccessRate}` + `%</p></div><h3>Recent Best Score</h3><div class="new-score-display"><p>Name : ` + `${recentUserName}` + `</p><p>Clear words : ` + `${recentClearScore}` + `</p><p>Success rate : ` + `${recentSuccessRate}` + `%</p><i title="Close" class="fa-solid fa-square-xmark"></i></div>`;
+    const successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
+    document.getElementById('new-score').innerHTML = `<h3>Hooray! Your New Score!</h3><div class="new-score-display"><p>Name : ` + `${userName}` + `</p><p>Clear words : ` + `${clearWord}` + `</p><p>Missed words : ` + `${missWord}` + `</p><p>Miss type : ` + `${missTypeCounter}` + `</p><p>Success rate : ` + `${successRate}` + `%</p></div><h3>Recent Best Score</h3><div class="new-score-display"><p>Name : ` + `${recentUserName}` + `</p><p>Clear words : ` + `${recentClearScore}` + `</p><p>Success rate : ` + `${recentSuccessRate}` + `%</p><i title="Close" class="fa-solid fa-square-xmark"></i></div>`;
 
     // Add close X button to the New score display
     const closeX = document.getElementsByClassName('fa-square-xmark');
