@@ -434,15 +434,16 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 1000);
 
   // Add event listeners to the buttons
-  const entryButton = document.getElementById('entty-submit');
-  entryButton.addEventListener('click', gamePageToggle);
+  const entryButton = document.getElementById('entry-submit');
+  // 
   entryButton.addEventListener('click', () => {
     const userName = document.getElementById('input-name');
-    if (userName === undefined || userName === null) {
-      userName.setCustomValidity('Enter your name - Only alphabet please');
+    if (userName.validity.valueMissing) {
+      userName.setCustomValidity("Enter your name - Only alphabet please");
     }
     document.getElementById('user-name').textContent = userName.value;
   });
+  entryButton.addEventListener('click', gamePageToggle);
   const gameStartButton = document.getElementById('game-start');
   gameStartButton.addEventListener('click', gamePageToggle);
 });
@@ -781,7 +782,8 @@ function finishGame() {
   // Get and store recent best score 
   // From local storage 
   ///////////////////////////////////////////////////////////////
-
+  const userName = document.getElementById('user-name').textContent;
+  let recentUserName;
   // Keys and values of stored data is string 
   // THIS BASE CODE is from Slack community Clair alumni : BUGS report in README file
   if (typeof (Storage) !== "undefined") {
@@ -805,7 +807,7 @@ function finishGame() {
       recentUserName = localStorage.getItem("recentUserName");
       // First time loading game - no data in local storage set 0 and userName
     } else {
-      localStorage.setItem("recentUserName", userName);
+      localStorage.setItem("recentUserName", "New user");
       localStorage.setItem("recentClearScore", 0);
       localStorage.setItem("recentSuccessRate", 0);
     }
@@ -813,7 +815,7 @@ function finishGame() {
 
     // SuccessRate calculate - in case of the calculation goes 66.66666666 use Math.floor
     const successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
-    const userName = document.getElementById('user-name').textContent
+    const userName = document.getElementById('user-name').textContent;
     document.getElementById('new-score').innerHTML = `<h3>Hooray! Your New Score!</h3><div class="new-score-display"><p>Name : ` + `${userName}` + `</p><p>Clear words : ` + `${clearWord}` + `</p><p>Missed words : ` + `${missWord}` + `</p><p>Miss type : ` + `${missTypeCounter}` + `</p><p>Success rate : ` + `${successRate}` + `%</p></div><h3>Recent Best Score</h3><div class="new-score-display"><p>Name : ` + `${recentUserName}` + `</p><p>Clear words : ` + `${recentClearScore}` + `</p><p>Success rate : ` + `${recentSuccessRate}` + `%</p><i title="Close" class="fa-solid fa-square-xmark"></i></div>`;
 
     // Add close X button to the New score display
