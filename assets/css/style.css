@@ -85,7 +85,6 @@ h2 {
 h3 {
   color: #0D0D0D;
   line-height: 125%;
-  text-decoration-skip-ink: auto;
 }
 
 h4 {
@@ -117,7 +116,6 @@ button {
   font: inherit;
   background-color: #F2F2F2;
   margin-top: 10px;
-  z-index: 50;
 }
 
 input {
@@ -253,13 +251,13 @@ nav {
   left: 0;
   right: 0;
   background-color: #F2F2F2;
-  border: 1px solid #F27272;
+  border: 2px solid #F27272;
   border-radius: 10px;
   color: #0D0D0D;
   padding: 15px 2rem;
   max-width: 340px;
   text-align: left;
-  line-height: 180%;
+  line-height: 150%;
   letter-spacing: 2px;
 }
 
@@ -294,8 +292,8 @@ nav {
 
 #game p {
   position: relative;
-  top: -33px;
-  left: 45%;
+  top: -11px;
+  left: 37%;
   color: #0D0D0D;
   font-weight: 600;
   font-size: 1.3rem;
@@ -411,9 +409,8 @@ nav {
 #score {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: flex-start;
   padding-bottom: 100px;
-
 }
 
 #score p {
