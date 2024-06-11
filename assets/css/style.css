@@ -117,6 +117,7 @@ button {
   font: inherit;
   background-color: #F2F2F2;
   margin-top: 10px;
+  z-index: 50;
 }
 
 input {
@@ -200,7 +201,7 @@ nav {
   padding: 15px 2rem;
   max-width: 350px;
   text-align: left;
-  line-height: 150%;
+  line-height: 200%;
   letter-spacing: 2px;
   margin: auto;
   margin-top: 100px;
@@ -359,13 +360,14 @@ nav {
 
 #english {
   position: absolute;
-  top: -35px;
+  top: -85px;
   left: 40%;
   width: 100%;
-  color: #594B46;
+  color: #0D0D0D;
   padding-top: 0.8rem;
   text-align: left;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 #input {
