@@ -815,7 +815,6 @@ function finishGame() {
 
     // SuccessRate calculate - in case of the calculation goes 66.66666666 use Math.floor
     const successRate = Math.floor(correctTypeCounter / (correctTypeCounter + missTypeCounter) * 100);
-    const userName = document.getElementById('user-name').textContent;
     document.getElementById('new-score').innerHTML = `<h3>Hooray! Your New Score!</h3><div class="new-score-display"><p>Name : ` + `${userName}` + `</p><p>Clear words : ` + `${clearWord}` + `</p><p>Missed words : ` + `${missWord}` + `</p><p>Miss type : ` + `${missTypeCounter}` + `</p><p>Success rate : ` + `${successRate}` + `%</p></div><h3>Recent Best Score</h3><div class="new-score-display"><p>Name : ` + `${recentUserName}` + `</p><p>Clear words : ` + `${recentClearScore}` + `</p><p>Success rate : ` + `${recentSuccessRate}` + `%</p><i title="Close" class="fa-solid fa-square-xmark"></i></div>`;
 
     // Add close X button to the New score display
