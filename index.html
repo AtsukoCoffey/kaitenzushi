@@ -54,10 +54,9 @@
     <div id="landing">
       <form aria-label="Enter name for game option screen" title="Enter name for game option screen">
         <label for="input-name">Enter Name</label>
-        <input type="text" name="input-name" id="input-name" placeholder="Your name" value="Your name"
-          autocomplete="given-name" pattern="[A-Za-z]{2,}" title="Name - Only alphabet please" required>
+        <input type="text" name="input-name" id="input-name" placeholder="Your name" autocomplete="given-name" pattern="[A-Za-z]{2,}" title="Name - Only alphabet please" required>
         <button type="button" id="entry-submit">SUBMIT</button>
-        <input type="submit" value="Let's Join!">
+        <input type="submit" value="Let's Join!"> 
       </form>
     </div>
     <!-- Setting div -->
@@ -68,9 +67,6 @@
           <div class="course"><input type="radio" name="game_course" id="sushi-menu" checked>
             <label for="sushi-menu">Sushi menu</label>
           </div>
-          <!-- <div class="course"><input type="radio" name="game_course" id="greetings">
-            <label for="greetings">Greetings</label>
-          </div> -->
         </div>
         <h3><i class="fa-solid fa-volume-low" title="Adjust volume"></i>Sound</h3>
         <div>
@@ -128,11 +124,11 @@
       <audio src="assets/sounds/audio_21169-android-music.mp3" id="bgm" muted></audio>
       <h3>Score</h3>
       <div id="score">
-        <p>Name : <span id="user-name"></span></p>
         <p>Clear words : <span id="clear-words"></span></p>
         <p>Missed words : <span id="miss-words"></span></p>
         <p>Miss type : <span id="miss-type"></span></p>
         <p>Success rate : <span id="success-rate"></span></p>
+        <p>Name : <span id="user-name"></span></p>
       </div>
     </div>
   </main>

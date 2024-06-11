@@ -10,7 +10,6 @@
   /* border: 1px solid #F27272; */
 }
 
-/* //////////////////////////////////////////////////////////////////////////////////////// */
 /*////////////////////////////////////////////// General structure styles : body ~ footer   */
 body {
   min-height: 100vh;
@@ -40,7 +39,6 @@ header {
 
 main {
   margin-top: 125px;
-  /* position: relative; */
   flex: 1 0 auto;
   background: url("../images/kaitenzushi1.webp") center top/400px no-repeat;
   width: 100%;
@@ -59,13 +57,13 @@ footer li {
   margin-right: 1rem;
 }
 
-/* //////////////////////////////////////////////////////////////////////////////////////// */
 /*////////////////////////////////////////////////////////////// Headings styles : h1 ~ h3  */
 h2,
 h3 {
   color: #594B46;
   font-family: "Caveat", cursive;
   font-weight: 700;
+  padding: 8px 0;
 }
 
 h1 {
@@ -94,7 +92,6 @@ h4 {
   color: #0D0D0D;
 }
 
-/* //////////////////////////////////////////////////////////////////////////////////////// */
 /*//////////////////////////////////////////////////// Other general styles : a, li, input  */
 a {
   color: #594B46;
@@ -127,7 +124,6 @@ li {
   list-style: none;
 }
 
-/* //////////////////////////////////////////////////////////////////////////////////////// */
 /*//////////////////////////// Nav dropdown toggle button - CodeInstitute learning material */
 nav {
   display: none;
@@ -164,7 +160,6 @@ nav {
   display: none;
 }
 
-/* //////////////////////////////////////////////////////////////////////////////////////// */
 /*/////////////////////////////////////////////////////////////////// Landing screen styles */
 #landing {
   display: none;
@@ -178,7 +173,6 @@ nav {
   color: #F2F2F2;
 }
 
-/* //////////////////////////////////////////////////////////////////////////////////////// */
 /*/////////////////////////////////////////////////////////////////// Setting screen styles */
 #setting {
   display: none;
@@ -275,9 +269,9 @@ nav {
   text-align: center;
   padding-left: 90%;
   font-size: 1.6rem;
+  margin-top: 20px;
 }
 
-/* //////////////////////////////////////////////////////////////////////////////////////// */
 /*////////////////////////////////////////////////////////////////////// Game screen styles */
 #game {
   display: none;
@@ -287,13 +281,14 @@ nav {
 
 #img-display {
   position: relative;
+  top: 8px;
   min-height: 150px;
 }
 
 #game p {
   position: relative;
-  top: -11px;
-  left: 37%;
+  top: -160px;
+  left: 3%;
   color: #0D0D0D;
   font-weight: 600;
   font-size: 1.3rem;
@@ -358,7 +353,7 @@ nav {
 
 #english {
   position: absolute;
-  top: -85px;
+  top: -80px;
   left: 40%;
   width: 100%;
   color: #0D0D0D;
@@ -403,13 +398,12 @@ nav {
   margin-right: auto;
 }
 
-/* //////////////////////////////////////////////////////////////////////////////////////// */
 /*////////////////////////////////////////////////////////////////////// Score display styles */
 
 #score {
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-start;
+  justify-content: space-around;
   padding-bottom: 100px;
 }
 
@@ -419,7 +413,6 @@ nav {
   flex-basis: 160px;
 }
 
-/* //////////////////////////////////////////////////////////////////////////////////////// */
 /*/////////////////////////////////////////////////////////// Footer and toggle menu styles */
 #social-networks {
   display: block;
@@ -450,6 +443,8 @@ nav {
 
   main {
     background-size: 600px;
+    max-width: 768px;
+
   }
 
   #setting div:first-child {
@@ -460,6 +455,9 @@ nav {
     max-width: 490px;
   }
 
+  #game p {
+    left: 7%;
+  }
 }
 
 /* Media query: General smart phone (1024px and up) */
@@ -470,6 +468,7 @@ nav {
 
   #new-score {
     max-width: 540px;
+    padding: 30px;
   }
 }
 

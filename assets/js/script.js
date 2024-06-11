@@ -589,7 +589,7 @@ function finishGame() {
       localStorage.setItem("recentSuccessRate", successRate);
       recentSuccessRate = parseInt(localStorage.getItem("recentSuccessRate"));
       localStorage.setItem("recentUserName", userName);
-      recentUserName = parseInt(localStorage.getItem("recentUserName"));
+      recentUserName = localStorage.getItem("recentUserName");
       // If Clear word is lower just get the data from localstorage
     } else if (clearWord <= recentClearScore) {
       recentClearScore = parseInt(localStorage.getItem("recentClearScore"));
