@@ -38,35 +38,32 @@ My challenge is to modify this game and to set the target user for non-native Ja
 ## 2. Scope Plane 
 USER STORIES
 ### First time visitor
-*	As a user, I want to clearly understand what services are offered on this website.
+*	As a user, I want to clearly understand what is offered on this website.
 *	As a user, I want to be able to easily navigate through to find contents.
 *	As a user, I want the website to work on different devices and formats that I use.
-*	As a user, I want a simple sign-up process allowing me to select my preferred option.
-*	As a user, I want to .
+*	As a user, I want a simple sign-up process.
+* As a user, I want to know what the pictures and Japanese mean in English.
+*	As a user, I want to see my time limit for game clearly.
+*	As a user, I want to change sounds ON/OFF setting anytime even game started too.
+*	As a user, I want to know whether my typing is correct or not.
+*	As a user, I want to know if the word I could type completed or not.
+*	As a user, I want to see my results clearly.
 
 ### Frequent visitor
 *	As a user, I want to access the game screen without visiting through few pages.
 * As a user, I want to adjust the sound and game modes for any situations.
-* As a user, I want to see the scores that played last time or before.
+* As a user, I want to see my best score that played last time or before.
 
 ### The website owner stories
 *	As a site owner, I want to introduce some Japanese culture.
 *	As a site owner, I want to interact users to play games.
-*	As a site owner, I want to .
-*	As a site owner, I want to 
-
 
 ## 3. Structure Plane
-
-* The website should have a Navigation menu that is consistent across all pages.
+* The website should have a clear logo or header .
 * The website should have a fixed footer to access anytime to see this site's SNS.  
-* The website should give the user a way to contact through a form.
-*	The website should have hover interaction for links, abbreviation, and tooltips with additional information to enhance user experience.
+*	The website should have hover interaction for links, and tooltips with additional information to enhance user experience.
 * The landing page should show what this site is offering intuitively.
-*
-* Setting icon is commonly used on smaller screens, so using this convention suits users' expectations.
 *	The submit button should be clearly visible and interactive when the mouse hovers over it. 
-
 
 ## 4. Skeleton Plane
 
@@ -78,15 +75,6 @@ For the mobile screen wireframe.
 
 ![Home page mobile Wireframe](readme/wireframe-mobile800.png "Home page mobile Wireframe")
 </details>  
-
-
-
-<details>
-<summary>Tablet - 768px - and PC - 1440px - Wireframes</summary>
-
-![Home page tablet and PC Wireframe](url "Home page tablet and PC Wireframe")
-</details>
-
   
 
 ## 5. Surface Plane
@@ -103,40 +91,41 @@ I chose this colour scheme, it has a fun and pop image. [CREDITS Content Referen
 I pick up some fonts at Google Fonts, I wanted to show something fun and not formal atmonphere.  
  [TECHNOLOGY USED - Google Fonts](#tech)  
 
-* "Patrick Hand"  
-![Typography Poiret One](readme/font-patrick-hand.webp "Typography Poiret One")  
-
-* "Yomogi"  
-![Typography Yomogi](readme/font-yomogi.webp "Typography Yomogi")
-
-* "Yomogi"  
-![Typography Awanky and Moo Moo](readme/font-swanky-moo.webp "Typography Awanky and Moo Moo")
-
-* "Yomogi"  
-![Typography Macondo Swash Caps](readme/font-macondo-swash.webp "Typography Macondo Swash Caps")
-
+* "Patrick Hand"  Typing display English font.   
+![Typography Poiret One](readme/font-patrick-hand.webp "Typography Poiret One")    
+   
+* "Yomogi"  Typing display Japanese font.   
+![Typography Yomogi](readme/font-yomogi.webp "Typography Yomogi")   
+   
+* "Caveat"  Using for headings.   
+![Typography Caveat](readme/font-caveat.png "Typography Caveat")   
+   
+* "Delius"  Using for site logo.     
+![Typography Delius](readme/font-warnes.png "Typography Delius")    
+   
 <a id="features"></a>
 
 # EXISTING FEATURES
 
-## The Header And Navigation Bar
-........................................
-[CREDITS - Code Institute learning material](#credits-content)  
+## The Header And Sound Control Bar      
+The logo is wrinting "Kaiten zushi" in Japanese. I looked for some ordinary real flags and banners for Kaitenzushi reataurant, then traced and arraged to use. English logo shows a little bit more groovy also the bottom lines feel speed so I thought this fit well to speed typing game.   
+![Kaitenzushi logo and sound control toggle button](readme/feat-header.png "Kaitenzushi logo and sound control toggle button")     
 
+## The Landing Hero Image    
+Originally this feature was separate 2 before, then I wanted to simplify and less action for the user so I used `setTimeout`
+to automatically show name input modal. This is not the best way as it looks like just loading problem, not clear it's intended to show like this. If I could use some css animation for this transition, it could be more smooth though I think. 
 
-
-## The Landing Page Hero Image
-........................................
-[CREDITS - Code Institute learning material](#credits-content)  
+![Logo and hero image show up then name input modal slowly show up](readme/feat-footer.png "Logo and hero image show up then name input modal slowly show up")   
 
 ## Entering the game setting button
-........................................
-[CREDITS - Code Institute learning material](#credits-content)   
+Originally I planned another course that can learn Japanese greetings and frases though I couldn't figure it out of the choosing functions in Javascript. The mode option is same, I need more time to figure it out so end up only one option both.   
 
-## The Footer
-The footer section includes links to the relevant social media sites. The links will open to a new tab to keep this website still. When this community's activity gets busier this footer allow users easy navigation for anytime they can check recent updates.   
+![Setting modal - course, sound option, mode then proceed to start game](readme/feat-setting-modal.png "Setting modal - course, sound option, mode then proceed to start game")   
 
-![The footer](url "The footer")  
+## The Footer  
+The footer section includes links to the relevant social media sites. The links will open to a new tab to keep this website still. Also the heading text "Japanese word typing game" explains what is this site so shows up all the time in the footer.   
+
+![The footer](readme/feat-footer.png "The footer")   
 
 
 ## Entry and setting modal
@@ -222,9 +211,9 @@ My solution is using an another layer which was applied the style already, push 
 
 # FUTURE FEATURES
 
-* Another site for mobile phone or diffferent system; This app is using input value, not using return key so some mobile phone's keyboard need to erase the input text after typed. 
-* Use local storage.  
-* The feature - background music gets faster with lessing the time.
+* Another course - Not only sushi menu, Japanese greetings or words  
+* The feature - Image picture animation 
+* Japanese kana overlay - Changeellow colour words 
 * The feature - Award some extra time when repeatedly type correctly in 1 second (?)
   
 
@@ -523,6 +512,11 @@ Next I did was the input text event listener, I tried `change` from `keydown` th
 # CREDITS
 
 ## Code References  
+### onclick event in JavaScript
+![onClick event in JavaScrip](readme/credit-get-random-value.png "onClick event in JavaScrip")
+
+### How to audio sound ON or OFF - W3C   
+![How to audio sound ON or OFF - W3C](readme/credit-mutedproperty.png "How to audio sound ON or OFF - W3C") 
 
 ### Position center (text-align center) even when using position absolute   
 I was trying to set align center using `left` or using another `div`, but this trick resolved everything.   
@@ -549,46 +543,37 @@ Using if statement and comparison operator and assign it. It seems that we can d
 ![How can I check if the checkbox is checked - Stack Overflow](readme/credit-checkbox-checked.png "How can I check if the checkbox is checked - Stack Overflow")   
 
 ### Controling audio file - not just pause it but reset it   
-My back ground music audio file is long file than the game time, I wanted to start the music from the beginning every time to play game.
-![Controling audio file - not just pause it but reset it](readme/cedit-audio-pause-restart.png "Controling audio file - not just pause it but reset it") 
+My back ground music audio file is long file than the game time, I wanted to restart the music from the beginning every time to play game.
+![Controling audio file - not just pause it but reset it](readme/cedit-audio-pause-restart.png "Controling audio file - not just pause it but reset it")   
 
+### Custom validation of JavaScript for the textbox and input submit, or button element
+Still I can't find out the reason though when I set the event listener to the input submit or button all the restrictions  for form element suddenly stop working. I found this JavaScript validation.
+
+![Custom validation of JavaScript for text input on the landing modal](readme/)
 
 ### ........................................  
 
-* [Link to W3school website - CSS Attribute Selectors](https://www.w3schools.com/css/css_attribute_selectors.asp "CSS Attribute Selectors")
 
   
  
-### Clearfix using ::after pseudo selector
 ..................................................... 
-
-* [Clearing and Containing Floats - Responsive Web Design](url "Clearing and Containing Floats - Responsive Web Design")
-
-
-
 
 <a id="credits-content"></a>
 
 ## Content References
 
 * Sushida - Japanese speed typing game  
-<details>
+<details open>
 <summary>Sushida - Japanese speed typing game1</summary>
-
 ![Sushida - Japanese speed typing game](readme/credit-sushida1.webp "Sushida - Japanese speed typing game")  
-</details>
-
-<details>
+</details>     
+<details>      
 <summary>Sushida - Japanese speed typing game2</summary>
-
 ![Sushida - Japanese speed typing game](readme/credit-sushida2.webp "Sushida - Japanese speed typing game")  
-</details>  
-
+</details>      
+   
 * Code Institute Learning Material
 > [Link to Code Institute Full-Stack Software Development Program](https://codeinstitute.net/?nab=0 "Code Institute Full-Stack Software Development Program")
-
-* Freem!
-> Sound data
 
 * Freem!
 > Sound data
@@ -624,14 +609,16 @@ My back ground music audio file is long file than the game time, I wanted to sta
 <a id="imagery"></a>
 
 ## Imagery
+![Kaiten Zushi image - ](assets/images/kaitenzushi1.webp "Kaiten Zushi image")    
+All of the illusts that I'm using here is coming from [Irusutoya](https://www.irasutoya.com/)
+Free copy righting images.
 
-<!-- * Hero image  
-<a href="https://www.freepik.com/free-photo/young-smiling-woman-making-bruschetta-with-healthy-ingredients-while-preparing-food-kitchen_25777232.htm#fromView=search&page=1&position=49&uuid=0bc03e1b-f752-44c6-9880-1b484845ce49" width="500">Image by Drazen Zigic on Freepik</a>
+## Audio files  
+All the effect sound's audio files are coming from [Freem](https://stock.freem.ne.jp/)   
+Which is supporting the game creators with free licensed original audio materials.  
 
- -->
 
-
-<a id="credits-edit"></a>
+<a id="editing"></a>
 
 ## Editing and Proofreading
 Since I am not a native English speaker, my family assisted me with editing and proofreading.
