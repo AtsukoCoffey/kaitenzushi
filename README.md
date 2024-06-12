@@ -107,51 +107,46 @@ I pick up some fonts at Google Fonts, I wanted to show something fun and not for
 # EXISTING FEATURES
 
 ## The Header And Sound Control Bar      
-The logo is wrinting "Kaiten zushi" in Japanese. I looked for some ordinary real flags and banners for Kaitenzushi reataurant, then traced and arraged to use. English logo shows a little bit more groovy also the bottom lines feel speed so I thought this fit well to speed typing game.   
+The logo is writing "Kaiten zushi" in Japanese. I looked for some ordinary real flags and banners for Kaitenzushi restaurant, then traced and arranged to use. The English logo displays a bit more groovy and also the bottom lines convey speed so I thought this fit well to a speed typing game.   
+
 ![Kaitenzushi logo and sound control toggle button](readme/feat-header.png "Kaitenzushi logo and sound control toggle button")     
 
-## The Landing Hero Image    
-Originally this feature was separate 2 before, then I wanted to simplify and less action for the user so I used `setTimeout`
-to automatically show name input modal. This is not the best way as it looks like just loading problem, not clear it's intended to show like this. If I could use some css animation for this transition, it could be more smooth though I think. 
+## Landing and name input modal     
+Originally this feature was separate, then I wanted to simplify and have less action for the user so I used setTimeout to automatically show name input modal. This may not be the best way as it looks like just loading problem, not clear it's intended to show like this. If I could use some css animation for this transition, it could be more smooth though I think.    
 
-![Logo and hero image show up then name input modal slowly show up](readme/feat-footer.png "Logo and hero image show up then name input modal slowly show up")   
+![Landing and name input modal](readme/feat-setting-modal.png "Landing and name input modal")
+  
 
 ## Entering the game setting button
-Originally I planned another course that can learn Japanese greetings and frases though I couldn't figure it out of the choosing functions in Javascript. The mode option is same, I need more time to figure it out so end up only one option both.   
+Originally I planned another course that can learn Japanese greetings and phrases though I couldn't figure it from the selection functions in Javascript. The mode option is the same, I need more time to figure it out so end up only having one game option .   
 
 ![Setting modal - course, sound option, mode then proceed to start game](readme/feat-setting-modal.png "Setting modal - course, sound option, mode then proceed to start game")   
 
 ## The Footer  
-The footer section includes links to the relevant social media sites. The links will open to a new tab to keep this website still. Also the heading text "Japanese word typing game" explains what is this site so shows up all the time in the footer.   
+The footer section includes links to the relevant social media sites. The links will pop open a new tab so that the game window is still open. Also the heading text "Japanese word typing game" explains what this site is so that it shows up all the time in the footer.  
 
 ![The footer](readme/feat-footer.png "The footer")   
 
 
-## Landing and name input modal
-
-| Form input | Criteria |  |
-| -- | -- | -- |
-| -- | Check alphabet only | Pass |
-| -- | empty value  | Void |
-| -- | Numbers and symbols | Void |
-    
-![Landing and name input modal](readme/feat-setting-modal.png "Landing and name input modal")  
-
 ## Game setting modal     
 ![Game setting modal](readme/feat-setting-modal.png "Game setting modal")    
-
+In this area, user can choose the some setting. However I couldn't have enough time so there's only one option for question course and play modes.
 
 ## Game screen 
-![Game screen](readme/feat "Game screen")  
+
+Game screen shows questions pictures, time limit and text overlay when correct typing.
+After some device test, score display under the game took some spaces, that interupted to see the words and pictures in iPhone so change this to toggle on off display using `details` element.  
+![Game screen](readme/feat-game1.png "Game screen")     
+![Game screen](readme/feat-game2.png "Game screen")    
 
 
 # ALGORITHM
 Below numbered lists are my original idea of the game system. Also just underneath the list, [BUG] sentences that describe the main problems with the features.   
  
-I had never created a whole game before, so I was unsure if this was achievable within the given time or not. As a precaution, I set lower accomplish goal to prepare for submitting anytime. After that then I can try extra features that I hope I can implement until submission day. On the other hand, Japanese kana letter matching function was more complicated than I expected so I decided to make it an extra feature.  
+I had never created a whole game before, so I was unsure if this was achievable within the given time or not. As a precaution, I set a lower accomplishment goal to prepare for submitting within a short time frame. After that then I can try extra features that I hope I can implement until submission day. On the other hand, Japanese kana letter matching function was more complicated than I expected so I decided to make it an extra feature. 
  
-**1. Create a new shufﬂed question**    
-[BUG](#bugs) Just random array -> I want shuffle properly ->  
+**1. Create a new shufﬂed question**   
+[BUG](#bugs) BUG Just random array -> I want shuffle properly  
  
 **2. Set & start Global time limit (60s)**  
 [BUG](#bugs)  
@@ -182,20 +177,13 @@ My solution is using an another layer which was applied the style already, push 
 [BUG](#bugs) `innerText` and `value` property.  
 
 
-## If I had enough time...
-* Use local storage
-* Animation - Question’s word image. Move from left to right (in 10 seconds)
-* Award some extra time when repeatedly type correctly (booster)
-
-
-<a id="future-feature"></a>
 
 # FUTURE FEATURES
-
+* Animation - Question’s word image. Move from left to right (in 10 seconds)
+* Award extra time for correct responses.
 * Another course - Not only sushi menu, Japanese greetings or words  
-* The feature - Image picture animation 
 * Japanese kana overlay - Changeellow colour words 
-* The feature - Award some extra time when repeatedly type correctly in 1 second (?)
+* Award extra time for correct responses.
   
 
 ------------------------------------------
@@ -289,7 +277,6 @@ My solution is using an another layer which was applied the style already, push 
 |  | Firefox Dev Tools | All three pages display correctly on screens larger than 1024px | Pass |
 |  |  | All pages display correctly on screens larger than 768px | Pass |
 |  |  | All pages display correctly on screens larger than 320px | Pass |
-|  | Safari v13 | All three pages display correctly on any screens sizes | Fail |
 | iPad 8th gen| Chrome | All pages display correctly on screens logical 810px(1620px) | Pass |
 |  | Safari v14 | All pages display correctly on screens logical 810px(1620px) | Pass |
 | Android Sony Xperia | Chrome | All pages display correctly | Pass |
@@ -333,14 +320,21 @@ My solution is using an another layer which was applied the style already, push 
 # BUGS
 
 ## Unfixed bug
+### An invalid form control with name='' is not focusable  
+My `button` and `input submit` doesn't work form validation when I set the event listener to the element.
+I tried this `setCustomValidity` but not really successed yet.   
+![Bug form validation](readme/bug-form-validation-javascript.png "Bug form validation")   
 
- 
-## An invalid form control with name='' is not focusable
-![Bug form validation](readme/bug-form-validation-javascript.png "Bug form validation")
+After I set the `setCustomValidity` still received this alert.   
+![Bug form validation](readme/bug-invalid-form-control.png "Bug form validation")   
+
+I found this article and change my button element though, unfortunately still I have bug alert.
+![alt text](readme/bug-setcustomvalidity.png)   
 
 
+## Fixed bug
 
-## Create a new shufﬂed question  `shuffledWords()`
+### Create a new shufﬂed question  `shuffledWords()`
 First I found this to shuffle in stackoverflow `const randomElement = array[Math.floor(Math.random() * array.length)];`   
  
 ![Getting a random value from a JavaScript array - Stack Overflow](readme/bug-shuffle-get-random-value.png "Getting a random value from a JavaScript array - Stack Overflow")   
@@ -350,7 +344,7 @@ But that creates a random array literally and what I wanted was to shuffle prope
 Solution : **Fisher Yates Shuffle**   
 ![`const randomElement = array[Math.floor(Math.random() * array.length)`](readme/bug-shuffle-stackoverflow.png "Google Lighthouse audit index.html - stackoverflow") 
  
-## Set & start Global time limit `startGame()`  
+### Set & start Global time limit `startGame()`  
 I implement the reset code that clears out the display texts and the input texts in the start game function. Then, I got an error which  `innerText` property wasn't working well.   
 
 ![`innerText` and `value` property.](readme/bug-innertext-to-value.png "`innerText` and `value` property.")   
@@ -358,13 +352,13 @@ I implement the reset code that clears out the display texts and the input texts
 Solution :   
 The difference between `innerText` and `value` property was that value was used for form elements.
  
-## Display ﬁrst question image & texts   
+### Display ﬁrst question image & texts   
 I was wondering how to hold image’s data in the array, but after this researching, I found that what I needed it was a just text path. It wasn't difficult than I thought. But after implemented it I got link error. Because I was writing in assets’ JavaScript file, even though this code will be executed from index.html    
  
 Solution :  
 Fix the path from index.html  
  
-## Set one word timer (10s) per question -> Move on next word   
+### Set one word timer (10s) per question -> Move on next word   
 My global timer which executes when the page is loaded, is working fine so I tried to use the `setTimeout` method same way. But for one word timer it didn't work well with `clearTimeout` method. This timer need to be cancelled when next question is executed or users have completed the typing successfully. Under below was an article at stackoverflow, I understand the variable should be in global scope but my code didn't use any variable. I looked for MDN or W3chool but still I didn't find out my problem. So I asked to perplexity, it explained me really well what was my problem.   
 ![setting timeout stackoverflow1](readme/bug-setting-timeout.png "`stackoverflow1")   
 ![setting timeout stackoverflow2](readme/bug-setting-timeout2.png "`stackoverflow2")   
@@ -373,7 +367,7 @@ My global timer which executes when the page is loaded, is working fine so I tri
 Use a variable to make sure that the correct `setTimeout` identifier for passing to `clearTimeout` 
  
   
-## Input key matching `handleKeyPress()` 
+### Input key matching `handleKeyPress()` 
 This function finds matched key, then if there's add +1 to the Letter counter, then change the display using css, executes typing sound.    
 My original plan "changing the colour of a letter one by one in the word" seems difficult if the data is already a word.    
 My solution was using the another layer which was applied the style already, push the matched letter in it to look like to change the letter colour one by one.   
@@ -393,9 +387,6 @@ This issue is related to "Input key matching `handleKeyPress()`" too.
 I found the input from the mobile phone, usually auto Capitalise first letter. That interupts to play game. I set `toLowerCase()` in Javascript, but some mobile devises not work (I assume this because not using `target` property). My mentor Alan teach me about this auto capitalise off attribute.   
 ![Auto capitalise off - useful input attributes](readme/bug-autocapitalize-off.png "Auto capitalise off -useful input attributes")   
 
-
-## Unmatched key -> sound < boo > , mistake counter   
-![]
  
 ## Validate the word function `validateInput()` 
 If matched word counter + 1 and start new game. Reset the letter counter to 0   
@@ -416,7 +407,8 @@ Stopped the correct letter counting at `handleKeyPress` one by one. So I tried t
 
 
 ## Display of the global time limits
-
+I had a problem with Global time limit also I wanted to show the time limit on the screen.
+I found the better way than `setTimeout`.
 ![setting timeout 1](readme/bug-stop-setinterval-error1.png "`setting timeout 1")   
 ![setting timeout 2](readme/bug-stop-setinterval.png "`setting timeout 1")
 
@@ -433,7 +425,7 @@ I tried to change `const key = event.key` to `const key = event.target.value` in
 Next I did was the input text event listener, I tried `change` from `keydown` that brings backword; `handleKeyPress()` doesn't work at all. Then tried `input` it seems this is the best way; input value immediately goes to `handleKeyPress()` and change the ovelay text. I found an another problem that is the text user input in the mobile keyboard, user have to erase it by their self. But this is mobile kyboard system and not under the this website control, so leave this issue for a future impruvement. 
 ## How to prevent infinite randome number
 ![How to prevent infinite randome number](readme/credit-get-random-value.png "How to prevent infinite randome number")  
-## 
+## I wanted to write these report below but I did't have time so just reference pictures here.
 ![Getting a random value from a JavaScript array - Stack Overflow](readme/bug-localstorage-typeof-slack.png "Getting a random value from a JavaScript array - Stack Overflow") 
 
 
@@ -568,7 +560,7 @@ Still I can't find out the reason though when I set the event listener to the in
 
   
  
-..................................................... 
+ 
 
 <a id="credits-content"></a>
 
