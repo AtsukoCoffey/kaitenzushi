@@ -225,13 +225,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const entryButton = document.getElementById('entry-submit');
   // 
   entryButton.addEventListener('click', () => {
-    const userName = document.getElementById('input-name');
-    if (userName.validity.valueMissing) {
-      userName.setCustomValidity("Enter your name - Only alphabet please");
+    const userName = document.getElementById('enter-name');
+    const validityState = userName.validity;
+
+    if (validityState.valueMissing) {
+      userName.setCustomValidity("Please input Name");
+    } else {
+      gamePageToggle();
     }
     document.getElementById('user-name').textContent = userName.value;
   });
-  entryButton.addEventListener('click', gamePageToggle);
   const gameStartButton = document.getElementById('game-start');
   gameStartButton.addEventListener('click', gamePageToggle);
 });

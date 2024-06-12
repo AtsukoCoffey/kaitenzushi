@@ -53,11 +53,9 @@
     <!-- Landing div -->
     <div id="landing">
       <form aria-label="Enter name for game option screen" title="Enter name for game option screen">
-        <label for="input-name">Enter Name</label>
-        <input type="text" name="input-name" id="input-name" placeholder="Your name" autocomplete="given-name"
-          pattern="[A-Za-z]{2,}" title="Name - Only alphabet please" required>
-        <button type="button" id="entry-submit">SUBMIT</button>
-        <input type="submit" value="Let's Join!">
+        <label for="enter-name">Enter Name</label>
+        <input type="text" name="enter-name" id="enter-name" placeholder="Your name" title="Name - Only alphabet please" required >
+        <input type="submit" value="SUBMIT" id="entry-submit">
       </form>
     </div>
     <!-- Setting div -->
@@ -89,7 +87,8 @@
             <label for="play-easy">Easy</label>
           </div>
         </div>
-        <button id="game-start">START!</button>
+        <!-- Bug report - An invalid form control with name='' is not focusable : stackoverflow-->
+        <button type="button" id="game-start">START!</button>
       </div>
     </div>
     <!-- New score display div -->
