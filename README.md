@@ -208,6 +208,7 @@ My solution is using an another layer which was applied the style already, push 
 * Award some extra time when repeatedly type correctly (booster)
 
 
+<a id="future-feature"></a>
 
 # FUTURE FEATURES
 
@@ -318,7 +319,7 @@ My solution is using an another layer which was applied the style already, push 
 ## W3 Validator
 
 * Top page - index.html  
-![W3 validator index.html](url "W3 validator index.html")  
+![W3 validator index.html](readme/validate-w3c.webp "W3 validator index.html")  
 
 
 
@@ -334,7 +335,7 @@ My solution is using an another layer which was applied the style already, push 
 <details open>
 <summary>Google Lighthouse audit index.html - Device Desktop >> </summary>  
 
-![Google Lighthouse audit index.html - Device Desktop](url "Google Lighthouse audit index.html - Device Desktop")  
+![Google Lighthouse audit index.html - Device Desktop](readme/validate-lighthouse-pc.png "Google Lighthouse audit index.html - Device Desktop")  
 </details>  
 
 
@@ -376,11 +377,14 @@ Use a variable to make sure that the correct `setTimeout` identifier for passing
  
   
 ## Input key matching `handleKeyPress()` 
-This function finds matched key, then if there's Letter matched counter +1, change the display using css, executes typing sound.    
-[BUG] My oridinal plan "changing the colour of a letter one by one in the word" seems impossible.    
+This function finds matched key, then if there's add +1 to the Letter counter, then change the display using css, executes typing sound.    
+My original plan "changing the colour of a letter one by one in the word" seems difficult if the data is already a word.    
 My solution was using the another layer which was applied the style already, push the matched letter in it to look like to change the letter colour one by one.   
-[BUG] Mobile device doesn't work the matching function, maybe the keyboard system is deffent. Temporary, use keyboard "return" key to lead to validate function for mobile phone.   
-[BUG] Matching function for japanese kana letters were much more complicated than I expected. I tried some if statement though decided to postpone to try later in the future.   
+[BUG](#bug-handleKeyPress) Mobile device doesn't work the matching function, maybe the keyboard system is deffent. Temporary, use keyboard "return" key to lead to validate function for mobile phone.   
+[Future feature](#future-features) Matching function for japanese kana letters were much more complicated than I expected. I tried some if statement though decided to postpone to try later in the future.   
+
+<a link=""></a>
+<a link="bug-handleKeyPress"></a>
 
 ## Detect user entry - Set on focus to input, set window.event to identify the key     
 [BUG]`keypress` nor `input` event listener didn't work for mobile device (I didn't want to use button for visual purpose)  
@@ -396,7 +400,8 @@ I found the input from the mobile phone, usually auto Capitalise first letter. T
 ## Unmatched key -> sound < boo > , mistake counter   
 ![]
  
-## Validate the word function `validateInput()` If matched word counter + 1 and start new game. Reset the letter counter to 0**    
+## Validate the word function `validateInput()` 
+If matched word counter + 1 and start new game. Reset the letter counter to 0   
 [BUG] Because input key matching `hundleKeyPress()` did not function for mobile device, I made this can handle both ways of validations.   
  
 Solution : 
