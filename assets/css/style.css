@@ -170,6 +170,16 @@ nav {
   color: #F2F2F2;
 }
 
+input[type=submit] {
+  background-color: #F2F2F2;
+  color: #0D0D0D;
+}
+
+input[type=submit]:hover {
+  background-color: #f0bc11;
+  color: #0D0D0D;
+}
+
 /*/////////////////////////////////////////////////////////////////// Setting screen styles */
 #setting {
   display: none;
@@ -218,6 +228,10 @@ nav {
   color: #F2F2F2;
 }
 
+#setting button:hover {
+background-color: #594B46;
+}
+
 .course {
   flex: 1 0 110px;
 }
@@ -236,7 +250,7 @@ nav {
 
 #new-score {
   position: absolute;
-  top: 180px;
+  top: 160px;
   margin-left: auto;
   margin-right: auto;
   left: 0;
@@ -266,7 +280,7 @@ nav {
   text-align: center;
   padding-left: 90%;
   font-size: 1.6rem;
-  margin-top: 20px;
+  margin-top: 8px;
 }
 
 /*////////////////////////////////////////////////////////////////////// Game screen styles */

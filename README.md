@@ -249,17 +249,27 @@ My solution is using an another layer which was applied the style already, push 
 
 | Test | Outcome  |
 |--|--|
-|All links on Navigation and title logo lead to their correct pages| Pass |
-|Footer social links all lead to their respective social media sites in new tabs | Pass |
-|User prevented from submitting form without correct elements| Pass |
-|Form Validation presents when incorrect input type is entered | Pass |
-|All the links and the form have mouse hover reactions | Pass |
+| Title logo lead to their correct pages| Pass |
+| Footer social links all lead to their respective social media sites in new tabs | Pass |
+| User prevented from submitting form with empty input value | Pass |
+| All the links and the form have mouse hover reactions | Pass |
+|--|--|
+| Global time limit display | Pass |
+| When type correctly change the text colour | Pass |
+| Changing sound option during game play - works |Pass |
+| Score display can open / close with detail element | Pass |
+| Score - clear words can increase when type correctly | Pass |
+| Score - miss words and type increase when missed the question | Pass |
+| When finish the game automatically move to score modal | Pass |
+| New score data display | Pass |
+| Heigh score data is keeping | Pass |
+| Close button is working | Pass |
 
-| Form input | Criteria | Outcome |
+
+| Landing input | Criteria | Outcome |
 | -- | -- | -- |
-| -- | Check alphabet only | Pass |
 | -- | prevent empty value  | Pass |
-| -- | prevent Numbers and symbols | Pass |
+| -- | Alphabet, number, symbol except empty value are ccepted | Pass |
 
 **Testing for responsiveness and appearance**
 | OS | Browser | Test | Outcome |
@@ -321,6 +331,14 @@ My solution is using an another layer which was applied the style already, push 
 <a id="bugs"></a>
 
 # BUGS
+
+## Unfixed bug
+
+ 
+## An invalid form control with name='' is not focusable
+![Bug form validation](readme/bug-form-validation-javascript.png "Bug form validation")
+
+
 
 ## Create a new shufﬂed question  `shuffledWords()`
 First I found this to shuffle in stackoverflow `const randomElement = array[Math.floor(Math.random() * array.length)];`   
@@ -397,7 +415,7 @@ Stopped the correct letter counting at `handleKeyPress` one by one. So I tried t
 ![TextDisplay.length](readme/bug-getting-number-of-length.png "`TextDisplay.length")
 
 
-## DIsplay of the global time limits
+## Display of the global time limits
 
 ![setting timeout 1](readme/bug-stop-setinterval-error1.png "`setting timeout 1")   
 ![setting timeout 2](readme/bug-stop-setinterval.png "`setting timeout 1")
@@ -441,7 +459,7 @@ Next I did was the input text event listener, I tried `change` from `keydown` th
 ![Getting a random value from a JavaScript array - Stack Overflow](readme/bug-setAttribute-audio.png "Getting a random value from a JavaScript array - Stack Overflow") 
 
 ![Bug form validation](readme/bug-form-validation-javascript.png "Bug form validation") 
- 
+
 
 # DEPLOYMENT
 
