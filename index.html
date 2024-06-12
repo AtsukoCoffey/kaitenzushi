@@ -54,9 +54,10 @@
     <div id="landing">
       <form aria-label="Enter name for game option screen" title="Enter name for game option screen">
         <label for="input-name">Enter Name</label>
-        <input type="text" name="input-name" id="input-name" placeholder="Your name" autocomplete="given-name" pattern="[A-Za-z]{2,}" title="Name - Only alphabet please" required>
+        <input type="text" name="input-name" id="input-name" placeholder="Your name" autocomplete="given-name"
+          pattern="[A-Za-z]{2,}" title="Name - Only alphabet please" required>
         <button type="button" id="entry-submit">SUBMIT</button>
-        <input type="submit" value="Let's Join!"> 
+        <input type="submit" value="Let's Join!">
       </form>
     </div>
     <!-- Setting div -->
@@ -122,14 +123,16 @@
       <audio src="assets/sounds/audio_12948-wafu-eyecatch.mp3" id="ending-sound" class="effect-sounds" muted></audio>
       <!-- Back Ground Music -->
       <audio src="assets/sounds/audio_21169-android-music.mp3" id="bgm" muted></audio>
-      <h3>Score</h3>
-      <div id="score">
-        <p>Clear words : <span id="clear-words"></span></p>
-        <p>Missed words : <span id="miss-words"></span></p>
-        <p>Miss type : <span id="miss-type"></span></p>
-        <p>Success rate : <span id="success-rate"></span></p>
-        <p>Name : <span id="user-name"></span></p>
-      </div>
+      <details>
+        <summary>Score</summary>
+        <div id="score">
+          <p>Clear words : <span id="clear-words"></span></p>
+          <p>Missed words : <span id="miss-words"></span></p>
+          <p>Miss type : <span id="miss-type"></span></p>
+          <p>Success rate : <span id="success-rate"></span></p>
+          <p>Name : <span id="user-name"></span></p>
+        </div>
+      </details>
     </div>
   </main>
   <!-- Footer -->
