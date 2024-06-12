@@ -1,9 +1,9 @@
 # Kaitenzushi - Japanese Typing Game
-Do you like sushi? Are you familiar with Japan? This game is designed not only for practicing speed typing but also for learning the Japanese language and some culture in a fun way.  
+Do you like sushi? Are you familiar with Japan? This game is designed not only for practicing speed typing but also for learning the Japanese language and food culture in a fun way. 
   
-> This game’s idea is coming from well-known speed typing game “Sushida” (寿司打) in Japan. The game situation is setting to get as much as sushi dishes on the conveyer belt in Kaitenzushi restaurant. You have to hurry as if you are slow or indecisive, you’ll miss your favourite dishes. Original game is made for native Japanese who know the words already, those words and pictures are not related and more focus on typing speed.  [CREDITS - Sushida ](#credits-content) 
+> This game’s idea is coming from well-known speed typing game “Sushida” (寿司打) in Japan. The aim of the game is to get as many sushi dishes on the conveyer belt in a Kaitenzushi restaurant. You have to hurry because if you are slow or indecisive, you’ll miss your favourite dishes. The original game is made for native Japanese who know the words already, those words and pictures are not related and more focus on typing speed.   [CREDITS - Sushida ](#credits-content) 
   
-My challenge is to modify this game and to set the target user for non-native Japanese speaker with introducing basic words with aligned pictures, and give them virtual experience of Kaitenzushi restaurant.
+My challenge is to modify this game and to set the target user for non-native Japanese speakers by introducing basic words with associated pictures, and giving them a virtual experience of Kaitenzushi restaurant.
 
 > This website is built for academic purpose only.  
 
@@ -21,19 +21,18 @@ My challenge is to modify this game and to set the target user for non-native Ja
 
 ## 1. Strategy Plane
 ### Target users 
-1.	Intended to target the people who are interested in Japan.
-2.	Also who are learning Japanese and culture.
-3.  Additionally who are not familiar with Japan but simply like to play with speed typing game.
+1.	Intended to target people who are interested in Japan.
+2.	Also those who are learning Japanese and culture.
+3.  Additionally those who are not familiar with Japan but simply like to play speed typing game.
 
 ### User value 
-1.	Users can find Japaese culture, sushi menu and greeting words etc..
-2.	Users can play with speed typing game.
-3.	Users can learn the Japanese charactors and words throughout the playing game.
+1.	Users can find Japanese culture, sushi menu and greeting words etc..
+2.	Users can challenge their typing speed .
+3.	Users can learn the Japanese characters and words by playing the game.
 
 ### Difference from substitutions
-1.  This game is not typical speed typing game, focusing to learn Japanese words and letters.
-2.  Animated images are helping users attractions, to encourage learning.
-
+1.  This game is not a typical speed typing game, it focuses on learning Japanese words and letters.
+2.  Associated images help with visual attraction, and also provide visual learning aid.
 
 ## 2. Scope Plane 
 USER STORIES
@@ -43,23 +42,23 @@ USER STORIES
 *	As a user, I want the website to work on different devices and formats that I use.
 *	As a user, I want a simple sign-up process.
 * As a user, I want to know what the pictures and Japanese mean in English.
-*	As a user, I want to see my time limit for game clearly.
-*	As a user, I want to change sounds ON/OFF setting anytime even game started too.
+*	As a user, I want to clearly see the game time limit.
+*	As a user, I want to change sounds ON/OFF setting anytime even during gameplay.
 *	As a user, I want to know whether my typing is correct or not.
-*	As a user, I want to know if the word I could type completed or not.
+*	As a user, I want to know if the word I could type has been completed or not.
 *	As a user, I want to see my results clearly.
 
 ### Frequent visitor
-*	As a user, I want to access the game screen without visiting through few pages.
+*	As a user, I want to access the game screen without visiting through too many pages.
 * As a user, I want to adjust the sound and game modes for any situations.
-* As a user, I want to see my best score that played last time or before.
+* As a user, I want to see my best score from previous efforts.
 
 ### The website owner stories
 *	As a site owner, I want to introduce some Japanese culture.
-*	As a site owner, I want to interact users to play games.
+*	As a site owner, I want to  encourage users to play games.
 
 ## 3. Structure Plane
-* The website should have a clear logo or header .
+* The website should have a clear logo or header.
 * The website should have a fixed footer to access anytime to see this site's SNS.  
 *	The website should have hover interaction for links, and tooltips with additional information to enhance user experience.
 * The landing page should show what this site is offering intuitively.
@@ -88,7 +87,7 @@ I chose this colour scheme, it has a fun and pop image. [CREDITS Content Referen
 
 ### Typography
 
-I pick up some fonts at Google Fonts, I wanted to show something fun and not formal atmonphere.  
+I pick up some fonts at Google Fonts, I wanted to show something fun and not formal atmosphere.  
  [TECHNOLOGY USED - Google Fonts](#tech)  
 
 * "Patrick Hand"  Typing display English font.   
@@ -100,7 +99,7 @@ I pick up some fonts at Google Fonts, I wanted to show something fun and not for
 * "Caveat"  Using for headings.   
 ![Typography Caveat](readme/font-caveat.png "Typography Caveat")   
    
-* "Delius"  Using for site logo.     
+* "Warnes"  Using for site logo.     
 ![Typography Delius](readme/font-warnes.png "Typography Delius")    
    
 <a id="features"></a>
@@ -128,41 +127,22 @@ The footer section includes links to the relevant social media sites. The links 
 ![The footer](readme/feat-footer.png "The footer")   
 
 
-## Entry and setting modal
-........................................  
+## Landing and name input modal
 
-| Form input | Criteria |
-| -- | -- |
-| First name| Texts only |
-| Last name | Texts only |
-| Phone number | Numbers only |
-| Email address | "@" mark necessary |    
+| Form input | Criteria |  |
+| -- | -- | -- |
+| -- | Check alphabet only | Pass |
+| -- | empty value  | Void |
+| -- | Numbers and symbols | Void |
+    
+![Landing and name input modal](readme/feat-setting-modal.png "Landing and name input modal")  
 
-[CREDITS - Code Institute learning material](#credits-content) 
-
-
-## Game course and score modal
-........................................
-[CREDITS - Code Institute learning material](#credits-content)   
+## Game setting modal     
+![Game setting modal](readme/feat-setting-modal.png "Game setting modal")    
 
 
-## Game screen
-
-* Word's image animation area  
-........................................
-[CREDITS - Code Institute learning material](#credits-content)  
-
-* Left over time and score 
-........................................
-[CREDITS - Code Institute learning material](#credits-content)  
-
-* Question word display  
-........................................
-[CREDITS - Code Institute learning material](#credits-content)  
-
-* Typing area  
-........................................
-[CREDITS - Code Institute learning material](#credits-content)  
+## Game screen 
+![Game screen](readme/feat "Game screen")  
 
 
 # ALGORITHM
@@ -266,17 +246,20 @@ My solution is using an another layer which was applied the style already, push 
 > I performed most of the testing myself and had some support from family members with different mobile devices.
 
 **Testing for links, Form and mouse hover reactions**
-| Test |Outcome  |
+
+| Test | Outcome  |
 |--|--|
 |All links on Navigation and title logo lead to their correct pages| Pass |
-|More information >> leads to the each correct page| Pass |
 |Footer social links all lead to their respective social media sites in new tabs | Pass |
-|Information and sign-up page's breadcrumb leads to the top page | Pass |
-|Under the Where to find us section, Sign up form >> leads to Form area | Pass |
-|Contact form can be submited when all criteria is filled correctly| Pass |
 |User prevented from submitting form without correct elements| Pass |
 |Form Validation presents when incorrect input type is entered | Pass |
 |All the links and the form have mouse hover reactions | Pass |
+
+| Form input | Criteria | Outcome |
+| -- | -- | -- |
+| -- | Check alphabet only | Pass |
+| -- | prevent empty value  | Pass |
+| -- | prevent Numbers and symbols | Pass |
 
 **Testing for responsiveness and appearance**
 | OS | Browser | Test | Outcome |
@@ -284,23 +267,18 @@ My solution is using an another layer which was applied the style already, push 
 | Windows | Chrome Dev Tools | All pages display correctly on screens larger than 1024px | Pass |
 |  |  | All pages display correctly on screens larger than 768px | Pass |
 |  |  | All pages display correctly on screens larger than 320px | Pass |
-|  |  | All pages display correctly on screens smaller than 320px | Pass |
 |  | Edge Dev Tools | All pages display correctly on screens larger than 1024px | Pass |
 |  |  | All pages display correctly on screens larger than 768px | Pass |
 |  |  | All pages display correctly on screens larger than 320px | Pass |
-|  |  | All pages display correctly on screens smaller than 320px | Pass |
 |  | Firefox Dev Tools| All pages display correctly on screens larger than 1024px | Pass |
 |  |  | All pages display correctly on screens larger than 768px | Pass |
 |  |  | All pages display correctly on screens larger than 320px | Pass |
-|  |  | All pages display correctly on screens smaller than 320px | Pass |
 | Mac | Chrome Dev Tools | All pages display correctly on screens larger than 1024px | Pass |
 |  |  | All pages display correctly on screens larger than 768px | Pass |
 |  |  | All pages display correctly on screens larger than 320px | Pass |
-|  |  | All pages display correctly on screens smaller than 320px | Pass |
 |  | Firefox Dev Tools | All three pages display correctly on screens larger than 1024px | Pass |
 |  |  | All pages display correctly on screens larger than 768px | Pass |
 |  |  | All pages display correctly on screens larger than 320px | Pass |
-|  |  | All pages display correctly on screens smaller than 320px | Pass |
 |  | Safari v13 | All three pages display correctly on any screens sizes | Fail |
 | iPad 8th gen| Chrome | All pages display correctly on screens logical 810px(1620px) | Pass |
 |  | Safari v14 | All pages display correctly on screens logical 810px(1620px) | Pass |
@@ -314,19 +292,15 @@ My solution is using an another layer which was applied the style already, push 
 | iPhone Xr | Chrome | All pages display correctly | Pass |
 |  | Safari | All pages display correctly | Pass |
 
-
-
 ## W3 Validator
 
 * Top page - index.html  
 ![W3 validator index.html](readme/validate-w3c.webp "W3 validator index.html")  
 
-
-
 ## W3 CSS Validator
 
 * Style sheet - style.css
-![W3 validator css](url "W3 validator css")   
+![W3 validator css](readme/validate-w3c-css.png "W3 validator css")   
 
 ## Google Lighthouse Audit
 
@@ -338,6 +312,11 @@ My solution is using an another layer which was applied the style already, push 
 ![Google Lighthouse audit index.html - Device Desktop](readme/validate-lighthouse-pc.png "Google Lighthouse audit index.html - Device Desktop")  
 </details>  
 
+<details>
+<summary>Google Lighthouse audit index.html - Device Desktop >> </summary>  
+
+![Google Lighthouse audit index.html - Device Mobile](readme/validate-lighthouse-mobile.png "Google Lighthouse audit index.html - Device Mobile")  
+</details>
 
 <a id="bugs"></a>
 
